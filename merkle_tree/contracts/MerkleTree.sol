@@ -77,7 +77,7 @@ contract MerkleTree
         // if the length is one then it should stop
         if(len_last_merkle_list == 1)
         {
-            return;
+            // do nothing
         }
         else
         {
@@ -111,7 +111,6 @@ contract MerkleTree
                 }
 
                 merkle.push(append);
-                Compute_Merkle();
             }
             else
             {
@@ -130,9 +129,15 @@ contract MerkleTree
                     append[x] = keccak256(abi.encodePacked(this_merkle[x], this_merkle[x+1]));
                 }
                 merkle.push(append);
-                Compute_Merkle();
             }
+
+            Compute_Merkle();
         }
+    }
+
+    function See_Merkle_Root_Hash() public view returns(bytes32)
+    {
+        return merkle[merkle.length - 1][0];
     }
 
     function Start_Merkle() public
@@ -147,6 +152,7 @@ contract MerkleTree
         uint tx_length = all_transactions.length;
         
         require(tx_length > 1, "Cannot compute merkle length for this transaction records.");
+        require(tx_length < 3, "Transaction record too long for a merkle computation.");
         
         // first we loop through the all_transactions array to add them to the merkle as the base ot leafs.
         // this will generate the first array in out merkle array.
