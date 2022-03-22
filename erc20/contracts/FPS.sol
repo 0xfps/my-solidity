@@ -26,12 +26,12 @@ contract FPS is IERC20
 {
     /*
     * @dev: Sets and allocates some tokens as `balances` to `addresses`.
-    * Also creates an allowance between the 'address' {`owner`} and 'address' {`spender`} to a particular 'uint' `allowance`
+    * Also creates an allowance between the 'address' {`_owner`} and 'address' {`spender`} to a particular 'uint' `allowance`
     */
 
     mapping (address => uint) private balances;
     
-    mapping (address => mapping (address => uint)) private allowance;
+    mapping (address => mapping (address => uint)) private _allowance;
 
     /*
     * @dev: Setting a 1 million total supply of the fps token and the decimal.
@@ -44,7 +44,7 @@ contract FPS is IERC20
     */
     string private _name;
     string private _symbol;
-    address constant owner = 0x5e078E6b545cF88aBD5BB58d27488eF8BE0D2593;
+    address constant _owner = 0x5e078E6b545cF88aBD5BB58d27488eF8BE0D2593;
     
     /*
     * @dev: Constructor
@@ -58,13 +58,13 @@ contract FPS is IERC20
         _totalSupply = 1000000000;
         _decimal = 3;
 
-        // address owner = msg.sender;
+        // address _owner = msg.sender;
 
-        // get the owner of the contract and assign to him all the funds
+        // get the _owner of the contract and assign to him all the funds
         // balances[msg.sender] = _totalSupply;
 
         // allocate all to me
-        balances[owner] = _totalSupply;
+        balances[_owner] = _totalSupply;
     }
 
     /*
@@ -88,7 +88,7 @@ contract FPS is IERC20
     /*
     * @dev: `decimals()` function returns the token decimals
     */
-    function decimals() public view returns(uint8)
+    function decimals() public pure returns(uint8)
     {
         return 10;
     }
@@ -141,7 +141,7 @@ contract FPS is IERC20
         _;
     }
 
-    function transfer(address to, uint amount) public view virtual override canSend(msg.sender, to, amount) returns(bool)
+    function transfer(address to, uint amount) public virtual override canSend(msg.sender, to, amount) returns(bool)
     {
         balances[to] += amount;
         balances[msg.sender] -= amount;
@@ -161,19 +161,85 @@ contract FPS is IERC20
     {
         require(spender != address(0), "You cannot request from an invalid address.");
         require(amount > 0, "You can't request for empty allowance.");
-        require(balances[owner] > amount, "Cannot approve alowance.");
-        require(allowance[owner][spender] + amount < 100, "Allowance limit reached");
+        require(balances[_owner] > amount, "Cannot approve alowance.");
+        require(_allowance[_owner][spender] + amount < 100, "Allowance limit reached");
         require(amount <= 100, "Allowance limit is 100.");
         _;
     }
 
-    function approve(address spender, uint amount) public view virtual override returns(bool)
+    function approve(address spender, uint amount) public virtual canApprove(spender, amount) override returns(bool)
     {
-        allowance[owner][spender] += amount;
-        emit Approval(owner, spender, amount);
+        _allowance[_owner][spender] += amount;
+        emit Approval(_owner, spender, amount);
+        return true;
     }
 
     /*
-    * Function 5:
+    * @notice: Function 5:
+    * @dev: `transferFrom()` Moves `amount` tokens from `from` to `to` using the
+    * allowance mechanism. `amount` is then deducted from the caller's
+    * allowance.
+    *
+    * Returns a boolean value indicating whether the operation succeeded.
+    *
+    * Emits a {Transfer} event.
+    *
+    * This is controlled by a modifier.
     */
+    modifier canTransfer(address from, address to, uint amount)
+    {
+        require(_allowance[_owner][from] > amount, "You do not have enough allowance");
+        require(to != address(0), "You cannot transfer to an invalid address.");
+        require(amount != 0, "You cannot send 0 FPS.");
+        _;
+    }
+
+    function transferFrom(address from, address to, uint256 amount) public virtual override canTransfer(msg.sender, to, amount) returns(bool)
+    {
+        from = msg.sender;
+        balances[to] += amount;
+        _allowance[_owner][from] -= amount;
+        emit Transfer(from, to, amount);
+        return true;
+    }
+
+
+    /*
+    * @notice: Function 6:
+    * @dev: `allowance()` Returns the remaining number of tokens that `spender` will be
+    * allowed to spend on behalf of `_owner` through {transferFrom}. This is
+    * zero by default.
+    *
+    * This value changes when {approve} or {transferFrom} are called.
+    */
+    
+    function allowance(address owner, address spender) public view virtual override returns (uint256)
+    {
+        owner = _owner;
+        return (_allowance[owner][spender]);
+    }
+    
+    /*
+    * @notice: MINT
+    * this function mints more tokens
+    */
+    modifier onlyOwner()
+    {
+        require(msg.sender == _owner, "You cannot mint more of this token.");
+        _;
+    }
+
+    function mint(uint amount) public onlyOwner returns(bool)
+    {
+        _totalSupply += amount;
+        balances[_owner] += amount;
+        return true;
+    }
+
+    function burn(uint amount) public onlyOwner returns(bool)
+    {
+        _totalSupply -= amount;
+        balances[_owner] -= amount;
+        return true;
+    }
 }
