@@ -5,11 +5,11 @@ import "./IERC20.sol";
 
 /*
 * @title: 
-*        FPS, an ERC-20 standard token.
-* @author: Anthony (fps).
+*        $AGU, an ERC-20 standard token.
+* @author: Anthony ($AGU).
 * @date: 21/03/2022.
 *
-* @notice: This token, FPS, obeys the standard of the ERC-20, created as my debut token.
+* @notice: This token, $AGU, obeys the standard of the ERC-20, created as my debut token.
 * Also, currently, I do not seem to understand the concept of the allowance, approve and transferFrom functions but 
 * I hope Reddit comes to my aid.
 *
@@ -22,7 +22,7 @@ import "./IERC20.sol";
 * `variable_name`
 */
 
-contract FPS is IERC20
+contract AGU is IERC20
 {
     /*
     * @dev: Sets and allocates some tokens as `balances` to `addresses`.
@@ -34,7 +34,7 @@ contract FPS is IERC20
     mapping (address => mapping (address => uint)) private _allowance;
 
     /*
-    * @dev: Setting a 1 million total supply of the fps token and the decimal.
+    * @dev: Setting a 1 million total supply of the $AGU token and the decimal.
     */
     uint256 private _totalSupply;
     uint8 private _decimal;
@@ -51,8 +51,8 @@ contract FPS is IERC20
     */
     constructor()
     {
-        _name = "FPS Coin";
-        _symbol = "FPS";
+        _name = "Aguia";
+        _symbol = "$AGU";
 
         // total supply is 1 million plus the 3 decimal zeros
         _totalSupply = 1000000000;
@@ -88,9 +88,9 @@ contract FPS is IERC20
     /*
     * @dev: `decimals()` function returns the token decimals
     */
-    function decimals() public pure returns(uint8)
+    function decimals() public view returns(uint8)
     {
-        return 10;
+        return _decimal;
     }
 
     /*
@@ -135,9 +135,9 @@ contract FPS is IERC20
 
         require(to != address(0), "You cannot transfer to an invalid address.");
 
-        require(amount != 0, "You cannot send 0 FPS.");
+        require(amount != 0, "You cannot send 0 $AGU.");
 
-        require(balances[from] >= amount, "You do not have enough FPS Coins to make this transaction.");
+        require(balances[from] >= amount, "You do not have enough $AGU Coins to make this transaction.");
         _;
     }
 
@@ -190,7 +190,7 @@ contract FPS is IERC20
     {
         require(_allowance[_owner][from] > amount, "You do not have enough allowance");
         require(to != address(0), "You cannot transfer to an invalid address.");
-        require(amount != 0, "You cannot send 0 FPS.");
+        require(amount != 0, "You cannot send 0 $AGU.");
         _;
     }
 
