@@ -11,7 +11,7 @@ I this repository, I have compiled them all, each one has its own branch and aft
 They are:
 
 
-1. Ether Wallet:
+> - 1. Ether Wallet:
 
 https://github.com/fps8k/my-solidity/tree/main/ether_wallet
 
@@ -20,7 +20,8 @@ This is a simple Solidity program that allows anyone to send ether to a wallet t
 Deployment address: https://rinkeby.etherscan.com/addresses/0x63D20e6810927977aE7c16DD8f3b5F7f319EDF7C
 
 
-2. Multi - Sig - Wallet
+
+> - 2. Multi - Sig - Wallet
 
 https://github.com/fps8k/my-solidity/tree/main/multi_sig_wallet
 
@@ -29,7 +30,8 @@ This is also the second simple Solidity program that allows the transfer of valu
 Deployment address: https://rinkeby.etherscan.com/addresses/0x126065c1DF6bb579E7D9590bf07C28D1db519286
 
 
-3. Merkle Tree
+
+> - 3. Merkle Tree
 
 https://github.com/fps8k/my-solidity/tree/main/merkle_tree
 
@@ -39,7 +41,8 @@ The Description.md file in the repository (https://github.com/fps8k/my-solidity/
 Deployment address: https://rinkeby.etherscan.com/addresses/0x7fF08E0dd90bBf3B22008fB1b28Bb4B037a8B79D
 
 
-4. Iterable Mapping
+
+> - 4. Iterable Mapping
 
 https://github.com/fps8k/my-solidity/tree/main/iterable_mapping
 
@@ -48,7 +51,8 @@ A project that simply takes the hashes of any complete transaction and adds it t
 Deployment address: https://rinkeby.etherscan.com/addresses/0x1A09e937AB84b5434a70aDaBC69b9884B85ED123d0d0EC2
 
 
-5. ERC-20 Token (Aguia -> $AGU)
+
+> - 5. ERC-20 Token (Aguia -> $AGU)
 
 https://github.com/fps8k/my-solidity/tree/main/erc20%20-%20%24AGU
 
