@@ -9,6 +9,15 @@ pragma solidity >0.6.0;
 
 library operations
 {
+    // Decimal setting
+    uint8 internal constant DECIMAL = 4;
+
+    modifier divisor_control(uint a, uint b)
+    {
+        uint control = a * (10 ** DECIMAL);
+        require(b <= control, "Syntax Error: This is out of place.");
+        _;
+    }
 
     /*
         @dev: {try_add()} function.
@@ -111,10 +120,11 @@ library operations
         Also doing `1 / 2` will return `500 000 000 000 000 000` which will be read as `0.500 000 000 000 000 000`...
 
     */
-    function div(uint a, uint b) internal pure returns(uint)
+    function div(uint a, uint b) internal pure divisor_control(a, b) returns(uint)
     {
         require(b > 0, "Library Error, Zero division error.");
-        uint rem = (a * (10 ** 18)) / b;
+
+        uint rem = (a * (10 ** DECIMAL)) / b;
         return rem;
     }
 
