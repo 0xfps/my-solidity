@@ -1,0 +1,53 @@
+{
+	"compiler": {
+		"version": "0.8.13+commit.abaa5c0e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"operation.sol": "math"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"libraries/operators.sol": {
+			"keccak256": "0x3d29ea206bef32329089cb32a9e7988be3ebd36de4766a22469ccbe36e34a6a3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://46f3507e68808f5e8a711e553d30ed1cfc014bac8a6ae2da12b4e1efd8c8d57b",
+				"dweb:/ipfs/QmXGGRHjU8ah1j7Fj211tFNG6qYLa8p6bVAAbAuVnruoqW"
+			]
+		},
+		"operation.sol": {
+			"keccak256": "0x55dc9c618ebd2eae1b07eef35ea194cb42aa9971e2bf218a7a9b3d1828fe6e1d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://38eb3f05b58cf719774a65b1b2e919727ebc49893fba9d482ab24627d43b1311",
+				"dweb:/ipfs/QmaoSPvW4hFoYcWyJk8EMYNHbweXk88aaAUNG76EboBAfe"
+			]
+		}
+	},
+	"version": 1
+}

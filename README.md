@@ -1,14 +1,37 @@
-# my-solidity
+# **my-solidity**
 
-Over my course of learning Solidity, I have embarked on some projects which help me understand and implement the concepts of the Solidity programming language.
+Over my course of learning Solidity, I have embarked on some projects which help me understand and implement the concepts of the Solidity programming language ❤.
 I this repository, I have compiled them all, each one has its own branch and after the commits, it is merged with the main.
 
-@notice:
-  Each one of these projects are hosted on the Rinkeby Etherscan network, and I shall do well to link them properly.
+**@notice:**
+  These projects are divided into 2 parts, the `major` and the `minor` projects.
+
+  M A J O R   P R O J E C T S :
+    These ones are the ones that will be deployed on the Rinkeby Etherscan network, and they will have their addresses attached to them.
+
+  M I N O R   P R O J E C T S :
+    These will not be deployed on the Rinkeby Etherscan but are contracts that I will write everyday to keep my glued and make the smart contract syntax a part of me 😌...
+    While I study about and write the major projects. These commits are everyday...
+    Where as major commits will span for some days, giving me time to learn, understand, write, test and deploy the major ones 🤗.
+
+  Each one of these projects are hosted on the Rinkeby Etherscan network 🚀, and I shall do well to link them properly.
   Each one of these uses the low-level call method for ease of tests. (They are not and should not be used for live implementations).
+  .transfer() might be added 😉.
 
 
-They are:
+
+#**M I N O R   C O N T R A C T S :**
+
+
+> - 1: **Operations:**
+
+https://github.com/fps8k/my-solidity/tree/main/operators.sol
+
+A library I am always improving to help with some basic math for now for my future projects when I get a job 😉.
+
+
+
+#**M A J O R   C O N T R A C T S :**
 
 
 > - 1. Ether Wallet:
