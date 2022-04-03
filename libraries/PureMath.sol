@@ -2,12 +2,12 @@
 pragma solidity >0.6.0;
 
 /*
-    @title: Math Operations.
+    @title: PureMath.
     @author: Anthony (fps).
     @dev: A library for basic math works. This will constantly be updated.
 */
 
-library operations
+library PureMath
 {
     // Decimal setting
     uint8 internal constant DECIMAL = 4;

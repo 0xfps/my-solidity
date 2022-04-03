@@ -23,12 +23,11 @@ I this repository, I have compiled them all, each one has its own branch and aft
 #**M I N O R   C O N T R A C T S :**
 
 
-> - 1: **Operations:**
+> - 1: **PureMath:**
 
-https://github.com/fps8k/my-solidity/tree/main/operators.sol
+https://github.com/fps8k/my-solidity/tree/main/libraries/PureMath.sol
 
-A library I am always improving to help with some basic math for now for my future projects when I get a job 😉.
-
+A math library.
 
 
 #**M A J O R   C O N T R A C T S :**
