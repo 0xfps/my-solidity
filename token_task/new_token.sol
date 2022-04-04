@@ -220,7 +220,7 @@ contract MAD
          *
          * 1.5% = 15 / 1000;
          *
-         * M
+         * PureMath finds the `a%` percentage of `b`.
         */
 
         uint tax = PureMath.set_perc(15, amount, _decimals - 1);
