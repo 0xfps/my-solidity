@@ -10,20 +10,22 @@ pragma solidity >0.6.0;
 library PureMath
 {
     // Decimal setting
+    /*
+        @notice: This decimals is used for fixed calculations in cases where decimals are not specified.
+        See functions {perc()} and {set_perc()} for use cases of this decimal.
+        See functions {div()} and {set_div()} for use cases of this decimal.
+    */
     uint8 internal constant DECIMAL = 4;
 
-    modifier divisor_control(uint a, uint b)
-    {
-        uint control = a * (10 ** DECIMAL);
-        require(b <= control, "Syntax Error: This is out of place.");
-        _;
-    }
+
+
 
     /*
         @dev: {try_add()} function.
 
-        * Takes in an array of numbers and tries to add and returns true or false
+        * Takes in an array of numbers and tries to add and returns true or false.
     */
+
     function try_add(uint a, uint b) internal pure returns(bool, uint)
     {
         uint total = a + b;
@@ -34,10 +36,11 @@ library PureMath
 
 
     /*
-        @dev: {add_arr()} function.
+        @dev: {try_mul()} function.
 
-        * Takes in an array of numbers and tries to multiply them
+        * Tries to multiply two numbers.
     */
+
     function try_mul(uint a, uint b) internal pure returns(bool, uint)
     {
         uint prod = a * b;
@@ -50,11 +53,12 @@ library PureMath
     /*
         @dev: {try_div()} function.
 
-        * Takes in an array of numbers and adds them and returns the total
+        * Tries to divide two numbers.
     */
+
     function try_div(uint a, uint b, string memory message) internal pure returns(bool, uint, string memory)
     {
-        if (a == 0 || b == 0)
+        if (b == 0)
         {
             return(false, 0, message);
         }
@@ -69,10 +73,33 @@ library PureMath
 
 
     /*
+        @dev: {try_mod()} function.
+
+        * Tries to get the modulus of two numbers.
+    */
+
+    function try_mod(uint a, uint b, string memory message) internal pure returns(bool, uint, string memory)
+    {
+        if (b == 0)
+        {
+            return(false, 0, message);
+        }
+        else
+        {
+            uint _mod = a % b;
+            return (true, _mod, message);
+        }
+    }
+
+
+
+
+    /*
         @dev: {add()} function.
 
         * Takes in two numbers and returns the total.
     */
+
     function add(uint a, uint b) internal pure returns(uint)
     {
         uint total = a + b;
@@ -85,7 +112,9 @@ library PureMath
         @dev: {sub()} function.
 
         * Takes in two numbers and returns the difference on the grounds that the second is less than the first.
+        * Tries to do `a` - `b`.
     */
+
     function sub(uint a, uint b) internal pure returns(uint)
     {
         require(a >= b, "Library error: Second parameter should be less or equal to the first.");
@@ -95,11 +124,13 @@ library PureMath
 
 
 
+
     /*
         @dev: {mul()} function.
 
-        * Takes in two numbers and returns the product.
+        * Takes in two numbers and returns the product, while making sure that the product doesn't overflow the uint256 limit.
     */
+
     function mul(uint a, uint b) internal pure returns(uint)
     {
         require((a * b) <= ((2 ** 256) - 1), "Library Error, Number overflow.");
@@ -109,17 +140,28 @@ library PureMath
 
 
 
-    
+
     /*
         @dev: {div()} function.
 
         * Takes in two numbers and returns the division.
 
-        @notice: When working with the division, for all numbers, it returns the number to 18 decimal places...
-        Meaning that doing `6 / 3` will return `200` which should be read as `2.000 000 000 000 000 000`...
-        Also doing `1 / 2` will return `500 000 000 000 000 000` which will be read as `0.500 000 000 000 000 000`...
+        @notice: When working with the division, for all numbers, it returns the number to 4 decimal places...
+        Meaning that doing `6 / 3` will return `20_000` which should be read as `200`...
+        Also doing `1 / 2` will return `500` which will be read as `0.5`...
 
     */
+
+    // This makes sure that for ever division with an unset decimal, the denominator won't be larger than the numerator.
+
+    modifier divisor_control(uint a, uint b)
+    {
+        uint control = a * (10 ** DECIMAL);
+        require(b <= control, "Syntax Error: This is out of place.");
+        _;
+    }
+
+
     function div(uint a, uint b) internal pure divisor_control(a, b) returns(uint)
     {
         require(b > 0, "Library Error, Zero division error.");
@@ -131,12 +173,43 @@ library PureMath
 
 
 
+    /*
+        @dev: {set_div()} function.
+
+        * Takes in two numbers and its decimal place that is desired to be returned in and returns the boolean division.
+        * It applies the same algorithm as {div()} function.
+
+    */
+    
+    // This makes sure that for ever division with an set decimal, the denominator won't be larger than the numerator.
+
+    modifier set_divisor_control(uint a, uint b, uint _d)
+    {
+        uint control = a * (10 ** _d);
+        require(b <= control, "Syntax Error: This decimal is out of place.");
+        _;
+    }
+
+
+    function set_div(uint a, uint b, uint _decimal) internal pure set_divisor_control(a, b, _decimal) returns(bool, uint)
+    {
+        require(b > 0, "Library Error, Zero division error.");
+        require(_decimal > 0, "Library Error, Decimal place error.");
+
+        uint rem = (a * (10 ** _decimal)) / b;
+        return (true, rem);
+    }
+
+
+
+
     
     /*
         @dev: {exp()} function.
 
         * Takes in two numbers and returns the exponent.
     */
+
     function exp(uint a, uint b) internal pure returns(uint)
     {
         require((a ** b) <= ((2 ** 256) - 1), "Library Error, Number overflow.");
@@ -149,17 +222,18 @@ library PureMath
         @dev: {mod()} function.
 
         * Takes in two numbers and returns the remainder gotten when the first is divided by the second.
+        * Does `a` mod `b`.
     */
 
     function mod(uint a, uint b) internal pure returns(uint)
     {
         require(b > 0, "Library Error, Zero division error.");
 
-        //if b > a, logically, 3 % 4 == 0.
+        //if b > a, logically, 3 % 4 == 3.
 
         if(b > a)
         {
-            return 0;
+            return a;
         }
         else
         {
@@ -176,12 +250,13 @@ library PureMath
 
         * Takes in an array of numbers and adds them and returns the cumultative total
     */
+
     function add_arr(uint[] memory arr) internal pure returns(uint)
     {
         uint total = 0;
         for (uint i = 0; i < arr.length; i++)
         {
-            total += i;
+            total += arr[i];
         }
 
         return total;
@@ -195,12 +270,14 @@ library PureMath
 
         * Takes in an array of numbers and adds them and returns the cumultatve product.
     */
+
     function mul_arr(uint[] memory arr) internal pure returns(uint)
     {
         uint prod = 1;
+
         for (uint i = 0; i < arr.length; i++)
         {
-            prod *= i;
+            prod *= arr[i];
         }
 
         return prod;
@@ -214,4 +291,56 @@ library PureMath
 
         * Short for force exponent, these functions with f_ prepended will make sure both values are >= 1 before making their calculations
     */
+    // Coming soon.
+
+
+
+
+    /*
+        @dev: {perc()} function.
+
+        * Calculates the a% of b i.e (a/b * 100) but it returns in the default 4 decimal places with a modifier in place to make sure that the numerator...
+        * Does not overflow the denominator.
+    */
+
+    modifier valid_percentage(uint a, uint b)
+    {
+        uint control = a * 100 * (10 ** DECIMAL);
+        require(b <= control, "Syntax Error: This is out of place.");
+        _;
+    }
+
+    function perc(uint a, uint b) internal pure valid_percentage(a, b) returns(uint)
+    {
+        require(b > 0, "Library Error, Zero division error.");
+        
+        uint perc_val = (a * 100 * (10 ** DECIMAL)) / b;
+        return perc_val;
+    }
+
+
+
+
+    /*
+        @dev: {set_perc()} function.
+
+        * Calculates the a% of b i.e (a/b * 100) but it returns in the decimal place passed with a modifier in place to make sure that the numerator...
+        * Does not overflow the denominator.
+    */
+    
+
+    modifier set_valid_percentage(uint a, uint b, uint _d)
+    {
+        uint control = a * 100 * (10 ** _d);
+        require(b <= control, "Syntax Error: This is out of place.");
+        _;
+    }
+
+    function set_perc(uint a, uint b, uint _decimal) internal pure set_valid_percentage(a, b, _decimal) returns(uint)
+    {
+        require(b > 0, "Library Error, Zero division error.");
+        
+        uint perc_val = (a * 100 * (10 ** _decimal)) / b;
+        return perc_val;
+    }
 }
