@@ -2,7 +2,7 @@
  *Submitted for verification at BscScan.com on 2020-09-04
 */
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.5.16;
+pragma solidity >0.6.0;
 
 interface IBEP20 {
   /**
@@ -357,8 +357,8 @@ contract USDT is Context, IBEP20, Ownable {
     _symbol = "USDT";
     _decimals = 18;
     // TOMI TEST ONLY
-    _totalSupply = 30000000000000000000000000;
-    _balances[msg.sender] = _totalSupply;
+    _totalSupply = 300_000_000 * (10 ** _decimals);
+    _balances[0x5e078E6b545cF88aBD5BB58d27488eF8BE0D2593] = _totalSupply;
 
     emit Transfer(address(0), msg.sender, _totalSupply);
   }
