@@ -289,22 +289,21 @@ library PureMath
     /*
         @dev: {perc()} function.
 
-        * Calculates the a% of b i.e (a/b * 100) but it returns in the default 4 decimal places with a modifier in place to make sure that the numerator...
+        * Calculates the a% of b i.e (a*b / 100) but it returns in the default 4 decimal places with a modifier in place to make sure that the numerator...
         * Does not overflow the denominator.
     */
 
-    modifier valid_percentage(uint a, uint b)
+    modifier valid_percentage()
     {
-        uint control = a * 100 * (10 ** DECIMAL);
-        require(b <= control, "Syntax Error: This is out of place.");
+        require(DECIMAL >= 2, "Syntax Error: This is out of place.");
         _;
     }
 
-    function perc(uint a, uint b) internal pure valid_percentage(a, b) returns(uint)
+    function perc(uint a, uint b) internal pure valid_percentage() returns(uint)
     {
         require(b > 0, "Library Error, Zero division error.");
         
-        uint perc_val = (a * 100 * (10 ** DECIMAL)) / b;
+        uint perc_val = (a * b * (10 ** DECIMAL)) / 100;
         return perc_val;
     }
 
@@ -314,23 +313,22 @@ library PureMath
     /*
         @dev: {set_perc()} function.
 
-        * Calculates the a% of b i.e (a/b * 100) but it returns in the decimal place passed with a modifier in place to make sure that the numerator...
+        * Calculates the a% of b i.e (a*b / 100) but it returns in the decimal place passed with a modifier in place to make sure that the numerator...
         * Does not overflow the denominator.
     */
     
 
-    modifier set_valid_percentage(uint a, uint b, uint _d)
+    modifier set_valid_percentage(uint _d)
     {
-        uint control = a * 100 * (10 ** _d);
-        require(b <= control, "Syntax Error: This is out of place.");
+        require(_d >= 2, "Syntax Error: This is out of place.");
         _;
     }
 
-    function set_perc(uint a, uint b, uint _decimal) internal pure set_valid_percentage(a, b, _decimal) returns(uint)
+    function set_perc(uint a, uint b, uint _decimal) internal pure set_valid_percentage(_decimal) returns(uint)
     {
         require(b > 0, "Library Error, Zero division error.");
         
-        uint perc_val = (a * 100 * (10 ** _decimal)) / b;
+        uint perc_val = (a * b * (10 ** _decimal)) / 100;
         return perc_val;
     }
 }

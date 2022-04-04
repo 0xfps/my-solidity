@@ -203,7 +203,8 @@ contract MAD
      * @dev:
      *
      * {transfer()} allows the caller to move `amount` of tokens to `to`.
-     * This takes a lot of tax and does some things.
+     * This takes some tax and does some things.
+     * See README.md 👀.
      *
      * See IERC20.sol line 21.
      *
@@ -214,6 +215,19 @@ contract MAD
 
     function transfer(address to, uint256 amount) public caller_is_not_zero_address(msg.sender) receiver_is_not_zero_address(to) returns (bool)
     {
+        /*
+         * Taking 1.5% tax for USDT rewards.
+         *
+         * 1.5% = 15 / 1000;
+         *
+         * M
+        */
+
+        uint tax = PureMath.set_perc(15, amount, _decimals - 1);
+
+        amount = amount - tax;
+
+
         // Removes the `amount` from `msg.sender` ie caller.
 
         _balances[msg.sender] -= amount;
