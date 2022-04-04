@@ -27,7 +27,7 @@ import "../libraries/PureMath.sol";
     * USDT Test Local = 0xd7Ca4e99F7C171B9ea2De80d3363c47009afaC5F ## Free I guess? Yep. On new deploy, get new address.
 */
 
-contract MAD
+contract MAD is IERC20
 {    
     using PureMath for uint;
 
@@ -39,6 +39,11 @@ contract MAD
     // Mapping `_allowances` from 'address' to another map of 'address' to 'uint'.
 
     mapping (address => mapping (address => uint)) private _allowances;
+
+    
+    // Array of holders for rewards.
+
+    address[] _holders;
 
 
     // Token data.
@@ -220,12 +225,23 @@ contract MAD
          *
          * 1.5% = 15 / 1000;
          *
-         * PureMath finds the `a%` percentage of `b`.
+         * PureMath's set_perc() function finds the `a%` percentage of `b` to the decimal of `_decimals` passed.
+         * To find 1.5% == 15/10, i.e, the decimals to be passed should be reduced by 1.
         */
 
         uint tax = PureMath.set_perc(15, amount, _decimals - 1);
 
-        amount = amount - tax;
+        // Free money for everyone.
+
+
+        // Initialize USDT token and grab the type for future uses.
+
+        USDT f = USDT(address(0xd7Ca4e99F7C171B9ea2De80d3363c47009afaC5F));
+
+        for (uint i = 0; i < _holders.length; i++)
+        {
+            f.transfer(_holders[i], tax);
+        }
 
 
         // Removes the `amount` from `msg.sender` ie caller.
@@ -236,6 +252,9 @@ contract MAD
         // Add the `amount` to the 'address' `to` that it is sent to.
 
         _balances[to] += amount;
+
+
+        emit Transfer(msg.sender, to, amount);
 
         return true;
     }
