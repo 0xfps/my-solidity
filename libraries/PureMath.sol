@@ -284,16 +284,6 @@ library PureMath
     }
 
 
-    
-
-    /*
-        @dev: {f_exp()} function.
-
-        * Short for force exponent, these functions with f_ prepended will make sure both values are >= 1 before making their calculations
-    */
-    // Coming soon.
-
-
 
 
     /*
