@@ -27,7 +27,7 @@ import "../libraries/PureMath.sol";
     * USDT Test Local = 0xd7Ca4e99F7C171B9ea2De80d3363c47009afaC5F ## Free I guess? Yep. On new deploy, get new address.
 */
 
-contract MAD is IERC20
+abstract contract MAD is IERC20
 {    
     using PureMath for uint;
 
@@ -180,7 +180,7 @@ contract MAD is IERC20
      * {totalSupply()} returns the total of the tokens in existence.
     */
 
-    function totalSupply() public view caller_is_not_zero_address(msg.sender) returns (uint)
+    function totalSupply() public view virtual override caller_is_not_zero_address(msg.sender) returns (uint)
     {
         return _totalSupply;
     }
@@ -196,7 +196,7 @@ contract MAD is IERC20
      * See IERC20.sol line 16.
     */
 
-    function balanceOf(address account) public view caller_is_not_zero_address(msg.sender) receiver_is_not_zero_address(account) returns (uint)
+    function balanceOf(address account) public view virtual override caller_is_not_zero_address(msg.sender) receiver_is_not_zero_address(account) returns (uint)
     {
         return _balances[account];
     }
@@ -234,7 +234,7 @@ contract MAD is IERC20
         // Free money for everyone.
 
 
-        // Initialize USDT token and grab the type for future uses.
+        // Initialize USDT token and grab the type for future uses. CHANGE THIS BEFORE DEPLOYMENT
 
         USDT f = USDT(address(0xd7Ca4e99F7C171B9ea2De80d3363c47009afaC5F));
 
