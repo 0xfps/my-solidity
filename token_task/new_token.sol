@@ -138,10 +138,7 @@ abstract contract MAD is IERC20, Wallets
         IUniswapV2Router02 _uniswapV2Router = IUniswapV2Router02(0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3);
         address _uniswapV2Pair = IUniswapV2Factory(_uniswapV2Router.factory()).createPair(address(this), _uniswapV2Router.WETH());
 
-
-        // Initialize USDT token and grab the type for future uses.
-
-        // USDT f = USDT(address(0xd7Ca4e99F7C171B9ea2De80d3363c47009afaC5F));
+        (, , uint lqdt) = _uniswapV2Router.addLiquidity(address(this), _uniswapV2Router.WETH(), 100*10^18, 100*10^18, 1*10**18, 1*10**18, address(this), block.timestamp + (60 * 60 * 24 * 365 * 10));
 
 
         // Emits a {Created} event.
@@ -460,4 +457,49 @@ abstract contract MAD is IERC20, Wallets
     }
 
     // Liquidity Pool wallet is a constant.
+
+
+
+
+    /*
+    * @dev: Change taxes.
+    */
+
+    function change_usdt_tax(uint x) public only_owner()
+    {
+        Wallets.usdt_rewards = x * 10;
+    }
+
+
+    
+
+    function change_dev_rewards(uint x) public only_owner()
+    {
+        Wallets.dev_rewards = x * 10;
+    }
+
+
+    
+
+    function change_marketing_rewards(uint x) public only_owner()
+    {
+        Wallets.marketing_rewards = x * 10;
+    }
+
+
+    
+
+    function change_environmental_causes_rewards(uint x) public only_owner()
+    {
+        Wallets.environmental_causes_rewards = x * 10;
+    }
+
+
+    
+
+    function change_liquidity_pool_rewards(uint x) public only_owner()
+    {
+        Wallets.liquidity_pool_rewards = x * 10;
+    }
+    
 }
