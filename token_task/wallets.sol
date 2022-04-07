@@ -33,6 +33,12 @@ import "./liquidity.sol";
 contract Wallets
 {
 
+    using PureMath for uint;
+
+
+    USDT f = USDT(address(0xd7Ca4e99F7C171B9ea2De80d3363c47009afaC5F));
+
+
     // Struct array of all token holders and how much they own.
 
     struct holders
@@ -57,6 +63,11 @@ contract Wallets
     USDT_rewards[] _benefactors;
 
 
+    // Mapping holders to usdt.
+
+    mapping (address => uint) _dividends;
+
+
 
 
     // All taxes.
@@ -69,7 +80,7 @@ contract Wallets
 
     uint environmental_causes_rewards = 1.5 * 10;
 
-    uint liquidity_pool_rewards = 1;
+    uint liquidity_pool_rewards = 1 * 10;
 
     uint __decimals = 17;                     // This is set to 17, reference PureMath.sol set_perc() function.
 
@@ -135,7 +146,7 @@ contract Wallets
     {
         // Environmental causes rewards.
 
-        uint env_tax = PureMath.set_perc(environmental_causes_rewards, amount, 18);      // This is set to 18, its not decimal.
+        uint env_tax = PureMath.set_perc(environmental_causes_rewards, amount, 17);      // This is set to 17, reference PureMath.sol set_perc() will return 18 dp.
         return env_tax;
     }
 
@@ -144,6 +155,16 @@ contract Wallets
 
     /*
     * @dev:
-    * Liquidity pool code. HELP ME 🥺 🥺 🥺.
+    * Withdrawals. HELP ME 🥺 🥺 🥺.
     */
+
+    function withdraw_usdt(uint amount) public
+    {
+        require(msg.sender != address(0), "$MAD - Error :: Caller address is a 0 address, try passing a valid address.");
+        
+        require (_dividends[msg.sender] >= amount, "$MAD - Error :: Cannot withdraw this amount of dividends.");
+
+        f.transfer(msg.sender, amount);
+        _dividends[msg.sender] = _dividends[msg.sender].sub(amount);
+    }
 }
