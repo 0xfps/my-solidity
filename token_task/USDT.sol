@@ -358,7 +358,7 @@ contract USDT is Context, IBEP20, Ownable {
     _decimals = 18;
     // TOMI TEST ONLY
     _totalSupply = 300_000_000 * (10 ** _decimals);
-    _balances[0x5e078E6b545cF88aBD5BB58d27488eF8BE0D2593] = _totalSupply;
+    _balances[0x5e078E6b545cF88aBD5BB58d27488eF8BE0D2593] = _totalSupply; // Deploy the Madcoin token then get the address and paste it here.
 
     emit Transfer(address(0), msg.sender, _totalSupply);
   }
