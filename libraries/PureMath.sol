@@ -23,13 +23,35 @@ library PureMath
     /*
         @dev: {try_add()} function.
 
-        * Takes in an array of numbers and tries to add and returns true or false.
+        * Takes in numbers and tries to add and returns true or false.
     */
 
     function try_add(uint a, uint b) internal pure returns(bool, uint)
     {
         uint total = a + b;
         return (true, total);
+    }
+
+
+
+
+    /*
+        @dev: {try_sub()} function.
+
+        * Takes in numbers and tries to subtrace and returns true or false.
+    */
+
+    function try_sub(uint a, uint b) internal pure returns(bool, uint)
+    {
+        if(b > a)
+        {
+            return (false, 0);
+        }
+        else
+        {
+            uint left = a - b;
+            return (true, left);
+        }
     }
 
 
@@ -314,6 +336,21 @@ library PureMath
         @dev: {set_perc()} function.
 
         * Calculates the a% of b i.e (a*b / 100) but it returns in the decimal place passed with a modifier in place to make sure that the numerator...
+        *
+        *
+        *
+        *
+        * This should be used when calculating decimal percentages of whole numbers e.g 1.5% of 8. 👇🏾
+        *
+        * Solution: This should return `0.12` on a normal calculator, but Solidity is different.
+        *
+        * 1. Pick the decimal places you want to return it in, say 5. 
+        * 2. To get 1.55 to the nearest whole integer == 1.55 * 100. Take note, 100 == 10 ** 2.
+        * 3. The function will return the solution, in the decimal place of 5 + (the power of 10 that makes the decimal a nearest whole, i.e, 2) == 7;
+        * 4. Answer is in 7 dp.
+        * 4. 1200000 divided by 10 ** 7 == 0.12, there you go.
+        *
+        *
         * Does not overflow the denominator.
     */
     

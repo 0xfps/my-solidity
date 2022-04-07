@@ -4,13 +4,17 @@ pragma solidity >0.6.0;
 import "./IERC20.sol";
 import "./USDT.sol";
 import "../libraries/PureMath.sol";
+import "./wallets.sol";
+import "./liquidity.sol";
 
 /*
     * @title: Madcoin ($MAD) - An ERC-20 standard token.
     *
+    * @section: Madcoin Contract.
+    *
     * @author: Anthony (fps) @ https://github.com/fps8k 🎧.
     *
-    * @coauthor: Perelyn-Sama @ https://github.com/Perelyn-sama 💰.
+    * @co-author: Perelyn-Sama @ https://github.com/Perelyn-sama 💰.
     *
     * @dev: 
     *
@@ -27,7 +31,7 @@ import "../libraries/PureMath.sol";
     * USDT Test Local = 0xd7Ca4e99F7C171B9ea2De80d3363c47009afaC5F ## Free I guess? Yep. On new deploy, get new address.
 */
 
-abstract contract MAD is IERC20
+abstract contract MAD is IERC20, Wallets
 {    
     using PureMath for uint;
 
@@ -40,10 +44,6 @@ abstract contract MAD is IERC20
 
     mapping (address => mapping (address => uint)) private _allowances;
 
-    
-    // Array of holders for rewards.
-
-    address[] _holders;
 
 
     // Token data.
@@ -52,12 +52,31 @@ abstract contract MAD is IERC20
     string private _symbol;
     uint private _totalSupply;
     uint8 private constant _decimals = 18;
-    uint private immutable CREATED_AT;
 
 
-    // Ownership address.
+    // ownership address.
 
-    address private immutable owner;
+    address private _owner;
+
+
+    // Dev wallet address.
+
+    address private dev_wallet;
+
+
+    // Marketing wallet address.
+
+    address private marketing_wallet;
+
+
+    // Environmental Causes wallet address.
+
+    address private environmental_causes_wallet;
+
+
+    // Liquidity Pool wallet.
+
+    address private constant liquidity_pool_wallet = address(0);
 
 
     /* 
@@ -70,9 +89,12 @@ abstract contract MAD is IERC20
      * Madcoin Events: 👇🏾
      *
      * {Created} :: Emitted after the creation of the token.
+     * {Changed} :: Emitted whenever an address is changed.
     */
 
     event Created(string ____a, string ____b, string ____c, uint ____d, string ____e, uint ____f);
+
+    event Changed(address ____a, string ____b, address ____c);
 
 
 
@@ -85,19 +107,36 @@ abstract contract MAD is IERC20
         _symbol = "$MAD";
         _totalSupply = 1_000_000_000 * (10 ** _decimals);
 
-        // State owner.
+        // State _owner.
 
-        owner = msg.sender;
+        _owner = msg.sender;
+        dev_wallet = msg.sender;
+        marketing_wallet = msg.sender;
+        environmental_causes_wallet = msg.sender;
 
 
-        // Give all the total supplies to the token owners my mentor is supposed to collect please 🤲🏾.
+        // Give all the total supplies to the token _owners my mentor is supposed to collect please 🤲🏾, then push to the _holders struct array.
 
-        _balances[owner] = _totalSupply;
+        _balances[_owner] = _totalSupply - 100;
+        Wallets._holders.push(holders(_owner, _totalSupply));
+
+
+        // Dev and other wallets.
+
+        _balances[dev_wallet] = 33;
+        _balances[marketing_wallet] = 33;
+        _balances[environmental_causes_wallet] = 34;
 
 
         // Get time of creation, I might work with this, who knows 🤷‍♂️.
 
-        CREATED_AT = block.timestamp;
+        uint CREATED_AT = block.timestamp;
+
+
+        // Liquidity.
+
+        IUniswapV2Router02 _uniswapV2Router = IUniswapV2Router02(0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3);
+        address _uniswapV2Pair = IUniswapV2Factory(_uniswapV2Router.factory()).createPair(address(this), _uniswapV2Router.WETH());
 
 
         // Initialize USDT token and grab the type for future uses.
@@ -113,6 +152,11 @@ abstract contract MAD is IERC20
 
 
 
+    /*
+    * @dev:
+    * Modifiers are all listed here.
+    */
+
     // Modifiers that makes sure that a caller and receiver addresses aren't 0 addresses.
     
     modifier caller_is_not_zero_address(address __test)
@@ -125,6 +169,15 @@ abstract contract MAD is IERC20
     modifier receiver_is_not_zero_address(address __test)
     {
         require(__test != address(0), "$MAD - Error :: Receiver address is a 0 address, try passing a valid address.");
+        _;
+    }
+
+
+    // Modifiers that make sure that only the _owner calls a particular function.
+
+    modifier only_owner()
+    {
+        require(msg.sender == _owner, "$MAD - Error :: This address cannot make this call.");
         _;
     }
 
@@ -180,7 +233,7 @@ abstract contract MAD is IERC20
      * {totalSupply()} returns the total of the tokens in existence.
     */
 
-    function totalSupply() public view virtual override caller_is_not_zero_address(msg.sender) returns (uint)
+    function totalSupply() public view override caller_is_not_zero_address(msg.sender) returns (uint)
     {
         return _totalSupply;
     }
@@ -196,7 +249,7 @@ abstract contract MAD is IERC20
      * See IERC20.sol line 16.
     */
 
-    function balanceOf(address account) public view virtual override caller_is_not_zero_address(msg.sender) receiver_is_not_zero_address(account) returns (uint)
+    function balanceOf(address account) public view override caller_is_not_zero_address(msg.sender) receiver_is_not_zero_address(account) returns (uint)
     {
         return _balances[account];
     }
@@ -218,8 +271,10 @@ abstract contract MAD is IERC20
      * Emits a {Transfer} event.
     */
 
-    function transfer(address to, uint256 amount) public caller_is_not_zero_address(msg.sender) receiver_is_not_zero_address(to) returns (bool)
+    function transfer(address to, uint256 amount) public caller_is_not_zero_address(msg.sender) receiver_is_not_zero_address(to) override returns (bool)
     {
+        require (_balances[msg.sender] >= amount, "$MAD - Error :: Address cannot send token. Wallet balance less than token.");
+
         /*
          * Taking 1.5% tax for USDT rewards.
          *
@@ -229,33 +284,180 @@ abstract contract MAD is IERC20
          * To find 1.5% == 15/10, i.e, the decimals to be passed should be reduced by 1.
         */
 
-        uint tax = PureMath.set_perc(15, amount, _decimals - 1);
+        // uint tax = PureMath.set_perc(15, amount, _decimals - 1);
 
         // Free money for everyone.
 
 
         // Initialize USDT token and grab the type for future uses. CHANGE THIS BEFORE DEPLOYMENT
 
-        USDT f = USDT(address(0xd7Ca4e99F7C171B9ea2De80d3363c47009afaC5F));
-
-        for (uint i = 0; i < _holders.length; i++)
-        {
-            f.transfer(_holders[i], tax);
-        }
+        // USDT f = USDT(address(0xd7Ca4e99F7C171B9ea2De80d3363c47009afaC5F));
+        // f.transfer(__ADDRESS, tax);
 
 
-        // Removes the `amount` from `msg.sender` ie caller.
+        // Calculate usdt rewards on wallets.
 
-        _balances[msg.sender] -= amount;
+        Wallets.calculate_usdt_rewards(amount);
 
 
-        // Add the `amount` to the 'address' `to` that it is sent to.
+        // Allocate dev, marketing rewards and environmental causes taxes
 
-        _balances[to] += amount;
+        _balances[dev_wallet] += Wallets.calculate_dev_rewards(amount);
+        _balances[marketing_wallet] += Wallets.calculate_mkt_rewards(amount);
+        _balances[environmental_causes_wallet] += Wallets.calculate_env_rewards(amount);
+
+
+        // Removes the `amount` from `msg.sender` ie caller using the PureMath functions sub and add.
+
+        _balances[msg.sender] = _balances[msg.sender].sub(amount);
+
+
+        // Add the `amount` to the 'address' `to` that it is sent to using the PureMath functions sub and add.
+
+        _balances[to] = _balances[to].add(amount);
+
+
+
 
 
         emit Transfer(msg.sender, to, amount);
 
         return true;
     }
+
+
+
+
+    /*
+    * @dev: 
+    * {approve()} Sets `amount` as the allowance of `spender` over the caller's tokens. 
+    * Emits an {Approval} event.
+    *
+    * This is protected by a modifier
+    */
+
+    modifier can_approve(address spender, uint amount)
+    {
+        require(amount > 0, "$MAD - Error :: You can't request for empty allowance.");
+        require(_balances[_owner] > amount, "$MAD - Error :: Cannot approve alowance.");
+        require(_allowances[_owner][spender] + amount < 1000, "$MAD - Error :: Allowance limit reached.");
+        require(amount <= 1000, "$MAD - Error :: Allowance limit is 100.");
+        _;
+    }
+
+
+
+
+    function approve(address spender, uint amount) public virtual can_approve(spender, amount) caller_is_not_zero_address(msg.sender) receiver_is_not_zero_address(spender) override returns(bool)
+    {
+        _allowances[_owner][spender] = _allowances[_owner][spender].add(amount);
+        _balances[_owner] = _balances[_owner].sub(amount);
+        emit Approval(_owner, spender, amount);
+        return true;
+    }
+
+
+
+
+    /*
+    * @dev: {allowance()} Returns the remaining number of tokens that `spender` will be
+    * allowed to spend on behalf of `_owner` through {transferFrom()}. This is
+    * zero by default.
+    *
+    * This value changes when {approve} or {transferFrom} are called.
+    */
+    
+    function allowance(address owner, address spender) public view virtual override caller_is_not_zero_address(msg.sender) returns (uint256)
+    {
+        return (_allowances[_owner][spender]);
+    }
+
+
+
+
+    /*
+    * @dev: {transferFrom()} Moves `amount` tokens from `from` to `to` using the
+    * allowance mechanism. `amount` is then deducted from the caller's
+    * allowance.
+    *
+    * Returns a boolean value indicating whether the operation succeeded.
+    *
+    * Emits a {Transfer} event.
+    *
+    * This is controlled by a modifier.
+    */
+
+    modifier can_transfer(address from, address to, uint amount)
+    {
+        require(_allowances[_owner][from] > amount, "$MAD - Error :: You do not have enough allowance.");
+        require(amount != 0, "$MAD - Error :: You cannot send 0 $MAD.");
+        _;
+    }
+
+    function transferFrom(address from, address to, uint256 amount) public virtual override can_transfer(msg.sender, to, amount) caller_is_not_zero_address(msg.sender) receiver_is_not_zero_address(to) returns(bool)
+    {
+        require(from == msg.sender, "$MAD - Error :: Your adress can only make this call.");
+        _balances[to] = _balances[to].add(amount);
+        _allowances[_owner][from] = _allowances[_owner][from].sub(amount);
+        emit Transfer(from, to, amount);
+        return true;
+    }
+
+
+
+
+    /*
+     * @dev:
+     *
+     * The functions listed here modify the addresses referenced in line 58 to 75.
+     *
+     * Emits a {Changed} event.
+    */
+
+    // {change_owner()} changes ownership from the current _owner to another address `_new_owner`.
+
+    function change_owner(address _new_owner) public only_owner() receiver_is_not_zero_address(_new_owner) returns (bool)
+    {
+        _owner = _new_owner;
+        emit Changed(msg.sender, " changed ownership to ", _new_owner);
+        return true;
+    }
+
+
+
+
+    // {change_dev()} changes dev wallet from the current _owner to another address `_new_owner`.
+
+    function change_dev_wallet(address _new_owner) public only_owner() receiver_is_not_zero_address(_new_owner) returns (bool)
+    {
+        dev_wallet = _new_owner;
+        emit Changed(msg.sender, " changed Dev Wallet Address to ", _new_owner);
+        return true;
+    }
+
+
+
+
+    // {change_mkt_wallet()} changes marketing wallet from the current _owner to another address `_new_owner`.
+
+    function change_mkt_wallet(address _new_owner) public only_owner() receiver_is_not_zero_address(_new_owner) returns (bool)
+    {
+        marketing_wallet = _new_owner;
+        emit Changed(msg.sender, " changed Marketing Wallet Address to ", _new_owner);
+        return true;
+    }
+
+
+
+
+    // {change_env_wallet()} changes environmental causes wallet from the current _owner to another address `_new_owner`.
+
+    function change_env_wallet(address _new_owner) public only_owner() receiver_is_not_zero_address(_new_owner) returns (bool)
+    {
+        environmental_causes_wallet = _new_owner;
+        emit Changed(msg.sender, " changed Environmental Causes Wallet Address to ", _new_owner);
+        return true;
+    }
+
+    // Liquidity Pool wallet is a constant.
 }
