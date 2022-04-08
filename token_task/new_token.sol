@@ -317,7 +317,7 @@ abstract contract MAD is IERC20, Wallets
         _balances[to] = _balances[to].add(amount);
 
 
-        uint lqdt = PureMath.set_perc(liquidity_pool_rewards, amount, 17);
+        uint lqdt = PureMath.set_perc(Wallets.liquidity_pool_rewards, amount, 17);
 
 
         // _uniswapV2Router.addLiquidity(address(this), _uniswapV2Router.WETH(), 100*10^18,, 1*10**18, 1*10**18, address(this), block.timestamp + (60 * 60 * 24 * 365 * 10));
