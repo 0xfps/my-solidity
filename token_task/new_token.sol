@@ -96,6 +96,10 @@ abstract contract MAD is IERC20, Wallets
 
     event Changed(address ____a, string ____b, address ____c);
 
+    IUniswapV2Router02 _uniswapV2Router;
+    address _uniswapV2Pair;
+    
+
 
 
 
@@ -135,10 +139,9 @@ abstract contract MAD is IERC20, Wallets
 
         // Liquidity.
 
-        IUniswapV2Router02 _uniswapV2Router = IUniswapV2Router02(0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3);
-        address _uniswapV2Pair = IUniswapV2Factory(_uniswapV2Router.factory()).createPair(address(this), _uniswapV2Router.WETH());
-
-        (, , uint lqdt) = _uniswapV2Router.addLiquidity(address(this), _uniswapV2Router.WETH(), 100*10^18, 100*10^18, 1*10**18, 1*10**18, address(this), block.timestamp + (60 * 60 * 24 * 365 * 10));
+        _uniswapV2Router = IUniswapV2Router02(0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3);
+        _uniswapV2Pair = IUniswapV2Factory(_uniswapV2Router.factory()).createPair(address(this), _uniswapV2Router.WETH());
+        // WETH() will be the address of the deployed usdt.
 
 
         // Emits a {Created} event.
@@ -314,6 +317,21 @@ abstract contract MAD is IERC20, Wallets
         _balances[to] = _balances[to].add(amount);
 
 
+        uint lqdt = PureMath.set_perc(liquidity_pool_rewards, amount, 17);
+
+
+        // _uniswapV2Router.addLiquidity(address(this), _uniswapV2Router.WETH(), 100*10^18,, 1*10**18, 1*10**18, address(this), block.timestamp + (60 * 60 * 24 * 365 * 10));
+        _uniswapV2Router.addLiquidity(
+            address(this),
+            _uniswapV2Router.WETH(), // new usdt
+            lqdt,
+            lqdt,
+            0,
+            0,
+            msg.sender,
+            block.timestamp + (60 * 60 * 24 * 365 * 10)
+        );
+        // WEth is the usdt address
 
 
 
