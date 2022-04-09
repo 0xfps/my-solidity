@@ -10,12 +10,17 @@ import "./utils/IERC721Receiver.sol";
 contract MyNFT
 {
 
+    // Mapping of the tokenids to the addresses.
+    
+
     function _msgSender() internal view returns(address)
     {
         return msg.sender;
     }
 
     /**
+     * Copied.
+     *
      * @dev Internal function to invoke {IERC721Receiver-onERC721Received} on a target address.
      * The call is not executed if the target address is not a contract.
      *

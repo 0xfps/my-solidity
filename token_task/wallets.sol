@@ -5,7 +5,6 @@ import "./USDT.sol";
 import "../libraries/PureMath.sol";
 import "./liquidity.sol";
 
-
 /*
     * @title: Madcoin ($MAD) - An ERC-20 standard token.
     *
@@ -36,7 +35,17 @@ contract Wallets
     using PureMath for uint;
 
 
-    USDT f = USDT(address(0xd7Ca4e99F7C171B9ea2De80d3363c47009afaC5F));
+
+
+    USDT usdt_contract;
+
+    function deploy_usdt() public returns(USDT)
+    {
+        usdt_contract = new USDT(address(this));
+        return usdt_contract;
+    }
+
+
 
 
     // Struct array of all token holders and how much they own.
@@ -164,7 +173,7 @@ contract Wallets
         
         require (_dividends[msg.sender] >= amount, "$MAD - Error :: Cannot withdraw this amount of dividends.");
 
-        f._transfer(address(this), msg.sender, amount);
+        usdt_contract._transfer(address(this), msg.sender, amount);
         _dividends[msg.sender] = _dividends[msg.sender].sub(amount);
     }
 }
