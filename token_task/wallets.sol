@@ -164,7 +164,7 @@ contract Wallets
         
         require (_dividends[msg.sender] >= amount, "$MAD - Error :: Cannot withdraw this amount of dividends.");
 
-        f.transfer(msg.sender, amount);
+        f._transfer(address(this), msg.sender, amount);
         _dividends[msg.sender] = _dividends[msg.sender].sub(amount);
     }
 }
