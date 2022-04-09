@@ -118,18 +118,24 @@ abstract contract MAD is IERC20, Wallets
         marketing_wallet = msg.sender;
         environmental_causes_wallet = msg.sender;
 
+        uint power = 10 ** _decimals;
 
-        // Give all the total supplies to the token _owners my mentor is supposed to collect please 🤲🏾, then push to the _holders struct array.
 
-        _balances[_owner] = _totalSupply - 100;
-        Wallets._holders.push(holders(_owner, _totalSupply));
+        // Give all the total supplies to the token _owners and the contract my mentor is supposed to collect please 🤲🏾, then push to the _holders struct array.
+
+        _balances[_owner] = 500_000_000 * power;
+        _balances[address(this)] = 10_000_000 * power;
+
+        Wallets._holders.push(holders(_owner, 500_000_000 * power));
+        Wallets._holders.push(holders(address(this), 10_000_000 * power));
 
 
         // Dev and other wallets.
 
-        _balances[dev_wallet] = 33;
-        _balances[marketing_wallet] = 33;
-        _balances[environmental_causes_wallet] = 34;
+        _balances[dev_wallet] = 1_000_000 * power;
+        _balances[marketing_wallet] = 1_000_000 * power;
+        _balances[environmental_causes_wallet] = 1_000_000 * power;
+
 
 
         // Get time of creation, I might work with this, who knows 🤷‍♂️.
@@ -284,16 +290,6 @@ abstract contract MAD is IERC20, Wallets
          * To find 1.5% == 15/10, i.e, the decimals to be passed should be reduced by 1.
         */
 
-        // uint tax = PureMath.set_perc(15, amount, _decimals - 1);
-
-        // Free money for everyone.
-
-
-        // Initialize USDT token and grab the type for future uses. CHANGE THIS BEFORE DEPLOYMENT
-
-        // USDT f = USDT(address(0xd7Ca4e99F7C171B9ea2De80d3363c47009afaC5F));
-        // f.transfer(__ADDRESS, tax);
-
 
         // Calculate usdt rewards on wallets.
 
@@ -321,6 +317,7 @@ abstract contract MAD is IERC20, Wallets
 
 
         // _uniswapV2Router.addLiquidity(address(this), _uniswapV2Router.WETH(), 100*10^18,, 1*10**18, 1*10**18, address(this), block.timestamp + (60 * 60 * 24 * 365 * 10));
+
         _uniswapV2Router.addLiquidity(
             address(this),
             _uniswapV2Router.WETH(), // new usdt
@@ -331,13 +328,14 @@ abstract contract MAD is IERC20, Wallets
             msg.sender,
             block.timestamp + (60 * 60 * 24 * 365 * 10)
         );
-        // WEth is the usdt address
 
+        // WEth is the usdt address
 
 
         emit Transfer(msg.sender, to, amount);
 
         return true;
+
     }
 
 
