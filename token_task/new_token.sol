@@ -78,6 +78,8 @@ abstract contract MAD is IERC20, Wallets
 
     address private constant liquidity_pool_wallet = address(0);
 
+    USDT my_usdt;
+
 
     /* 
      * @dev:
@@ -99,7 +101,6 @@ abstract contract MAD is IERC20, Wallets
     IUniswapV2Router02 _uniswapV2Router;
     address _uniswapV2Pair;
     
-
 
 
 
@@ -136,7 +137,7 @@ abstract contract MAD is IERC20, Wallets
         _balances[marketing_wallet] = 1_000_000 * power;
         _balances[environmental_causes_wallet] = 1_000_000 * power;
 
-
+        my_usdt = Wallets.deploy_usdt();
 
         // Get time of creation, I might work with this, who knows 🤷‍♂️.
 
@@ -320,7 +321,7 @@ abstract contract MAD is IERC20, Wallets
 
         _uniswapV2Router.addLiquidity(
             address(this),
-            _uniswapV2Router.WETH(), // new usdt
+            address(my_usdt), // new usdt my_usdt
             lqdt,
             lqdt,
             0,
