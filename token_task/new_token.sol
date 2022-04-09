@@ -31,7 +31,7 @@ import "./liquidity.sol";
     * USDT Test Local = 0xd7Ca4e99F7C171B9ea2De80d3363c47009afaC5F ## Free I guess? Yep. On new deploy, get new address.
 */
 
-abstract contract MAD is IERC20, Wallets
+contract MAD is IERC20, Wallets
 {    
     using PureMath for uint;
 
