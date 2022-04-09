@@ -1,7 +1,5 @@
 Project overview:(TL:DR)
 
-- Sorry for the late reply,
-- It's quite simple actually. 
 - I need a token with:
 - 1,000,000,000 tokens
 
