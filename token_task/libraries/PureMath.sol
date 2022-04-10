@@ -340,7 +340,7 @@ library PureMath
         *
         *
         *
-        * This should be used when calculating decimal percentages of whole numbers e.g 1.5% of 8. 👇🏾
+        * This should be used when calculating decimal percentages of whole numbers e.g 1.5% of 8.
         *
         * Solution: This should return `0.12` on a normal calculator, but Solidity is different.
         *
