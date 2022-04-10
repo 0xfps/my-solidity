@@ -261,10 +261,13 @@ abstract contract Cix is IERC20
 
         address __sender = _msgSender();
         require(_balances[__sender] >= amount, "CIX: You dont have enough $CIX.");
+        require(amount > 0, "CIX: You cannot send 0 $CIX.");
         require(__sender != to, "CIX: You cannot send to yourself.");
         _balances[__sender] = _balances[__sender].sub(amount);
         _balances[to] = _balances[to].add(amount);
         _is_owning_tokens[to] = true;
+
+        emit Transfer(_msgSender(), to, amount);
 
         return true;
 
@@ -286,6 +289,67 @@ abstract contract Cix is IERC20
         require(_exists(owner), "CIX: Owner has no tokens to allocate.");
         return _allowances[owner][spender];
 
+    }
+
+
+
+
+    /**
+    * @dev Sets `amount` as the allowance of `spender` over the caller's tokens.
+    *
+    * Returns a boolean value indicating whether the operation succeeded.
+    *
+    * IMPORTANT: Beware that changing an allowance with this method brings the risk
+    * that someone may use both the old and the new allowance by unfortunate
+    * transaction ordering. One possible solution to mitigate this race
+    * condition is to first reduce the spender's allowance to 0 and set the
+    * desired value afterwards:
+    * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729
+    *
+    * Emits an {Approval} event.
+    */
+
+    function approve(address spender, uint256 amount) public override is_valid_receiver(spender) caller_exists() returns (bool)
+    {
+
+        require(_exists(_msgSender()), "CIX: Owner has no tokens to allocate.");
+        require(amount > 0, "CIX: You cannot allocate 0 $CIX.");
+        require(_balances[_msgSender()] >= amount, "CIX: You dont have enough $CIX.");
+        _allowances[_msgSender()][spender] = _allowances[_msgSender()][spender].add(amount);
+
+        emit Approval(_msgSender(), spender, amount);
+
+        return true;
+
+    }
+
+
+
+
+    /**
+    * @dev Moves `amount` tokens from `from` to `to` using the
+    * allowance mechanism. `amount` is then deducted from the caller's
+    * allowance.
+    *
+    * Returns a boolean value indicating whether the operation succeeded.
+    *
+    * Emits a {Transfer} event.
+    */
+
+    function transferFrom(address from, address to, uint256 amount) public override is_valid_receiver(to) caller_exists() returns (bool)
+    {
+
+        require(_balances[from] >= amount, "CIX: The `from` doesnt have enough $CIX.");
+        require(_allowances[from][_msgSender()] >= amount, "CIX: You are not allocated enough $CIX.");
+
+        _balances[from] = _balances[from].sub(amount);
+        _balances[to] = _balances[to].add(amount);
+
+        _allowances[from][_msgSender()] = _allowances[from][_msgSender()].sub(amount);
+
+        emit Transfer(from, to, amount);
+
+        return true;
     }
 
 }
