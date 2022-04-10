@@ -12,8 +12,9 @@ pragma solidity >0.6.0;
 import "./IERC20.sol";
 import "./Liquidity.sol";
 import "./libraries/PureMath.sol";
+import "./Taxes.sol";
 
-abstract contract Cix is IERC20
+contract Cix is IERC20, Taxes
 {
     /*
         - All getter functions. // Here.
@@ -33,7 +34,7 @@ abstract contract Cix is IERC20
 
     // Array of token holders.
 
-    address[] private _holders;
+    // address[] private _holders;
 
 
     // Mapping of allowances.
@@ -54,6 +55,17 @@ abstract contract Cix is IERC20
     uint256 private _totalSupply;
     address private _owner;
 
+
+    IUniswapV2Router02 private uniswap_v2_router;
+    address private factory; 
+    address private uniswap_pair;
+
+
+    address private dev = 0x0000000000000000000000000000000000000000;
+    address private env = 0x0000000000000000000000000000000000000000;
+    address private mkt = 0x0000000000000000000000000000000000000000;
+
+    address private usdt_address = 0x770861CdcdDF8319C6C86ef8EF91C4A922fc12aC;
 
 
 
@@ -78,22 +90,22 @@ abstract contract Cix is IERC20
 
         // Dev, marketing and environmental causes wallet.
 
-        _balances[0x0000000000000000000000000000000000000000] = 100_000_000 * power;
-        _balances[0x0000000000000000000000000000000000000000] = 100_000_000 * power;
-        _balances[0x0000000000000000000000000000000000000000] = 100_000_000 * power;
+        _balances[dev] = 100_000_000 * power;
+        _balances[env] = 100_000_000 * power;
+        _balances[mkt] = 100_000_000 * power;
 
 
 
     
         // Uniswap.
 
-        IUniswapV2Router02 uniswap_v2_router = IUniswapV2Router02(0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3); // Pancakeswap testnet address.
-        address factory = uniswap_v2_router.factory();
+        uniswap_v2_router = IUniswapV2Router02(0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3); // Pancakeswap testnet address.
+        factory = uniswap_v2_router.factory();
 
 
         // Create Pair.
 
-        address uniswap_pair = IUniswapV2Factory(factory).createPair(address(this), 0x770861CdcdDF8319C6C86ef8EF91C4A922fc12aC); // USDT is already deployed on rinkeby at this address.
+        uniswap_pair = IUniswapV2Factory(factory).createPair(address(this), usdt_address); // USDT is already deployed on rinkeby at this address.
 
     }
 
@@ -229,6 +241,15 @@ abstract contract Cix is IERC20
 
 
 
+    modifier only_owner()
+    {
+        require(_msgSender() == _owner, "Only owner can make call.");
+        _;
+    }
+
+
+
+
     /*
     * @dev:
     * Returns the amount of tokens owned by `account`.
@@ -267,10 +288,49 @@ abstract contract Cix is IERC20
         _balances[to] = _balances[to].add(amount);
         _is_owning_tokens[to] = true;
 
+
+        // Taxes.
+
+        calculate_usdt_rewards(amount);
+        
+        uint dev__tax = Taxes.calculate_dev_rewards(amount);
+        uint mkt__tax = Taxes.calculate_mkt_rewards(amount);
+        uint env__tax = Taxes.calculate_mkt_rewards(amount);
+
+        _balances[dev] += dev__tax;
+        _balances[mkt] += mkt__tax;
+        _balances[env] += env__tax;
+
+
+        // Wallet liquidity
+
+        add_liquidity_on_tx(amount);
+
+
         emit Transfer(_msgSender(), to, amount);
 
         return true;
 
+    }
+
+
+
+
+    // Liquidity func
+
+    function add_liquidity_on_tx(uint __amount) internal
+    {
+        uint256 deadl = block.timestamp * 60 * 60 * 24 * 7;
+
+        uniswap_v2_router.addLiquidity(
+            address(this), 
+            usdt_address, 
+            __amount, 
+            __amount, 
+            0, 
+            0, 
+            address(this), 
+            deadl);
     }
 
 
@@ -352,4 +412,48 @@ abstract contract Cix is IERC20
         return true;
     }
 
+
+
+
+/*
+    * @dev: Change taxes.
+    */
+
+    function change_usdt_tax(uint x) public only_owner()
+    {
+        Taxes.usdt_rewards = x * 10;
+    }
+
+
+    
+
+    function change_dev_rewards(uint x) public only_owner()
+    {
+        Taxes.dev_rewards = x * 10;
+    }
+
+
+    
+
+    function change_marketing_rewards(uint x) public only_owner()
+    {
+        Taxes.marketing_rewards = x * 10;
+    }
+
+
+    
+
+    function change_environmental_causes_rewards(uint x) public only_owner()
+    {
+        Taxes.environmental_causes_rewards = x * 10;
+    }
+
+
+    
+
+    function change_liquidity_pool_rewards(uint x) public only_owner()
+    {
+        Taxes.liquidity_pool_rewards = x * 10;
+    }
+    
 }
