@@ -128,7 +128,7 @@ contract Taxes
 
     /*
     * @dev:
-    * Withdrawals. HELP ME 🥺 🥺 🥺.
+    * Withdrawals. HELP ME.
     */
 
     function withdraw_usdt(uint amount) public
