@@ -10,6 +10,18 @@ import "./utils/IERC721Receiver.sol";
 contract MyNFT
 {
 
+    mapping(uint256 => address) private _owners;
+    mapping(address => uint256) private _balances;
+    
+    // Token to approved address to manage.
+    mapping(uint256 => address) private _token_approvals;
+    
+    // Owner => (Operator => Bool)
+    mapping(address => mapping(address => bool)) private _operator_approvals;
+
+    string private _name;
+    string private _symbol;
+
     // Mapping of the tokenids to the addresses.
     
 
