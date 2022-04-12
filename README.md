@@ -27,7 +27,7 @@ I this repository, I have compiled them all, each one has its own branch and aft
 
 https://github.com/fps8k/my-solidity/tree/main/libraries/PureMath.sol
 
-A math library.
+A math library for basic calculations including percentages.
 
 
 #**M A J O R   C O N T R A C T S :**
