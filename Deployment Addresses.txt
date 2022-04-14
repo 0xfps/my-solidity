@@ -13,3 +13,10 @@ $AGU => 0x2DFA0332E058c4FcC9d1b8C165eFf1CF52368d03
 USDT => 0x788b76Ee23FAa205F3d4991C9977618Cc7c6a019f3b5F7f319EDF7C
 
 USDT => 0x770861CdcdDF8319C6C86ef8EF91C4A922fc12aC
+
+Legio => https://rinkeby.etherscan.io/address/0x251568c2ba92a7CD30CF1f5a6c27dD42b167011A
+
+Legio => https://rinkeby.etherscan.io/address/0xbc71d1049d984f261663c3b46c1F443C622852EF
+
+Legio => https://rinkeby.etherscan.io/address/0xD17E6E1daB2d1E778278f5358ca68D572b713cdF
+
