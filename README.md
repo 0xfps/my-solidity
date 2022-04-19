@@ -26,7 +26,7 @@ I this repository, I have compiled them all, each one has its own branch and aft
 
 ---
 
-#**M I N O R   C O N T R A C T S :** 
+## **M I N O R   C O N T R A C T S :** 
 
 <br/>
 
@@ -61,7 +61,7 @@ Delegate call contract.
 
 <br/><br/>
 
-#**M A J O R   C O N T R A C T S :**
+## **M A J O R   C O N T R A C T S :**
 
 <br/>
 
