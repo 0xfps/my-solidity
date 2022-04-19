@@ -8,6 +8,8 @@ def deploy():
     deploy_wallet = MultiSigWallet.deploy({"from": account}, publish_source = True)
     print(f"Contract deployed successfully at {deploy_wallet.address}")
 
+    with open("../Deployment Addresses.txt", "a+") as dep:
+        dep.write("\n\nMulti Sig Wallet => https://rinkeby.etherscan.io/address/"+deploy_wallet.address)
 
 def get_account():
     if network.show_active() == "development":
