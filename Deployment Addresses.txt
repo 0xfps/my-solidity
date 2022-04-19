@@ -21,3 +21,5 @@ Legio 3 => https://rinkeby.etherscan.io/address/0xD17E6E1daB2d1E778278f5358ca68D
 Auction => https://rinkeby.etherscan.io/address/0x8816cd156792F4Fd9A081f14548D7Fa6040DfCf0
 
 DutchAuction => https://rinkeby.etherscan.io/address/0x56aA4d97DA83b93372B6366482b929B86580452a
+
+Multi Sig Wallet => https://rinkeby.etherscan.io/address/0x14C6Bb868EB71cAaDf19601699C760926511578F
