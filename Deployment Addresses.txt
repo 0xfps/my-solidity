@@ -1,6 +1,4 @@
-Ether Wallet => 0x63D20e6810927977aE7c16DD8f3b5F7f319EDF7C
-
-Multi Sig Wallet => 0x126065c1DF6bb579E7D9590bf07C28D1db519286
+Ether Wallet => https://rinkeby.etherscan.io/address/0x72a8422a0E0098eF770A0dfdA312Ec1bd44fdB44
 
 Merkle Tree => 0x7fF08E0dd90bBf3B22008fB1b28Bb4B037a8B79D
 
