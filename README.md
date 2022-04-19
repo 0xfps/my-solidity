@@ -140,7 +140,7 @@ https://github.com/fps8k/my-solidity/tree/main/Auction
 
 <br/>
 
-> - **7. Ducth Auction:**
+> - **7. Dutch Auction:**
 
 https://github.com/fps8k/my-solidity/tree/main/DutchAuction
 
@@ -187,6 +187,6 @@ My hardest project so far, check out its <a href="https://github.com/fps8k/my-so
 
 <br/>
 
-## All deployment addresses recorded can be seen in the <a href="https://github.com/fps8k/my-solidity/blob/main/Deployment-Addresses.txt">Deployment addresses.txt</a>.
+## All deployment addresses recorded can be seen in the <a href="https://github.com/fps8k/my-solidity/blob/main/Deployment Addresses.txt">Deployment addresses.txt</a>.
 
 - Anthony
