@@ -1,42 +1,41 @@
 // SPDX-License-Identifier: MIT
-
 pragma solidity >0.6.0;
 
-// A solidity program that functions as a crowdsourcing code.
-// Anyone can pay in money into the code, but only the owner can withdraw
+/*
+ * @title: EtherWallet, a crowdfunding smart contract.
+ * @author: Anthony (fps) https://github.com/fps8k .
+ * @dev: Ether Wallet: https://github.com/fps8k/my-solidity/tree/main/ether_wallet
+ * This is a simple Solidity program that allows anyone to send ether to a wallet then allowing only the owner to withdraw.
+*/
 
 contract EtherWallet
 {
-    // Initialize an address for the owner of the contract
-    address payable owner;
+    // Declare owner, deploy time, ended, and locking.
 
-    // Also initialize the amount we have in our contract so as to keep record of the funding
-    uint public amount;
-
-    // setting locked = false for check in reentrance
+    address owner;
+    uint256 deploy_time;
+    bool ended;
     bool locked;
 
-    // I would love to keep accounts of all that have contributed money to this contract
-    // I am going to map each address to a value sent
-    mapping(address => uint) donors;
 
-    // Constructor, makes the deployer the owner of the contract by default.
-    // This should run on a successful deploy
+    // Events.
+
+    event Deployed(address, uint256);           // owner, deploy_time.
+    event Funded(address, uint256);             // msg.sender, msg.value.
+    event Withdraw(address, uint256);           // owner, address(this).balance.
+
+
     constructor()
     {
-        owner = payable(msg.sender);
+        owner = msg.sender;             // Set the owner of the contract to the deployer.
+        deploy_time = block.timestamp;  // Set time of deployment.
+        ended = false;                  // Ended to control the funding.
+
+        emit Deployed(owner, deploy_time);
     }
 
 
-    // Declaring two modifiers
-    // 1. One making sure to correct the reentrancyhack
-    // 2. One to make sure that the owner can withdraw
 
-    modifier OnlyOwnerCanWithdraw(address withdrawer)
-    {
-        require(withdrawer == owner, "Only the owner is allowed to withdraw.");
-        _;
-    }
 
     modifier NoReentrance()
     {
@@ -48,23 +47,33 @@ contract EtherWallet
 
 
 
-    // A function that deposits money into the wallet
-    function Deposit() public payable
+
+    function fund() public payable NoReentrance
     {
-        amount += msg.value;
-        donors[msg.sender] += msg.value;
+        require(msg.sender != address(0), "!Address");
+        require(msg.sender != owner, "Owner !Send");
+
+        emit Funded(msg.sender, msg.value);
     }
 
 
-    // withdrawa function
-    function Withdraw() public payable OnlyOwnerCanWithdraw(msg.sender) NoReentrance
+
+
+    function viewFunds() public view returns(uint256 balance)
     {
-        // check for the total balances
-        require(address(this).balance > 0, "You have nothing yet on this contract.");
-        (bool sent, ) = payable(msg.sender).call{value: address(this).balance}("");
-        amount = 0;
-        // payable(msg.sender).transfer(address(this).balance);
+        require(msg.sender == owner, "!Owner");
+        balance = address(this).balance;
+    }
+
+
+
+
+    function withdrawFunds() public payable NoReentrance
+    {
+        require(msg.sender == owner, "!Owner");
+        uint256 bal = address(this).balance;
+        payable(owner).transfer(address(this).balance);
         
-        require(sent, "The money wasn't sent.");
+        emit Withdraw(msg.sender, bal);
     }
 }

@@ -8,6 +8,9 @@ def deploy():
     deploy_wallet = EtherWallet.deploy({"from": account}, publish_source = True)
     print(f"Contract deployed successfully at {deploy_wallet.address}")
 
+    with open("../Deployment Addresses.txt", "a+") as dep:
+        dep.write("\n\nEther Wallet => https://rinkeby.etherscan.io/address/"+deploy_wallet.address)
+
 
 def get_account():
     if network.show_active() == "development":
