@@ -108,4 +108,68 @@ Deployment address: https://rinkeby.etherscan.io/address/0x2DFA0332E058c4FcC9d1b
 
 ##
 
+<br/>
 
+> - **6. Auction:**
+
+https://github.com/fps8k/my-solidity/tree/main/Auction
+
+- Seller of NFT deploys this contract.
+- Auction lasts for 7 days.
+- Participants can bid by depositing ETH greater than the current highest bidder.
+- All bidders can withdraw their bid if it is not the current highest bid.
+
+*After auction:*
+- Highest bidder becomes the new owner of NFT.
+- The seller receives the highest bid of ETH.
+
+##
+
+<br/>
+
+> - **7. Ducth Auction:**
+
+https://github.com/fps8k/my-solidity/tree/main/DutchAuction
+
+**Dutch auction for NFT.**
+
+*Auction*
+- Seller of NFT deploys this contract setting a starting price for the NFT.
+- Auction lasts for 7 days.
+- Price of NFT decreases over time.
+- Participants can buy by depositing ETH greater than the current price computed by the smart contract.
+- Auction ends when a buyer buys the NFT.
+
+##
+
+<br/>
+
+> - **8. USDT:**
+
+https://github.com/fps8k/my-solidity/tree/main/USDT
+
+A play around with the USDT token on Rinkeby Etherscan.
+
+##
+
+<br/>
+
+> - **9. Legio (erc721):**
+
+https://github.com/fps8k/my-solidity/tree/main/erc721
+
+My debut ERC-721 token, Legio.
+
+##
+
+<br/>
+
+> - **10. Token Task:**
+
+My hardest project so far, check out its <a href="https://github.com/fps8k/my-solidity/blob/main/token_task/README.md">README.md</a>.
+
+##
+
+<br/>
+
+- Anthony
