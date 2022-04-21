@@ -187,7 +187,7 @@ My hardest project so far, check out its <a href="https://github.com/fps8k/my-so
 
 > - **11. Aguia 2.0:**
 
-https://github.com/fps8k/my-solidity/tree/main/erc721
+https://github.com/fps8k/my-solidity/tree/main/erc20%20-%20%24AGU%202
 
 A safer and more secure version of the previous <a href="https://github.com/fps8k/my-solidity/tree/main/erc20%20-%20%24AGU">Aguia</a> token.
 
