@@ -183,6 +183,14 @@ https://github.com/fps8k/my-solidity/blob/main/token_task
 
 My hardest project so far, check out its <a href="https://github.com/fps8k/my-solidity/blob/main/token_task/README.md">README.md</a>.
 
+##
+
+> - **11. Aguia 2.0:**
+
+https://github.com/fps8k/my-solidity/tree/main/erc721
+
+A safer and more secure version of the previous <a href="https://github.com/fps8k/my-solidity/tree/main/erc20%20-%20%24AGU">Aguia</a> token.
+
 ---
 
 <br/>
