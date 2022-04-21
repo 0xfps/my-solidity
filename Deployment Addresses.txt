@@ -23,3 +23,5 @@ Auction => https://rinkeby.etherscan.io/address/0x8816cd156792F4Fd9A081f14548D7F
 DutchAuction => https://rinkeby.etherscan.io/address/0x56aA4d97DA83b93372B6366482b929B86580452a
 
 Multi Sig Wallet => https://rinkeby.etherscan.io/address/0x14C6Bb868EB71cAaDf19601699C760926511578F
+
+Aguia => https://rinkeby.etherscan.io/address/0x183A9aA20E1596669BD81EacCDCe17E6705449f5
