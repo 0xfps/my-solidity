@@ -193,6 +193,16 @@ https://github.com/fps8k/my-solidity/tree/main/erc20%20-%20%24AGU%202
 
 A safer and more secure version of the previous <a href="https://github.com/fps8k/my-solidity/tree/main/erc20%20-%20%24AGU">Aguia</a> token.
 
+##
+
+<br/>
+
+> - **12. CrowdFund:**
+
+https://github.com/fps8k/my-solidity/tree/main/CrowdFund
+
+Token crowdfunding project
+
 ---
 
 <br/>
