@@ -201,7 +201,7 @@ A safer and more secure version of the previous <a href="https://github.com/fps8
 
 https://github.com/fps8k/my-solidity/tree/main/CrowdFund
 
-Token crowdfunding project
+Token crowdfunding project.
 
 ---
 
@@ -209,4 +209,4 @@ Token crowdfunding project
 
 ## All deployment addresses recorded can be seen in the <a href="https://github.com/fps8k/my-solidity/blob/main/Deployment Addresses.txt">Deployment addresses.txt</a>.
 
-- Anthony
+- Anthony.
