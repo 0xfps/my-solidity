@@ -57,6 +57,16 @@ https://github.com/fps8k/my-solidity/blob/main/delegatecall.sol
 
 Delegate call contract.
 
+##
+
+<br/>
+
+> - **4. ToDo:**
+
+https://github.com/fps8k/my-solidity/tree/main/ToDo
+
+A simple to-do list, working with enums, structs and mappings.
+
 ---
 
 <br/><br/>
