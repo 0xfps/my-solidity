@@ -1,0 +1,15 @@
+{
+  "contracts": {
+    "AddressBook": "66b98dbdea4817ef97be43de9c245427303bead0"
+  },
+  "tests": {
+    "tests/test_addressbook.py": {
+      "coverage": false,
+      "isolated": false,
+      "results": "....",
+      "sha1": "0ab8a4739a11e203485eaa501d8c9b9472625261",
+      "txhash": []
+    }
+  },
+  "tx": {}
+}

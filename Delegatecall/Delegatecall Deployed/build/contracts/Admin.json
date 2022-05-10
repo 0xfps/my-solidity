@@ -1,0 +1,5936 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_address",
+          "type": "address"
+        }
+      ],
+      "name": "acceptAdmin",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "admins",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "current_contract",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_address",
+          "type": "address"
+        }
+      ],
+      "name": "revokeAdmin",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "new_contract",
+          "type": "address"
+        }
+      ],
+      "name": "upgrade",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "allSourcePaths": {
+    "1": "contracts/Utils/Admin.sol"
+  },
+  "ast": {
+    "absolutePath": "contracts/Utils/Admin.sol",
+    "exportedSymbols": {
+      "Admin": [
+        166
+      ]
+    },
+    "id": 167,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 55,
+        "literals": [
+          "solidity",
+          ">",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:1"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "Admin",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 166,
+        "linearizedBaseContracts": [
+          166
+        ],
+        "name": "Admin",
+        "nameLocation": "148:5:1",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "functionSelector": "808dc323",
+            "id": 57,
+            "mutability": "mutable",
+            "name": "current_contract",
+            "nameLocation": "175:16:1",
+            "nodeType": "VariableDeclaration",
+            "scope": 166,
+            "src": "160:31:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 56,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "160:7:1",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "functionSelector": "429b62e5",
+            "id": 61,
+            "mutability": "mutable",
+            "name": "admins",
+            "nameLocation": "249:6:1",
+            "nodeType": "VariableDeclaration",
+            "scope": 166,
+            "src": "217:38:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+              "typeString": "mapping(address => bool)"
+            },
+            "typeName": {
+              "id": 60,
+              "keyType": {
+                "id": 58,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "225:7:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "217:24:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                "typeString": "mapping(address => bool)"
+              },
+              "valueType": {
+                "id": 59,
+                "name": "bool",
+                "nodeType": "ElementaryTypeName",
+                "src": "236:4:1",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                }
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 72,
+              "nodeType": "Block",
+              "src": "285:71:1",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "baseExpression": {
+                          "id": 64,
+                          "name": "admins",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 61,
+                          "src": "303:6:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                            "typeString": "mapping(address => bool)"
+                          }
+                        },
+                        "id": 67,
+                        "indexExpression": {
+                          "expression": {
+                            "id": 65,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": -15,
+                            "src": "310:3:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 66,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "src": "310:10:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "303:18:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "hexValue": "4e6f7420616e2061646d696e",
+                        "id": 68,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "323:14:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_5f53099e044b88c99cc014ede5713cfdba96d95b088c34d5fa4406866af6c250",
+                          "typeString": "literal_string \"Not an admin\""
+                        },
+                        "value": "Not an admin"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_5f53099e044b88c99cc014ede5713cfdba96d95b088c34d5fa4406866af6c250",
+                          "typeString": "literal_string \"Not an admin\""
+                        }
+                      ],
+                      "id": 63,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "295:7:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 69,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "295:43:1",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 70,
+                  "nodeType": "ExpressionStatement",
+                  "src": "295:43:1"
+                },
+                {
+                  "id": 71,
+                  "nodeType": "PlaceholderStatement",
+                  "src": "348:1:1"
+                }
+              ]
+            },
+            "id": 73,
+            "name": "isAdmin",
+            "nameLocation": "271:7:1",
+            "nodeType": "ModifierDefinition",
+            "parameters": {
+              "id": 62,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "278:2:1"
+            },
+            "src": "262:94:1",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 104,
+              "nodeType": "Block",
+              "src": "420:154:1",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "commonType": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "id": 86,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "id": 81,
+                          "name": "_address",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 75,
+                          "src": "438:8:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "!=",
+                        "rightExpression": {
+                          "arguments": [
+                            {
+                              "hexValue": "30",
+                              "id": 84,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "kind": "number",
+                              "lValueRequested": false,
+                              "nodeType": "Literal",
+                              "src": "458:1:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_rational_0_by_1",
+                                "typeString": "int_const 0"
+                              },
+                              "value": "0"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_rational_0_by_1",
+                                "typeString": "int_const 0"
+                              }
+                            ],
+                            "id": 83,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "lValueRequested": false,
+                            "nodeType": "ElementaryTypeNameExpression",
+                            "src": "450:7:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_address_$",
+                              "typeString": "type(address)"
+                            },
+                            "typeName": {
+                              "id": 82,
+                              "name": "address",
+                              "nodeType": "ElementaryTypeName",
+                              "src": "450:7:1",
+                              "typeDescriptions": {}
+                            }
+                          },
+                          "id": 85,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "typeConversion",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "450:10:1",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "src": "438:22:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "hexValue": "5a65726f2061646472657373",
+                        "id": 87,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "462:14:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_535d7636857fb1ab3a4f159f2a66b9583ce224510b4368fa2453e15bee0bc833",
+                          "typeString": "literal_string \"Zero address\""
+                        },
+                        "value": "Zero address"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_535d7636857fb1ab3a4f159f2a66b9583ce224510b4368fa2453e15bee0bc833",
+                          "typeString": "literal_string \"Zero address\""
+                        }
+                      ],
+                      "id": 80,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "430:7:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 88,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "430:47:1",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 89,
+                  "nodeType": "ExpressionStatement",
+                  "src": "430:47:1"
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "id": 94,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "UnaryOperation",
+                        "operator": "!",
+                        "prefix": true,
+                        "src": "495:17:1",
+                        "subExpression": {
+                          "baseExpression": {
+                            "id": 91,
+                            "name": "admins",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 61,
+                            "src": "496:6:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                              "typeString": "mapping(address => bool)"
+                            }
+                          },
+                          "id": 93,
+                          "indexExpression": {
+                            "id": 92,
+                            "name": "_address",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 75,
+                            "src": "503:8:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "496:16:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "hexValue": "416c726561647920616e2061646d696e",
+                        "id": 95,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "514:18:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_49923250cc229cbadecac75d9c77fdeedfe037e799dfc6dc14514fe79d1acbd9",
+                          "typeString": "literal_string \"Already an admin\""
+                        },
+                        "value": "Already an admin"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_49923250cc229cbadecac75d9c77fdeedfe037e799dfc6dc14514fe79d1acbd9",
+                          "typeString": "literal_string \"Already an admin\""
+                        }
+                      ],
+                      "id": 90,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "487:7:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 96,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "487:46:1",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 97,
+                  "nodeType": "ExpressionStatement",
+                  "src": "487:46:1"
+                },
+                {
+                  "expression": {
+                    "id": 102,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "baseExpression": {
+                        "id": 98,
+                        "name": "admins",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 61,
+                        "src": "544:6:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                          "typeString": "mapping(address => bool)"
+                        }
+                      },
+                      "id": 100,
+                      "indexExpression": {
+                        "id": 99,
+                        "name": "_address",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 75,
+                        "src": "551:8:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "544:16:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "hexValue": "74727565",
+                      "id": 101,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "563:4:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "src": "544:23:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 103,
+                  "nodeType": "ExpressionStatement",
+                  "src": "544:23:1"
+                }
+              ]
+            },
+            "functionSelector": "628806ef",
+            "id": 105,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "id": 78,
+                "kind": "modifierInvocation",
+                "modifierName": {
+                  "id": 77,
+                  "name": "isAdmin",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 73,
+                  "src": "408:7:1"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "408:7:1"
+              }
+            ],
+            "name": "acceptAdmin",
+            "nameLocation": "371:11:1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 76,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 75,
+                  "mutability": "mutable",
+                  "name": "_address",
+                  "nameLocation": "391:8:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 105,
+                  "src": "383:16:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 74,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "383:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "382:18:1"
+            },
+            "returnParameters": {
+              "id": 79,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "420:0:1"
+            },
+            "scope": 166,
+            "src": "362:212:1",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 135,
+              "nodeType": "Block",
+              "src": "638:259:1",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "commonType": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "id": 118,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "id": 113,
+                          "name": "_address",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 107,
+                          "src": "656:8:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "!=",
+                        "rightExpression": {
+                          "arguments": [
+                            {
+                              "hexValue": "30",
+                              "id": 116,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "kind": "number",
+                              "lValueRequested": false,
+                              "nodeType": "Literal",
+                              "src": "676:1:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_rational_0_by_1",
+                                "typeString": "int_const 0"
+                              },
+                              "value": "0"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_rational_0_by_1",
+                                "typeString": "int_const 0"
+                              }
+                            ],
+                            "id": 115,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "lValueRequested": false,
+                            "nodeType": "ElementaryTypeNameExpression",
+                            "src": "668:7:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_address_$",
+                              "typeString": "type(address)"
+                            },
+                            "typeName": {
+                              "id": 114,
+                              "name": "address",
+                              "nodeType": "ElementaryTypeName",
+                              "src": "668:7:1",
+                              "typeDescriptions": {}
+                            }
+                          },
+                          "id": 117,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "typeConversion",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "668:10:1",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "src": "656:22:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "hexValue": "5a65726f2061646472657373",
+                        "id": 119,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "680:14:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_535d7636857fb1ab3a4f159f2a66b9583ce224510b4368fa2453e15bee0bc833",
+                          "typeString": "literal_string \"Zero address\""
+                        },
+                        "value": "Zero address"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_535d7636857fb1ab3a4f159f2a66b9583ce224510b4368fa2453e15bee0bc833",
+                          "typeString": "literal_string \"Zero address\""
+                        }
+                      ],
+                      "id": 112,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "648:7:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 120,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "648:47:1",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 121,
+                  "nodeType": "ExpressionStatement",
+                  "src": "648:47:1"
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "baseExpression": {
+                          "id": 123,
+                          "name": "admins",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 61,
+                          "src": "713:6:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                            "typeString": "mapping(address => bool)"
+                          }
+                        },
+                        "id": 125,
+                        "indexExpression": {
+                          "id": 124,
+                          "name": "_address",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 107,
+                          "src": "720:8:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "713:16:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "hexValue": "4e6f7420616e2061646d696e",
+                        "id": 126,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "731:14:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_5f53099e044b88c99cc014ede5713cfdba96d95b088c34d5fa4406866af6c250",
+                          "typeString": "literal_string \"Not an admin\""
+                        },
+                        "value": "Not an admin"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_5f53099e044b88c99cc014ede5713cfdba96d95b088c34d5fa4406866af6c250",
+                          "typeString": "literal_string \"Not an admin\""
+                        }
+                      ],
+                      "id": 122,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "705:7:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 127,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "705:41:1",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 128,
+                  "nodeType": "ExpressionStatement",
+                  "src": "705:41:1"
+                },
+                {
+                  "expression": {
+                    "id": 133,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "baseExpression": {
+                        "id": 129,
+                        "name": "admins",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 61,
+                        "src": "757:6:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
+                          "typeString": "mapping(address => bool)"
+                        }
+                      },
+                      "id": 131,
+                      "indexExpression": {
+                        "id": 130,
+                        "name": "_address",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 107,
+                        "src": "764:8:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "757:16:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "hexValue": "74727565",
+                      "id": 132,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "bool",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "776:4:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bool",
+                        "typeString": "bool"
+                      },
+                      "value": "true"
+                    },
+                    "src": "757:23:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 134,
+                  "nodeType": "ExpressionStatement",
+                  "src": "757:23:1"
+                }
+              ]
+            },
+            "functionSelector": "2d345670",
+            "id": 136,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "id": 110,
+                "kind": "modifierInvocation",
+                "modifierName": {
+                  "id": 109,
+                  "name": "isAdmin",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 73,
+                  "src": "626:7:1"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "626:7:1"
+              }
+            ],
+            "name": "revokeAdmin",
+            "nameLocation": "589:11:1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 108,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 107,
+                  "mutability": "mutable",
+                  "name": "_address",
+                  "nameLocation": "609:8:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 136,
+                  "src": "601:16:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 106,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "601:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "600:18:1"
+            },
+            "returnParameters": {
+              "id": 111,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "638:0:1"
+            },
+            "scope": 166,
+            "src": "580:317:1",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 164,
+              "nodeType": "Block",
+              "src": "961:176:1",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "commonType": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "id": 149,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "id": 144,
+                          "name": "new_contract",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 138,
+                          "src": "979:12:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "!=",
+                        "rightExpression": {
+                          "arguments": [
+                            {
+                              "hexValue": "30",
+                              "id": 147,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "kind": "number",
+                              "lValueRequested": false,
+                              "nodeType": "Literal",
+                              "src": "1003:1:1",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_rational_0_by_1",
+                                "typeString": "int_const 0"
+                              },
+                              "value": "0"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_rational_0_by_1",
+                                "typeString": "int_const 0"
+                              }
+                            ],
+                            "id": 146,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "lValueRequested": false,
+                            "nodeType": "ElementaryTypeNameExpression",
+                            "src": "995:7:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_address_$",
+                              "typeString": "type(address)"
+                            },
+                            "typeName": {
+                              "id": 145,
+                              "name": "address",
+                              "nodeType": "ElementaryTypeName",
+                              "src": "995:7:1",
+                              "typeDescriptions": {}
+                            }
+                          },
+                          "id": 148,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "typeConversion",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "995:10:1",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "src": "979:26:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "hexValue": "5a65726f2061646472657373",
+                        "id": 150,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "1007:14:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_535d7636857fb1ab3a4f159f2a66b9583ce224510b4368fa2453e15bee0bc833",
+                          "typeString": "literal_string \"Zero address\""
+                        },
+                        "value": "Zero address"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_535d7636857fb1ab3a4f159f2a66b9583ce224510b4368fa2453e15bee0bc833",
+                          "typeString": "literal_string \"Zero address\""
+                        }
+                      ],
+                      "id": 143,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "971:7:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 151,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "971:51:1",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 152,
+                  "nodeType": "ExpressionStatement",
+                  "src": "971:51:1"
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "commonType": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "id": 156,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "id": 154,
+                          "name": "new_contract",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 138,
+                          "src": "1040:12:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "!=",
+                        "rightExpression": {
+                          "id": 155,
+                          "name": "current_contract",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 57,
+                          "src": "1056:16:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "src": "1040:32:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "hexValue": "53616d652061646472657373",
+                        "id": 157,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "1074:14:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_bfa611767777ec60b47ed1cf847ecef2b03f71d0bc82a3b234b2e8482496c520",
+                          "typeString": "literal_string \"Same address\""
+                        },
+                        "value": "Same address"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_bfa611767777ec60b47ed1cf847ecef2b03f71d0bc82a3b234b2e8482496c520",
+                          "typeString": "literal_string \"Same address\""
+                        }
+                      ],
+                      "id": 153,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        -18,
+                        -18
+                      ],
+                      "referencedDeclaration": -18,
+                      "src": "1032:7:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 158,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1032:57:1",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 159,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1032:57:1"
+                },
+                {
+                  "expression": {
+                    "id": 162,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 160,
+                      "name": "current_contract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 57,
+                      "src": "1099:16:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 161,
+                      "name": "new_contract",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 138,
+                      "src": "1118:12:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "1099:31:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 163,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1099:31:1"
+                }
+              ]
+            },
+            "functionSelector": "0900f010",
+            "id": 165,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "id": 141,
+                "kind": "modifierInvocation",
+                "modifierName": {
+                  "id": 140,
+                  "name": "isAdmin",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 73,
+                  "src": "949:7:1"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "949:7:1"
+              }
+            ],
+            "name": "upgrade",
+            "nameLocation": "912:7:1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 139,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 138,
+                  "mutability": "mutable",
+                  "name": "new_contract",
+                  "nameLocation": "928:12:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 165,
+                  "src": "920:20:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 137,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "920:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "919:22:1"
+            },
+            "returnParameters": {
+              "id": 142,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "961:0:1"
+            },
+            "scope": 166,
+            "src": "903:234:1",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 167,
+        "src": "139:1000:1",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:1107:1"
+  },
+  "bytecode": "608060405234801561001057600080fd5b506103de806100206000396000f3fe608060405234801561001057600080fd5b50600436106100575760003560e01c80630900f0101461005c5780632d34567014610071578063429b62e514610084578063628806ef146100bc578063808dc323146100cf575b600080fd5b61006f61006a36600461032c565b6100fa565b005b61006f61007f36600461032c565b6101c7565b6100a761009236600461032c565b60016020526000908152604090205460ff1681565b60405190151581526020015b60405180910390f35b61006f6100ca36600461032c565b61027b565b6000546100e2906001600160a01b031681565b6040516001600160a01b0390911681526020016100b3565b3360009081526001602052604090205460ff166101325760405162461bcd60e51b81526004016101299061035c565b60405180910390fd5b6001600160a01b0381166101585760405162461bcd60e51b815260040161012990610382565b6000546001600160a01b03828116911614156101a55760405162461bcd60e51b815260206004820152600c60248201526b53616d65206164647265737360a01b6044820152606401610129565b600080546001600160a01b0319166001600160a01b0392909216919091179055565b3360009081526001602052604090205460ff166101f65760405162461bcd60e51b81526004016101299061035c565b6001600160a01b03811661021c5760405162461bcd60e51b815260040161012990610382565b6001600160a01b03811660009081526001602052604090205460ff166102545760405162461bcd60e51b81526004016101299061035c565b6001600160a01b03166000908152600160208190526040909120805460ff19169091179055565b3360009081526001602052604090205460ff166102aa5760405162461bcd60e51b81526004016101299061035c565b6001600160a01b0381166102d05760405162461bcd60e51b815260040161012990610382565b6001600160a01b03811660009081526001602052604090205460ff16156102545760405162461bcd60e51b815260206004820152601060248201526f20b63932b0b23c9030b71030b236b4b760811b6044820152606401610129565b60006020828403121561033e57600080fd5b81356001600160a01b038116811461035557600080fd5b9392505050565b6020808252600c908201526b2737ba1030b71030b236b4b760a11b604082015260600190565b6020808252600c908201526b5a65726f206164647265737360a01b60408201526060019056fea26469706673582212201ed80864d5da72ca1cf3e06d0be5f27532de541304e97ea7d914b0daf445e1a564736f6c634300080c0033",
+  "bytecodeSha1": "312615afa093dd1f406e5a39635836e3e3a3dc35",
+  "compiler": {
+    "evm_version": "istanbul",
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "version": "0.8.12+commit.f00d7308"
+  },
+  "contractName": "Admin",
+  "coverageMap": {
+    "branches": {
+      "1": {
+        "Admin.acceptAdmin": {
+          "12": [
+            303,
+            321,
+            true
+          ],
+          "13": [
+            438,
+            460,
+            true
+          ],
+          "14": [
+            495,
+            512,
+            true
+          ]
+        },
+        "Admin.revokeAdmin": {
+          "10": [
+            656,
+            678,
+            true
+          ],
+          "11": [
+            713,
+            729,
+            true
+          ]
+        },
+        "Admin.upgrade": {
+          "8": [
+            979,
+            1005,
+            true
+          ],
+          "9": [
+            1040,
+            1072,
+            true
+          ]
+        }
+      }
+    },
+    "statements": {
+      "1": {
+        "Admin.acceptAdmin": {
+          "6": [
+            430,
+            477
+          ],
+          "7": [
+            487,
+            533
+          ]
+        },
+        "Admin.revokeAdmin": {
+          "3": [
+            648,
+            695
+          ],
+          "4": [
+            705,
+            746
+          ],
+          "5": [
+            757,
+            780
+          ]
+        },
+        "Admin.upgrade": {
+          "0": [
+            971,
+            1022
+          ],
+          "1": [
+            1032,
+            1089
+          ],
+          "2": [
+            1099,
+            1130
+          ]
+        }
+      }
+    }
+  },
+  "dependencies": [],
+  "deployedBytecode": "608060405234801561001057600080fd5b50600436106100575760003560e01c80630900f0101461005c5780632d34567014610071578063429b62e514610084578063628806ef146100bc578063808dc323146100cf575b600080fd5b61006f61006a36600461032c565b6100fa565b005b61006f61007f36600461032c565b6101c7565b6100a761009236600461032c565b60016020526000908152604090205460ff1681565b60405190151581526020015b60405180910390f35b61006f6100ca36600461032c565b61027b565b6000546100e2906001600160a01b031681565b6040516001600160a01b0390911681526020016100b3565b3360009081526001602052604090205460ff166101325760405162461bcd60e51b81526004016101299061035c565b60405180910390fd5b6001600160a01b0381166101585760405162461bcd60e51b815260040161012990610382565b6000546001600160a01b03828116911614156101a55760405162461bcd60e51b815260206004820152600c60248201526b53616d65206164647265737360a01b6044820152606401610129565b600080546001600160a01b0319166001600160a01b0392909216919091179055565b3360009081526001602052604090205460ff166101f65760405162461bcd60e51b81526004016101299061035c565b6001600160a01b03811661021c5760405162461bcd60e51b815260040161012990610382565b6001600160a01b03811660009081526001602052604090205460ff166102545760405162461bcd60e51b81526004016101299061035c565b6001600160a01b03166000908152600160208190526040909120805460ff19169091179055565b3360009081526001602052604090205460ff166102aa5760405162461bcd60e51b81526004016101299061035c565b6001600160a01b0381166102d05760405162461bcd60e51b815260040161012990610382565b6001600160a01b03811660009081526001602052604090205460ff16156102545760405162461bcd60e51b815260206004820152601060248201526f20b63932b0b23c9030b71030b236b4b760811b6044820152606401610129565b60006020828403121561033e57600080fd5b81356001600160a01b038116811461035557600080fd5b9392505050565b6020808252600c908201526b2737ba1030b71030b236b4b760a11b604082015260600190565b6020808252600c908201526b5a65726f206164647265737360a01b60408201526060019056fea26469706673582212201ed80864d5da72ca1cf3e06d0be5f27532de541304e97ea7d914b0daf445e1a564736f6c634300080c0033",
+  "deployedSourceMap": "139:1000:1:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;903:234;;;;;;:::i;:::-;;:::i;:::-;;580:317;;;;;;:::i;:::-;;:::i;217:38::-;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;470:14:4;;463:22;445:41;;433:2;418:18;217:38:1;;;;;;;;362:212;;;;;;:::i;:::-;;:::i;160:31::-;;;;;-1:-1:-1;;;;;160:31:1;;;;;;-1:-1:-1;;;;;661:32:4;;;643:51;;631:2;616:18;160:31:1;497:203:4;903:234:1;310:10;303:18;;;;:6;:18;;;;;;;;295:43;;;;-1:-1:-1;;;295:43:1;;;;;;;:::i;:::-;;;;;;;;;-1:-1:-1;;;;;979:26:1;::::1;971:51;;;;-1:-1:-1::0;;;971:51:1::1;;;;;;;:::i;:::-;1056:16;::::0;-1:-1:-1;;;;;1040:32:1;;::::1;1056:16:::0;::::1;1040:32;;1032:57;;;::::0;-1:-1:-1;;;1032:57:1;;1589:2:4;1032:57:1::1;::::0;::::1;1571:21:4::0;1628:2;1608:18;;;1601:30;-1:-1:-1;;;1647:18:4;;;1640:42;1699:18;;1032:57:1::1;1387:336:4::0;1032:57:1::1;1099:16;:31:::0;;-1:-1:-1;;;;;;1099:31:1::1;-1:-1:-1::0;;;;;1099:31:1;;;::::1;::::0;;;::::1;::::0;;903:234::o;580:317::-;310:10;303:18;;;;:6;:18;;;;;;;;295:43;;;;-1:-1:-1;;;295:43:1;;;;;;;:::i;:::-;-1:-1:-1;;;;;656:22:1;::::1;648:47;;;;-1:-1:-1::0;;;648:47:1::1;;;;;;;:::i;:::-;-1:-1:-1::0;;;;;713:16:1;::::1;;::::0;;;:6:::1;:16;::::0;;;;;::::1;;705:41;;;;-1:-1:-1::0;;;705:41:1::1;;;;;;;:::i;:::-;-1:-1:-1::0;;;;;757:16:1::1;;::::0;;;776:4:::1;757:16;::::0;;;;;;;:23;;-1:-1:-1;;757:23:1::1;::::0;;::::1;::::0;;580:317::o;362:212::-;310:10;303:18;;;;:6;:18;;;;;;;;295:43;;;;-1:-1:-1;;;295:43:1;;;;;;;:::i;:::-;-1:-1:-1;;;;;438:22:1;::::1;430:47;;;;-1:-1:-1::0;;;430:47:1::1;;;;;;;:::i;:::-;-1:-1:-1::0;;;;;496:16:1;::::1;;::::0;;;:6:::1;:16;::::0;;;;;::::1;;495:17;487:46;;;::::0;-1:-1:-1;;;487:46:1;;1930:2:4;487:46:1::1;::::0;::::1;1912:21:4::0;1969:2;1949:18;;;1942:30;-1:-1:-1;;;1988:18:4;;;1981:46;2044:18;;487:46:1::1;1728:340:4::0;14:286;73:6;126:2;114:9;105:7;101:23;97:32;94:52;;;142:1;139;132:12;94:52;168:23;;-1:-1:-1;;;;;220:31:4;;210:42;;200:70;;266:1;263;256:12;200:70;289:5;14:286;-1:-1:-1;;;14:286:4:o;705:336::-;907:2;889:21;;;946:2;926:18;;;919:30;-1:-1:-1;;;980:2:4;965:18;;958:42;1032:2;1017:18;;705:336::o;1046:::-;1248:2;1230:21;;;1287:2;1267:18;;;1260:30;-1:-1:-1;;;1321:2:4;1306:18;;1299:42;1373:2;1358:18;;1046:336::o",
+  "language": "Solidity",
+  "natspec": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "offset": [
+    139,
+    1139
+  ],
+  "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH2 0x10 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH2 0x57 JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x900F010 EQ PUSH2 0x5C JUMPI DUP1 PUSH4 0x2D345670 EQ PUSH2 0x71 JUMPI DUP1 PUSH4 0x429B62E5 EQ PUSH2 0x84 JUMPI DUP1 PUSH4 0x628806EF EQ PUSH2 0xBC JUMPI DUP1 PUSH4 0x808DC323 EQ PUSH2 0xCF JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x6F PUSH2 0x6A CALLDATASIZE PUSH1 0x4 PUSH2 0x32C JUMP JUMPDEST PUSH2 0xFA JUMP JUMPDEST STOP JUMPDEST PUSH2 0x6F PUSH2 0x7F CALLDATASIZE PUSH1 0x4 PUSH2 0x32C JUMP JUMPDEST PUSH2 0x1C7 JUMP JUMPDEST PUSH2 0xA7 PUSH2 0x92 CALLDATASIZE PUSH1 0x4 PUSH2 0x32C JUMP JUMPDEST PUSH1 0x1 PUSH1 0x20 MSTORE PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD PUSH1 0xFF AND DUP2 JUMP JUMPDEST PUSH1 0x40 MLOAD SWAP1 ISZERO ISZERO DUP2 MSTORE PUSH1 0x20 ADD JUMPDEST PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST PUSH2 0x6F PUSH2 0xCA CALLDATASIZE PUSH1 0x4 PUSH2 0x32C JUMP JUMPDEST PUSH2 0x27B JUMP JUMPDEST PUSH1 0x0 SLOAD PUSH2 0xE2 SWAP1 PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND DUP2 JUMP JUMPDEST PUSH1 0x40 MLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP1 SWAP2 AND DUP2 MSTORE PUSH1 0x20 ADD PUSH2 0xB3 JUMP JUMPDEST CALLER PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD PUSH1 0xFF AND PUSH2 0x132 JUMPI PUSH1 0x40 MLOAD PUSH3 0x461BCD PUSH1 0xE5 SHL DUP2 MSTORE PUSH1 0x4 ADD PUSH2 0x129 SWAP1 PUSH2 0x35C JUMP JUMPDEST PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 REVERT JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 AND PUSH2 0x158 JUMPI PUSH1 0x40 MLOAD PUSH3 0x461BCD PUSH1 0xE5 SHL DUP2 MSTORE PUSH1 0x4 ADD PUSH2 0x129 SWAP1 PUSH2 0x382 JUMP JUMPDEST PUSH1 0x0 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP3 DUP2 AND SWAP2 AND EQ ISZERO PUSH2 0x1A5 JUMPI PUSH1 0x40 MLOAD PUSH3 0x461BCD PUSH1 0xE5 SHL DUP2 MSTORE PUSH1 0x20 PUSH1 0x4 DUP3 ADD MSTORE PUSH1 0xC PUSH1 0x24 DUP3 ADD MSTORE PUSH12 0x53616D652061646472657373 PUSH1 0xA0 SHL PUSH1 0x44 DUP3 ADD MSTORE PUSH1 0x64 ADD PUSH2 0x129 JUMP JUMPDEST PUSH1 0x0 DUP1 SLOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB NOT AND PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB SWAP3 SWAP1 SWAP3 AND SWAP2 SWAP1 SWAP2 OR SWAP1 SSTORE JUMP JUMPDEST CALLER PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD PUSH1 0xFF AND PUSH2 0x1F6 JUMPI PUSH1 0x40 MLOAD PUSH3 0x461BCD PUSH1 0xE5 SHL DUP2 MSTORE PUSH1 0x4 ADD PUSH2 0x129 SWAP1 PUSH2 0x35C JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 AND PUSH2 0x21C JUMPI PUSH1 0x40 MLOAD PUSH3 0x461BCD PUSH1 0xE5 SHL DUP2 MSTORE PUSH1 0x4 ADD PUSH2 0x129 SWAP1 PUSH2 0x382 JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 AND PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD PUSH1 0xFF AND PUSH2 0x254 JUMPI PUSH1 0x40 MLOAD PUSH3 0x461BCD PUSH1 0xE5 SHL DUP2 MSTORE PUSH1 0x4 ADD PUSH2 0x129 SWAP1 PUSH2 0x35C JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB AND PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 DUP2 SWAP1 MSTORE PUSH1 0x40 SWAP1 SWAP2 KECCAK256 DUP1 SLOAD PUSH1 0xFF NOT AND SWAP1 SWAP2 OR SWAP1 SSTORE JUMP JUMPDEST CALLER PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD PUSH1 0xFF AND PUSH2 0x2AA JUMPI PUSH1 0x40 MLOAD PUSH3 0x461BCD PUSH1 0xE5 SHL DUP2 MSTORE PUSH1 0x4 ADD PUSH2 0x129 SWAP1 PUSH2 0x35C JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 AND PUSH2 0x2D0 JUMPI PUSH1 0x40 MLOAD PUSH3 0x461BCD PUSH1 0xE5 SHL DUP2 MSTORE PUSH1 0x4 ADD PUSH2 0x129 SWAP1 PUSH2 0x382 JUMP JUMPDEST PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 AND PUSH1 0x0 SWAP1 DUP2 MSTORE PUSH1 0x1 PUSH1 0x20 MSTORE PUSH1 0x40 SWAP1 KECCAK256 SLOAD PUSH1 0xFF AND ISZERO PUSH2 0x254 JUMPI PUSH1 0x40 MLOAD PUSH3 0x461BCD PUSH1 0xE5 SHL DUP2 MSTORE PUSH1 0x20 PUSH1 0x4 DUP3 ADD MSTORE PUSH1 0x10 PUSH1 0x24 DUP3 ADD MSTORE PUSH16 0x20B63932B0B23C9030B71030B236B4B7 PUSH1 0x81 SHL PUSH1 0x44 DUP3 ADD MSTORE PUSH1 0x64 ADD PUSH2 0x129 JUMP JUMPDEST PUSH1 0x0 PUSH1 0x20 DUP3 DUP5 SUB SLT ISZERO PUSH2 0x33E JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST DUP2 CALLDATALOAD PUSH1 0x1 PUSH1 0x1 PUSH1 0xA0 SHL SUB DUP2 AND DUP2 EQ PUSH2 0x355 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST SWAP4 SWAP3 POP POP POP JUMP JUMPDEST PUSH1 0x20 DUP1 DUP3 MSTORE PUSH1 0xC SWAP1 DUP3 ADD MSTORE PUSH12 0x2737BA1030B71030B236B4B7 PUSH1 0xA1 SHL PUSH1 0x40 DUP3 ADD MSTORE PUSH1 0x60 ADD SWAP1 JUMP JUMPDEST PUSH1 0x20 DUP1 DUP3 MSTORE PUSH1 0xC SWAP1 DUP3 ADD MSTORE PUSH12 0x5A65726F2061646472657373 PUSH1 0xA0 SHL PUSH1 0x40 DUP3 ADD MSTORE PUSH1 0x60 ADD SWAP1 JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0x1E 0xD8 ADDMOD PUSH5 0xD5DA72CA1C RETURN 0xE0 PUSH14 0xBE5F27532DE541304E97EA7D914 0xB0 0xDA DELEGATECALL GASLIMIT 0xE1 0xA5 PUSH5 0x736F6C6343 STOP ADDMOD 0xC STOP CALLER ",
+  "pcMap": {
+    "0": {
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x80"
+    },
+    "2": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x40"
+    },
+    "4": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "MSTORE",
+      "path": "1"
+    },
+    "5": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "CALLVALUE",
+      "path": "1"
+    },
+    "6": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "DUP1",
+      "path": "1"
+    },
+    "7": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "ISZERO",
+      "path": "1"
+    },
+    "8": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x10"
+    },
+    "11": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "JUMPI",
+      "path": "1"
+    },
+    "12": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x0"
+    },
+    "14": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "DUP1",
+      "path": "1"
+    },
+    "15": {
+      "dev": "Cannot send ether to nonpayable function",
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "REVERT",
+      "path": "1"
+    },
+    "16": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "JUMPDEST",
+      "path": "1"
+    },
+    "17": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "POP",
+      "path": "1"
+    },
+    "18": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x4"
+    },
+    "20": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "CALLDATASIZE",
+      "path": "1"
+    },
+    "21": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "LT",
+      "path": "1"
+    },
+    "22": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x57"
+    },
+    "25": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "JUMPI",
+      "path": "1"
+    },
+    "26": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x0"
+    },
+    "28": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "CALLDATALOAD",
+      "path": "1"
+    },
+    "29": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0xE0"
+    },
+    "31": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "SHR",
+      "path": "1"
+    },
+    "32": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "DUP1",
+      "path": "1"
+    },
+    "33": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "PUSH4",
+      "path": "1",
+      "value": "0x900F010"
+    },
+    "38": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "EQ",
+      "path": "1"
+    },
+    "39": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x5C"
+    },
+    "42": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "JUMPI",
+      "path": "1"
+    },
+    "43": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "DUP1",
+      "path": "1"
+    },
+    "44": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "PUSH4",
+      "path": "1",
+      "value": "0x2D345670"
+    },
+    "49": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "EQ",
+      "path": "1"
+    },
+    "50": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x71"
+    },
+    "53": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "JUMPI",
+      "path": "1"
+    },
+    "54": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "DUP1",
+      "path": "1"
+    },
+    "55": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "PUSH4",
+      "path": "1",
+      "value": "0x429B62E5"
+    },
+    "60": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "EQ",
+      "path": "1"
+    },
+    "61": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x84"
+    },
+    "64": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "JUMPI",
+      "path": "1"
+    },
+    "65": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "DUP1",
+      "path": "1"
+    },
+    "66": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "PUSH4",
+      "path": "1",
+      "value": "0x628806EF"
+    },
+    "71": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "EQ",
+      "path": "1"
+    },
+    "72": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0xBC"
+    },
+    "75": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "JUMPI",
+      "path": "1"
+    },
+    "76": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "DUP1",
+      "path": "1"
+    },
+    "77": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "PUSH4",
+      "path": "1",
+      "value": "0x808DC323"
+    },
+    "82": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "EQ",
+      "path": "1"
+    },
+    "83": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0xCF"
+    },
+    "86": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "JUMPI",
+      "path": "1"
+    },
+    "87": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "JUMPDEST",
+      "path": "1"
+    },
+    "88": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x0"
+    },
+    "90": {
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "DUP1",
+      "path": "1"
+    },
+    "91": {
+      "first_revert": true,
+      "fn": null,
+      "offset": [
+        139,
+        1139
+      ],
+      "op": "REVERT",
+      "path": "1"
+    },
+    "92": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        903,
+        1137
+      ],
+      "op": "JUMPDEST",
+      "path": "1"
+    },
+    "93": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        903,
+        1137
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x6F"
+    },
+    "96": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        903,
+        1137
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x6A"
+    },
+    "99": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        903,
+        1137
+      ],
+      "op": "CALLDATASIZE",
+      "path": "1"
+    },
+    "100": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        903,
+        1137
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x4"
+    },
+    "102": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        903,
+        1137
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x32C"
+    },
+    "105": {
+      "fn": "Admin.upgrade",
+      "jump": "i",
+      "offset": [
+        903,
+        1137
+      ],
+      "op": "JUMP",
+      "path": "1"
+    },
+    "106": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        903,
+        1137
+      ],
+      "op": "JUMPDEST",
+      "path": "1"
+    },
+    "107": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        903,
+        1137
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0xFA"
+    },
+    "110": {
+      "fn": "Admin.upgrade",
+      "jump": "i",
+      "offset": [
+        903,
+        1137
+      ],
+      "op": "JUMP",
+      "path": "1"
+    },
+    "111": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        903,
+        1137
+      ],
+      "op": "JUMPDEST",
+      "path": "1"
+    },
+    "112": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        903,
+        1137
+      ],
+      "op": "STOP",
+      "path": "1"
+    },
+    "113": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        580,
+        897
+      ],
+      "op": "JUMPDEST",
+      "path": "1"
+    },
+    "114": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        580,
+        897
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x6F"
+    },
+    "117": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        580,
+        897
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x7F"
+    },
+    "120": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        580,
+        897
+      ],
+      "op": "CALLDATASIZE",
+      "path": "1"
+    },
+    "121": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        580,
+        897
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x4"
+    },
+    "123": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        580,
+        897
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x32C"
+    },
+    "126": {
+      "fn": "Admin.revokeAdmin",
+      "jump": "i",
+      "offset": [
+        580,
+        897
+      ],
+      "op": "JUMP",
+      "path": "1"
+    },
+    "127": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        580,
+        897
+      ],
+      "op": "JUMPDEST",
+      "path": "1"
+    },
+    "128": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        580,
+        897
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x1C7"
+    },
+    "131": {
+      "fn": "Admin.revokeAdmin",
+      "jump": "i",
+      "offset": [
+        580,
+        897
+      ],
+      "op": "JUMP",
+      "path": "1"
+    },
+    "132": {
+      "offset": [
+        217,
+        255
+      ],
+      "op": "JUMPDEST",
+      "path": "1"
+    },
+    "133": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        217,
+        255
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0xA7"
+    },
+    "136": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        217,
+        255
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x92"
+    },
+    "139": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        217,
+        255
+      ],
+      "op": "CALLDATASIZE",
+      "path": "1"
+    },
+    "140": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        217,
+        255
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x4"
+    },
+    "142": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        217,
+        255
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x32C"
+    },
+    "145": {
+      "fn": "Admin.revokeAdmin",
+      "jump": "i",
+      "offset": [
+        217,
+        255
+      ],
+      "op": "JUMP",
+      "path": "1"
+    },
+    "146": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        217,
+        255
+      ],
+      "op": "JUMPDEST",
+      "path": "1"
+    },
+    "147": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        217,
+        255
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x1"
+    },
+    "149": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        217,
+        255
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x20"
+    },
+    "151": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        217,
+        255
+      ],
+      "op": "MSTORE",
+      "path": "1"
+    },
+    "152": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        217,
+        255
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x0"
+    },
+    "154": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        217,
+        255
+      ],
+      "op": "SWAP1",
+      "path": "1"
+    },
+    "155": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        217,
+        255
+      ],
+      "op": "DUP2",
+      "path": "1"
+    },
+    "156": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        217,
+        255
+      ],
+      "op": "MSTORE",
+      "path": "1"
+    },
+    "157": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        217,
+        255
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x40"
+    },
+    "159": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        217,
+        255
+      ],
+      "op": "SWAP1",
+      "path": "1"
+    },
+    "160": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        217,
+        255
+      ],
+      "op": "KECCAK256",
+      "path": "1"
+    },
+    "161": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        217,
+        255
+      ],
+      "op": "SLOAD",
+      "path": "1"
+    },
+    "162": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        217,
+        255
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0xFF"
+    },
+    "164": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        217,
+        255
+      ],
+      "op": "AND",
+      "path": "1"
+    },
+    "165": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        217,
+        255
+      ],
+      "op": "DUP2",
+      "path": "1"
+    },
+    "166": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        217,
+        255
+      ],
+      "op": "JUMP",
+      "path": "1"
+    },
+    "167": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        217,
+        255
+      ],
+      "op": "JUMPDEST",
+      "path": "1"
+    },
+    "168": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        217,
+        255
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x40"
+    },
+    "170": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        217,
+        255
+      ],
+      "op": "MLOAD",
+      "path": "1"
+    },
+    "171": {
+      "op": "SWAP1"
+    },
+    "172": {
+      "op": "ISZERO"
+    },
+    "173": {
+      "op": "ISZERO"
+    },
+    "174": {
+      "op": "DUP2"
+    },
+    "175": {
+      "op": "MSTORE"
+    },
+    "176": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "178": {
+      "op": "ADD"
+    },
+    "179": {
+      "offset": [
+        217,
+        255
+      ],
+      "op": "JUMPDEST",
+      "path": "1"
+    },
+    "180": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        217,
+        255
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x40"
+    },
+    "182": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        217,
+        255
+      ],
+      "op": "MLOAD",
+      "path": "1"
+    },
+    "183": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        217,
+        255
+      ],
+      "op": "DUP1",
+      "path": "1"
+    },
+    "184": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        217,
+        255
+      ],
+      "op": "SWAP2",
+      "path": "1"
+    },
+    "185": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        217,
+        255
+      ],
+      "op": "SUB",
+      "path": "1"
+    },
+    "186": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        217,
+        255
+      ],
+      "op": "SWAP1",
+      "path": "1"
+    },
+    "187": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        217,
+        255
+      ],
+      "op": "RETURN",
+      "path": "1"
+    },
+    "188": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        362,
+        574
+      ],
+      "op": "JUMPDEST",
+      "path": "1"
+    },
+    "189": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        362,
+        574
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x6F"
+    },
+    "192": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        362,
+        574
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0xCA"
+    },
+    "195": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        362,
+        574
+      ],
+      "op": "CALLDATASIZE",
+      "path": "1"
+    },
+    "196": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        362,
+        574
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x4"
+    },
+    "198": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        362,
+        574
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x32C"
+    },
+    "201": {
+      "fn": "Admin.acceptAdmin",
+      "jump": "i",
+      "offset": [
+        362,
+        574
+      ],
+      "op": "JUMP",
+      "path": "1"
+    },
+    "202": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        362,
+        574
+      ],
+      "op": "JUMPDEST",
+      "path": "1"
+    },
+    "203": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        362,
+        574
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x27B"
+    },
+    "206": {
+      "fn": "Admin.acceptAdmin",
+      "jump": "i",
+      "offset": [
+        362,
+        574
+      ],
+      "op": "JUMP",
+      "path": "1"
+    },
+    "207": {
+      "offset": [
+        160,
+        191
+      ],
+      "op": "JUMPDEST",
+      "path": "1"
+    },
+    "208": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        160,
+        191
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x0"
+    },
+    "210": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        160,
+        191
+      ],
+      "op": "SLOAD",
+      "path": "1"
+    },
+    "211": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        160,
+        191
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0xE2"
+    },
+    "214": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        160,
+        191
+      ],
+      "op": "SWAP1",
+      "path": "1"
+    },
+    "215": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "217": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "219": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "221": {
+      "op": "SHL"
+    },
+    "222": {
+      "op": "SUB"
+    },
+    "223": {
+      "offset": [
+        160,
+        191
+      ],
+      "op": "AND",
+      "path": "1"
+    },
+    "224": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        160,
+        191
+      ],
+      "op": "DUP2",
+      "path": "1"
+    },
+    "225": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        160,
+        191
+      ],
+      "op": "JUMP",
+      "path": "1"
+    },
+    "226": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        160,
+        191
+      ],
+      "op": "JUMPDEST",
+      "path": "1"
+    },
+    "227": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        160,
+        191
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x40"
+    },
+    "229": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        160,
+        191
+      ],
+      "op": "MLOAD",
+      "path": "1"
+    },
+    "230": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "232": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "234": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "236": {
+      "op": "SHL"
+    },
+    "237": {
+      "op": "SUB"
+    },
+    "238": {
+      "op": "SWAP1"
+    },
+    "239": {
+      "op": "SWAP2"
+    },
+    "240": {
+      "op": "AND"
+    },
+    "241": {
+      "op": "DUP2"
+    },
+    "242": {
+      "op": "MSTORE"
+    },
+    "243": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "245": {
+      "op": "ADD"
+    },
+    "246": {
+      "offset": [
+        160,
+        191
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0xB3"
+    },
+    "249": {
+      "op": "JUMP"
+    },
+    "250": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        903,
+        1137
+      ],
+      "op": "JUMPDEST",
+      "path": "1"
+    },
+    "251": {
+      "offset": [
+        310,
+        320
+      ],
+      "op": "CALLER",
+      "path": "1"
+    },
+    "252": {
+      "offset": [
+        303,
+        321
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x0"
+    },
+    "254": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        303,
+        321
+      ],
+      "op": "SWAP1",
+      "path": "1"
+    },
+    "255": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        303,
+        321
+      ],
+      "op": "DUP2",
+      "path": "1"
+    },
+    "256": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        303,
+        321
+      ],
+      "op": "MSTORE",
+      "path": "1"
+    },
+    "257": {
+      "offset": [
+        303,
+        309
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x1"
+    },
+    "259": {
+      "offset": [
+        303,
+        321
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x20"
+    },
+    "261": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        303,
+        321
+      ],
+      "op": "MSTORE",
+      "path": "1"
+    },
+    "262": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        303,
+        321
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x40"
+    },
+    "264": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        303,
+        321
+      ],
+      "op": "SWAP1",
+      "path": "1"
+    },
+    "265": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        303,
+        321
+      ],
+      "op": "KECCAK256",
+      "path": "1"
+    },
+    "266": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        303,
+        321
+      ],
+      "op": "SLOAD",
+      "path": "1"
+    },
+    "267": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        303,
+        321
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0xFF"
+    },
+    "269": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        303,
+        321
+      ],
+      "op": "AND",
+      "path": "1"
+    },
+    "270": {
+      "offset": [
+        295,
+        338
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x132"
+    },
+    "273": {
+      "offset": [
+        295,
+        338
+      ],
+      "op": "JUMPI",
+      "path": "1"
+    },
+    "274": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x40"
+    },
+    "276": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "MLOAD",
+      "path": "1"
+    },
+    "277": {
+      "op": "PUSH3",
+      "value": "0x461BCD"
+    },
+    "281": {
+      "op": "PUSH1",
+      "value": "0xE5"
+    },
+    "283": {
+      "op": "SHL"
+    },
+    "284": {
+      "offset": [
+        295,
+        338
+      ],
+      "op": "DUP2",
+      "path": "1"
+    },
+    "285": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "MSTORE",
+      "path": "1"
+    },
+    "286": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x4"
+    },
+    "288": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "ADD",
+      "path": "1"
+    },
+    "289": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x129"
+    },
+    "292": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "SWAP1",
+      "path": "1"
+    },
+    "293": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x35C"
+    },
+    "296": {
+      "fn": "Admin.upgrade",
+      "jump": "i",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "JUMP",
+      "path": "1"
+    },
+    "297": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "JUMPDEST",
+      "path": "1"
+    },
+    "298": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x40"
+    },
+    "300": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "MLOAD",
+      "path": "1"
+    },
+    "301": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "DUP1",
+      "path": "1"
+    },
+    "302": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "SWAP2",
+      "path": "1"
+    },
+    "303": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "SUB",
+      "path": "1"
+    },
+    "304": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "SWAP1",
+      "path": "1"
+    },
+    "305": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "REVERT",
+      "optimizer_revert": true,
+      "path": "1"
+    },
+    "306": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "JUMPDEST",
+      "path": "1"
+    },
+    "307": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "309": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "311": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "313": {
+      "op": "SHL"
+    },
+    "314": {
+      "op": "SUB"
+    },
+    "315": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        979,
+        1005
+      ],
+      "op": "DUP2",
+      "path": "1",
+      "statement": 0
+    },
+    "316": {
+      "branch": 8,
+      "fn": "Admin.upgrade",
+      "offset": [
+        979,
+        1005
+      ],
+      "op": "AND",
+      "path": "1"
+    },
+    "317": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        971,
+        1022
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x158"
+    },
+    "320": {
+      "branch": 8,
+      "fn": "Admin.upgrade",
+      "offset": [
+        971,
+        1022
+      ],
+      "op": "JUMPI",
+      "path": "1"
+    },
+    "321": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        971,
+        1022
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x40"
+    },
+    "323": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        971,
+        1022
+      ],
+      "op": "MLOAD",
+      "path": "1"
+    },
+    "324": {
+      "op": "PUSH3",
+      "value": "0x461BCD"
+    },
+    "328": {
+      "op": "PUSH1",
+      "value": "0xE5"
+    },
+    "330": {
+      "op": "SHL"
+    },
+    "331": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        971,
+        1022
+      ],
+      "op": "DUP2",
+      "path": "1"
+    },
+    "332": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        971,
+        1022
+      ],
+      "op": "MSTORE",
+      "path": "1"
+    },
+    "333": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        971,
+        1022
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x4"
+    },
+    "335": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        971,
+        1022
+      ],
+      "op": "ADD",
+      "path": "1"
+    },
+    "336": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        971,
+        1022
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x129"
+    },
+    "339": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        971,
+        1022
+      ],
+      "op": "SWAP1",
+      "path": "1"
+    },
+    "340": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        971,
+        1022
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x382"
+    },
+    "343": {
+      "fn": "Admin.upgrade",
+      "jump": "i",
+      "offset": [
+        971,
+        1022
+      ],
+      "op": "JUMP",
+      "path": "1"
+    },
+    "344": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        971,
+        1022
+      ],
+      "op": "JUMPDEST",
+      "path": "1"
+    },
+    "345": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        1056,
+        1072
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "statement": 1,
+      "value": "0x0"
+    },
+    "347": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        1056,
+        1072
+      ],
+      "op": "SLOAD",
+      "path": "1"
+    },
+    "348": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "350": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "352": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "354": {
+      "op": "SHL"
+    },
+    "355": {
+      "op": "SUB"
+    },
+    "356": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        1040,
+        1072
+      ],
+      "op": "DUP3",
+      "path": "1"
+    },
+    "357": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        1040,
+        1072
+      ],
+      "op": "DUP2",
+      "path": "1"
+    },
+    "358": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        1040,
+        1072
+      ],
+      "op": "AND",
+      "path": "1"
+    },
+    "359": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        1056,
+        1072
+      ],
+      "op": "SWAP2",
+      "path": "1"
+    },
+    "360": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        1056,
+        1072
+      ],
+      "op": "AND",
+      "path": "1"
+    },
+    "361": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        1040,
+        1072
+      ],
+      "op": "EQ",
+      "path": "1"
+    },
+    "362": {
+      "branch": 9,
+      "fn": "Admin.upgrade",
+      "offset": [
+        1040,
+        1072
+      ],
+      "op": "ISZERO",
+      "path": "1"
+    },
+    "363": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        1032,
+        1089
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x1A5"
+    },
+    "366": {
+      "branch": 9,
+      "fn": "Admin.upgrade",
+      "offset": [
+        1032,
+        1089
+      ],
+      "op": "JUMPI",
+      "path": "1"
+    },
+    "367": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        1032,
+        1089
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x40"
+    },
+    "369": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        1032,
+        1089
+      ],
+      "op": "MLOAD",
+      "path": "1"
+    },
+    "370": {
+      "op": "PUSH3",
+      "value": "0x461BCD"
+    },
+    "374": {
+      "op": "PUSH1",
+      "value": "0xE5"
+    },
+    "376": {
+      "op": "SHL"
+    },
+    "377": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        1032,
+        1089
+      ],
+      "op": "DUP2",
+      "path": "1"
+    },
+    "378": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        1032,
+        1089
+      ],
+      "op": "MSTORE",
+      "path": "1"
+    },
+    "379": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "381": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        1032,
+        1089
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x4"
+    },
+    "383": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        1032,
+        1089
+      ],
+      "op": "DUP3",
+      "path": "1"
+    },
+    "384": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        1032,
+        1089
+      ],
+      "op": "ADD",
+      "path": "1"
+    },
+    "385": {
+      "op": "MSTORE"
+    },
+    "386": {
+      "op": "PUSH1",
+      "value": "0xC"
+    },
+    "388": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "390": {
+      "op": "DUP3"
+    },
+    "391": {
+      "op": "ADD"
+    },
+    "392": {
+      "op": "MSTORE"
+    },
+    "393": {
+      "op": "PUSH12",
+      "value": "0x53616D652061646472657373"
+    },
+    "406": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "408": {
+      "op": "SHL"
+    },
+    "409": {
+      "op": "PUSH1",
+      "value": "0x44"
+    },
+    "411": {
+      "op": "DUP3"
+    },
+    "412": {
+      "op": "ADD"
+    },
+    "413": {
+      "op": "MSTORE"
+    },
+    "414": {
+      "op": "PUSH1",
+      "value": "0x64"
+    },
+    "416": {
+      "op": "ADD"
+    },
+    "417": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        1032,
+        1089
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x129"
+    },
+    "420": {
+      "op": "JUMP"
+    },
+    "421": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        1032,
+        1089
+      ],
+      "op": "JUMPDEST",
+      "path": "1"
+    },
+    "422": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        1099,
+        1115
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "statement": 2,
+      "value": "0x0"
+    },
+    "424": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        1099,
+        1130
+      ],
+      "op": "DUP1",
+      "path": "1"
+    },
+    "425": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        1099,
+        1130
+      ],
+      "op": "SLOAD",
+      "path": "1"
+    },
+    "426": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "428": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "430": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "432": {
+      "op": "SHL"
+    },
+    "433": {
+      "op": "SUB"
+    },
+    "434": {
+      "op": "NOT"
+    },
+    "435": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        1099,
+        1130
+      ],
+      "op": "AND",
+      "path": "1"
+    },
+    "436": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "438": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "440": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "442": {
+      "op": "SHL"
+    },
+    "443": {
+      "op": "SUB"
+    },
+    "444": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        1099,
+        1130
+      ],
+      "op": "SWAP3",
+      "path": "1"
+    },
+    "445": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        1099,
+        1130
+      ],
+      "op": "SWAP1",
+      "path": "1"
+    },
+    "446": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        1099,
+        1130
+      ],
+      "op": "SWAP3",
+      "path": "1"
+    },
+    "447": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        1099,
+        1130
+      ],
+      "op": "AND",
+      "path": "1"
+    },
+    "448": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        1099,
+        1130
+      ],
+      "op": "SWAP2",
+      "path": "1"
+    },
+    "449": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        1099,
+        1130
+      ],
+      "op": "SWAP1",
+      "path": "1"
+    },
+    "450": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        1099,
+        1130
+      ],
+      "op": "SWAP2",
+      "path": "1"
+    },
+    "451": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        1099,
+        1130
+      ],
+      "op": "OR",
+      "path": "1"
+    },
+    "452": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        1099,
+        1130
+      ],
+      "op": "SWAP1",
+      "path": "1"
+    },
+    "453": {
+      "fn": "Admin.upgrade",
+      "offset": [
+        1099,
+        1130
+      ],
+      "op": "SSTORE",
+      "path": "1"
+    },
+    "454": {
+      "fn": "Admin.upgrade",
+      "jump": "o",
+      "offset": [
+        903,
+        1137
+      ],
+      "op": "JUMP",
+      "path": "1"
+    },
+    "455": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        580,
+        897
+      ],
+      "op": "JUMPDEST",
+      "path": "1"
+    },
+    "456": {
+      "offset": [
+        310,
+        320
+      ],
+      "op": "CALLER",
+      "path": "1"
+    },
+    "457": {
+      "offset": [
+        303,
+        321
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x0"
+    },
+    "459": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        303,
+        321
+      ],
+      "op": "SWAP1",
+      "path": "1"
+    },
+    "460": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        303,
+        321
+      ],
+      "op": "DUP2",
+      "path": "1"
+    },
+    "461": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        303,
+        321
+      ],
+      "op": "MSTORE",
+      "path": "1"
+    },
+    "462": {
+      "offset": [
+        303,
+        309
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x1"
+    },
+    "464": {
+      "offset": [
+        303,
+        321
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x20"
+    },
+    "466": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        303,
+        321
+      ],
+      "op": "MSTORE",
+      "path": "1"
+    },
+    "467": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        303,
+        321
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x40"
+    },
+    "469": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        303,
+        321
+      ],
+      "op": "SWAP1",
+      "path": "1"
+    },
+    "470": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        303,
+        321
+      ],
+      "op": "KECCAK256",
+      "path": "1"
+    },
+    "471": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        303,
+        321
+      ],
+      "op": "SLOAD",
+      "path": "1"
+    },
+    "472": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        303,
+        321
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0xFF"
+    },
+    "474": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        303,
+        321
+      ],
+      "op": "AND",
+      "path": "1"
+    },
+    "475": {
+      "offset": [
+        295,
+        338
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x1F6"
+    },
+    "478": {
+      "offset": [
+        295,
+        338
+      ],
+      "op": "JUMPI",
+      "path": "1"
+    },
+    "479": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x40"
+    },
+    "481": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "MLOAD",
+      "path": "1"
+    },
+    "482": {
+      "op": "PUSH3",
+      "value": "0x461BCD"
+    },
+    "486": {
+      "op": "PUSH1",
+      "value": "0xE5"
+    },
+    "488": {
+      "op": "SHL"
+    },
+    "489": {
+      "offset": [
+        295,
+        338
+      ],
+      "op": "DUP2",
+      "path": "1"
+    },
+    "490": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "MSTORE",
+      "path": "1"
+    },
+    "491": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x4"
+    },
+    "493": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "ADD",
+      "path": "1"
+    },
+    "494": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x129"
+    },
+    "497": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "SWAP1",
+      "path": "1"
+    },
+    "498": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x35C"
+    },
+    "501": {
+      "fn": "Admin.revokeAdmin",
+      "jump": "i",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "JUMP",
+      "path": "1"
+    },
+    "502": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "JUMPDEST",
+      "path": "1"
+    },
+    "503": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "505": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "507": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "509": {
+      "op": "SHL"
+    },
+    "510": {
+      "op": "SUB"
+    },
+    "511": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        656,
+        678
+      ],
+      "op": "DUP2",
+      "path": "1",
+      "statement": 3
+    },
+    "512": {
+      "branch": 10,
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        656,
+        678
+      ],
+      "op": "AND",
+      "path": "1"
+    },
+    "513": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        648,
+        695
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x21C"
+    },
+    "516": {
+      "branch": 10,
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        648,
+        695
+      ],
+      "op": "JUMPI",
+      "path": "1"
+    },
+    "517": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        648,
+        695
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x40"
+    },
+    "519": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        648,
+        695
+      ],
+      "op": "MLOAD",
+      "path": "1"
+    },
+    "520": {
+      "op": "PUSH3",
+      "value": "0x461BCD"
+    },
+    "524": {
+      "op": "PUSH1",
+      "value": "0xE5"
+    },
+    "526": {
+      "op": "SHL"
+    },
+    "527": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        648,
+        695
+      ],
+      "op": "DUP2",
+      "path": "1"
+    },
+    "528": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        648,
+        695
+      ],
+      "op": "MSTORE",
+      "path": "1"
+    },
+    "529": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        648,
+        695
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x4"
+    },
+    "531": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        648,
+        695
+      ],
+      "op": "ADD",
+      "path": "1"
+    },
+    "532": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        648,
+        695
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x129"
+    },
+    "535": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        648,
+        695
+      ],
+      "op": "SWAP1",
+      "path": "1"
+    },
+    "536": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        648,
+        695
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x382"
+    },
+    "539": {
+      "fn": "Admin.revokeAdmin",
+      "jump": "i",
+      "offset": [
+        648,
+        695
+      ],
+      "op": "JUMP",
+      "path": "1"
+    },
+    "540": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        648,
+        695
+      ],
+      "op": "JUMPDEST",
+      "path": "1"
+    },
+    "541": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "543": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "545": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "547": {
+      "op": "SHL"
+    },
+    "548": {
+      "op": "SUB"
+    },
+    "549": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        713,
+        729
+      ],
+      "op": "DUP2",
+      "path": "1",
+      "statement": 4
+    },
+    "550": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        713,
+        729
+      ],
+      "op": "AND",
+      "path": "1"
+    },
+    "551": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        713,
+        729
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x0"
+    },
+    "553": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        713,
+        729
+      ],
+      "op": "SWAP1",
+      "path": "1"
+    },
+    "554": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        713,
+        729
+      ],
+      "op": "DUP2",
+      "path": "1"
+    },
+    "555": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        713,
+        729
+      ],
+      "op": "MSTORE",
+      "path": "1"
+    },
+    "556": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        713,
+        719
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x1"
+    },
+    "558": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        713,
+        729
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x20"
+    },
+    "560": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        713,
+        729
+      ],
+      "op": "MSTORE",
+      "path": "1"
+    },
+    "561": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        713,
+        729
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x40"
+    },
+    "563": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        713,
+        729
+      ],
+      "op": "SWAP1",
+      "path": "1"
+    },
+    "564": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        713,
+        729
+      ],
+      "op": "KECCAK256",
+      "path": "1"
+    },
+    "565": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        713,
+        729
+      ],
+      "op": "SLOAD",
+      "path": "1"
+    },
+    "566": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        713,
+        729
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0xFF"
+    },
+    "568": {
+      "branch": 11,
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        713,
+        729
+      ],
+      "op": "AND",
+      "path": "1"
+    },
+    "569": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        705,
+        746
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x254"
+    },
+    "572": {
+      "branch": 11,
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        705,
+        746
+      ],
+      "op": "JUMPI",
+      "path": "1"
+    },
+    "573": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        705,
+        746
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x40"
+    },
+    "575": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        705,
+        746
+      ],
+      "op": "MLOAD",
+      "path": "1"
+    },
+    "576": {
+      "op": "PUSH3",
+      "value": "0x461BCD"
+    },
+    "580": {
+      "op": "PUSH1",
+      "value": "0xE5"
+    },
+    "582": {
+      "op": "SHL"
+    },
+    "583": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        705,
+        746
+      ],
+      "op": "DUP2",
+      "path": "1"
+    },
+    "584": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        705,
+        746
+      ],
+      "op": "MSTORE",
+      "path": "1"
+    },
+    "585": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        705,
+        746
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x4"
+    },
+    "587": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        705,
+        746
+      ],
+      "op": "ADD",
+      "path": "1"
+    },
+    "588": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        705,
+        746
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x129"
+    },
+    "591": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        705,
+        746
+      ],
+      "op": "SWAP1",
+      "path": "1"
+    },
+    "592": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        705,
+        746
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x35C"
+    },
+    "595": {
+      "fn": "Admin.revokeAdmin",
+      "jump": "i",
+      "offset": [
+        705,
+        746
+      ],
+      "op": "JUMP",
+      "path": "1"
+    },
+    "596": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        705,
+        746
+      ],
+      "op": "JUMPDEST",
+      "path": "1"
+    },
+    "597": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "599": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "601": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "603": {
+      "op": "SHL"
+    },
+    "604": {
+      "op": "SUB"
+    },
+    "605": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        757,
+        773
+      ],
+      "op": "AND",
+      "path": "1",
+      "statement": 5
+    },
+    "606": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        757,
+        773
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x0"
+    },
+    "608": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        757,
+        773
+      ],
+      "op": "SWAP1",
+      "path": "1"
+    },
+    "609": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        757,
+        773
+      ],
+      "op": "DUP2",
+      "path": "1"
+    },
+    "610": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        757,
+        773
+      ],
+      "op": "MSTORE",
+      "path": "1"
+    },
+    "611": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        776,
+        780
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x1"
+    },
+    "613": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        757,
+        773
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x20"
+    },
+    "615": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        757,
+        773
+      ],
+      "op": "DUP2",
+      "path": "1"
+    },
+    "616": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        757,
+        773
+      ],
+      "op": "SWAP1",
+      "path": "1"
+    },
+    "617": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        757,
+        773
+      ],
+      "op": "MSTORE",
+      "path": "1"
+    },
+    "618": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        757,
+        773
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x40"
+    },
+    "620": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        757,
+        773
+      ],
+      "op": "SWAP1",
+      "path": "1"
+    },
+    "621": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        757,
+        773
+      ],
+      "op": "SWAP2",
+      "path": "1"
+    },
+    "622": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        757,
+        773
+      ],
+      "op": "KECCAK256",
+      "path": "1"
+    },
+    "623": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        757,
+        780
+      ],
+      "op": "DUP1",
+      "path": "1"
+    },
+    "624": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        757,
+        780
+      ],
+      "op": "SLOAD",
+      "path": "1"
+    },
+    "625": {
+      "op": "PUSH1",
+      "value": "0xFF"
+    },
+    "627": {
+      "op": "NOT"
+    },
+    "628": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        757,
+        780
+      ],
+      "op": "AND",
+      "path": "1"
+    },
+    "629": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        757,
+        780
+      ],
+      "op": "SWAP1",
+      "path": "1"
+    },
+    "630": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        757,
+        780
+      ],
+      "op": "SWAP2",
+      "path": "1"
+    },
+    "631": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        757,
+        780
+      ],
+      "op": "OR",
+      "path": "1"
+    },
+    "632": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        757,
+        780
+      ],
+      "op": "SWAP1",
+      "path": "1"
+    },
+    "633": {
+      "fn": "Admin.revokeAdmin",
+      "offset": [
+        757,
+        780
+      ],
+      "op": "SSTORE",
+      "path": "1"
+    },
+    "634": {
+      "fn": "Admin.revokeAdmin",
+      "jump": "o",
+      "offset": [
+        580,
+        897
+      ],
+      "op": "JUMP",
+      "path": "1"
+    },
+    "635": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        362,
+        574
+      ],
+      "op": "JUMPDEST",
+      "path": "1"
+    },
+    "636": {
+      "offset": [
+        310,
+        320
+      ],
+      "op": "CALLER",
+      "path": "1"
+    },
+    "637": {
+      "offset": [
+        303,
+        321
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x0"
+    },
+    "639": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        303,
+        321
+      ],
+      "op": "SWAP1",
+      "path": "1"
+    },
+    "640": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        303,
+        321
+      ],
+      "op": "DUP2",
+      "path": "1"
+    },
+    "641": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        303,
+        321
+      ],
+      "op": "MSTORE",
+      "path": "1"
+    },
+    "642": {
+      "offset": [
+        303,
+        309
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x1"
+    },
+    "644": {
+      "offset": [
+        303,
+        321
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x20"
+    },
+    "646": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        303,
+        321
+      ],
+      "op": "MSTORE",
+      "path": "1"
+    },
+    "647": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        303,
+        321
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x40"
+    },
+    "649": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        303,
+        321
+      ],
+      "op": "SWAP1",
+      "path": "1"
+    },
+    "650": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        303,
+        321
+      ],
+      "op": "KECCAK256",
+      "path": "1"
+    },
+    "651": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        303,
+        321
+      ],
+      "op": "SLOAD",
+      "path": "1"
+    },
+    "652": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        303,
+        321
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0xFF"
+    },
+    "654": {
+      "branch": 12,
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        303,
+        321
+      ],
+      "op": "AND",
+      "path": "1"
+    },
+    "655": {
+      "offset": [
+        295,
+        338
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x2AA"
+    },
+    "658": {
+      "branch": 12,
+      "offset": [
+        295,
+        338
+      ],
+      "op": "JUMPI",
+      "path": "1"
+    },
+    "659": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x40"
+    },
+    "661": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "MLOAD",
+      "path": "1"
+    },
+    "662": {
+      "op": "PUSH3",
+      "value": "0x461BCD"
+    },
+    "666": {
+      "op": "PUSH1",
+      "value": "0xE5"
+    },
+    "668": {
+      "op": "SHL"
+    },
+    "669": {
+      "offset": [
+        295,
+        338
+      ],
+      "op": "DUP2",
+      "path": "1"
+    },
+    "670": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "MSTORE",
+      "path": "1"
+    },
+    "671": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x4"
+    },
+    "673": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "ADD",
+      "path": "1"
+    },
+    "674": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x129"
+    },
+    "677": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "SWAP1",
+      "path": "1"
+    },
+    "678": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x35C"
+    },
+    "681": {
+      "fn": "Admin.acceptAdmin",
+      "jump": "i",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "JUMP",
+      "path": "1"
+    },
+    "682": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        295,
+        338
+      ],
+      "op": "JUMPDEST",
+      "path": "1"
+    },
+    "683": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "685": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "687": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "689": {
+      "op": "SHL"
+    },
+    "690": {
+      "op": "SUB"
+    },
+    "691": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        438,
+        460
+      ],
+      "op": "DUP2",
+      "path": "1",
+      "statement": 6
+    },
+    "692": {
+      "branch": 13,
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        438,
+        460
+      ],
+      "op": "AND",
+      "path": "1"
+    },
+    "693": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        430,
+        477
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x2D0"
+    },
+    "696": {
+      "branch": 13,
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        430,
+        477
+      ],
+      "op": "JUMPI",
+      "path": "1"
+    },
+    "697": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        430,
+        477
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x40"
+    },
+    "699": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        430,
+        477
+      ],
+      "op": "MLOAD",
+      "path": "1"
+    },
+    "700": {
+      "op": "PUSH3",
+      "value": "0x461BCD"
+    },
+    "704": {
+      "op": "PUSH1",
+      "value": "0xE5"
+    },
+    "706": {
+      "op": "SHL"
+    },
+    "707": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        430,
+        477
+      ],
+      "op": "DUP2",
+      "path": "1"
+    },
+    "708": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        430,
+        477
+      ],
+      "op": "MSTORE",
+      "path": "1"
+    },
+    "709": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        430,
+        477
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x4"
+    },
+    "711": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        430,
+        477
+      ],
+      "op": "ADD",
+      "path": "1"
+    },
+    "712": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        430,
+        477
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x129"
+    },
+    "715": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        430,
+        477
+      ],
+      "op": "SWAP1",
+      "path": "1"
+    },
+    "716": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        430,
+        477
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x382"
+    },
+    "719": {
+      "fn": "Admin.acceptAdmin",
+      "jump": "i",
+      "offset": [
+        430,
+        477
+      ],
+      "op": "JUMP",
+      "path": "1"
+    },
+    "720": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        430,
+        477
+      ],
+      "op": "JUMPDEST",
+      "path": "1"
+    },
+    "721": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "723": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "725": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "727": {
+      "op": "SHL"
+    },
+    "728": {
+      "op": "SUB"
+    },
+    "729": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        496,
+        512
+      ],
+      "op": "DUP2",
+      "path": "1",
+      "statement": 7
+    },
+    "730": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        496,
+        512
+      ],
+      "op": "AND",
+      "path": "1"
+    },
+    "731": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        496,
+        512
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x0"
+    },
+    "733": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        496,
+        512
+      ],
+      "op": "SWAP1",
+      "path": "1"
+    },
+    "734": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        496,
+        512
+      ],
+      "op": "DUP2",
+      "path": "1"
+    },
+    "735": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        496,
+        512
+      ],
+      "op": "MSTORE",
+      "path": "1"
+    },
+    "736": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        496,
+        502
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x1"
+    },
+    "738": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        496,
+        512
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x20"
+    },
+    "740": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        496,
+        512
+      ],
+      "op": "MSTORE",
+      "path": "1"
+    },
+    "741": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        496,
+        512
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x40"
+    },
+    "743": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        496,
+        512
+      ],
+      "op": "SWAP1",
+      "path": "1"
+    },
+    "744": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        496,
+        512
+      ],
+      "op": "KECCAK256",
+      "path": "1"
+    },
+    "745": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        496,
+        512
+      ],
+      "op": "SLOAD",
+      "path": "1"
+    },
+    "746": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        496,
+        512
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0xFF"
+    },
+    "748": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        496,
+        512
+      ],
+      "op": "AND",
+      "path": "1"
+    },
+    "749": {
+      "branch": 14,
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        495,
+        512
+      ],
+      "op": "ISZERO",
+      "path": "1"
+    },
+    "750": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        487,
+        533
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x254"
+    },
+    "753": {
+      "branch": 14,
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        487,
+        533
+      ],
+      "op": "JUMPI",
+      "path": "1"
+    },
+    "754": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        487,
+        533
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x40"
+    },
+    "756": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        487,
+        533
+      ],
+      "op": "MLOAD",
+      "path": "1"
+    },
+    "757": {
+      "op": "PUSH3",
+      "value": "0x461BCD"
+    },
+    "761": {
+      "op": "PUSH1",
+      "value": "0xE5"
+    },
+    "763": {
+      "op": "SHL"
+    },
+    "764": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        487,
+        533
+      ],
+      "op": "DUP2",
+      "path": "1"
+    },
+    "765": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        487,
+        533
+      ],
+      "op": "MSTORE",
+      "path": "1"
+    },
+    "766": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "768": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        487,
+        533
+      ],
+      "op": "PUSH1",
+      "path": "1",
+      "value": "0x4"
+    },
+    "770": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        487,
+        533
+      ],
+      "op": "DUP3",
+      "path": "1"
+    },
+    "771": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        487,
+        533
+      ],
+      "op": "ADD",
+      "path": "1"
+    },
+    "772": {
+      "op": "MSTORE"
+    },
+    "773": {
+      "op": "PUSH1",
+      "value": "0x10"
+    },
+    "775": {
+      "op": "PUSH1",
+      "value": "0x24"
+    },
+    "777": {
+      "op": "DUP3"
+    },
+    "778": {
+      "op": "ADD"
+    },
+    "779": {
+      "op": "MSTORE"
+    },
+    "780": {
+      "op": "PUSH16",
+      "value": "0x20B63932B0B23C9030B71030B236B4B7"
+    },
+    "797": {
+      "op": "PUSH1",
+      "value": "0x81"
+    },
+    "799": {
+      "op": "SHL"
+    },
+    "800": {
+      "op": "PUSH1",
+      "value": "0x44"
+    },
+    "802": {
+      "op": "DUP3"
+    },
+    "803": {
+      "op": "ADD"
+    },
+    "804": {
+      "op": "MSTORE"
+    },
+    "805": {
+      "op": "PUSH1",
+      "value": "0x64"
+    },
+    "807": {
+      "op": "ADD"
+    },
+    "808": {
+      "fn": "Admin.acceptAdmin",
+      "offset": [
+        487,
+        533
+      ],
+      "op": "PUSH2",
+      "path": "1",
+      "value": "0x129"
+    },
+    "811": {
+      "op": "JUMP"
+    },
+    "812": {
+      "op": "JUMPDEST"
+    },
+    "813": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "815": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "817": {
+      "op": "DUP3"
+    },
+    "818": {
+      "op": "DUP5"
+    },
+    "819": {
+      "op": "SUB"
+    },
+    "820": {
+      "op": "SLT"
+    },
+    "821": {
+      "op": "ISZERO"
+    },
+    "822": {
+      "op": "PUSH2",
+      "value": "0x33E"
+    },
+    "825": {
+      "op": "JUMPI"
+    },
+    "826": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "828": {
+      "op": "DUP1"
+    },
+    "829": {
+      "op": "REVERT"
+    },
+    "830": {
+      "op": "JUMPDEST"
+    },
+    "831": {
+      "op": "DUP2"
+    },
+    "832": {
+      "op": "CALLDATALOAD"
+    },
+    "833": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "835": {
+      "op": "PUSH1",
+      "value": "0x1"
+    },
+    "837": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "839": {
+      "op": "SHL"
+    },
+    "840": {
+      "op": "SUB"
+    },
+    "841": {
+      "op": "DUP2"
+    },
+    "842": {
+      "op": "AND"
+    },
+    "843": {
+      "op": "DUP2"
+    },
+    "844": {
+      "op": "EQ"
+    },
+    "845": {
+      "op": "PUSH2",
+      "value": "0x355"
+    },
+    "848": {
+      "op": "JUMPI"
+    },
+    "849": {
+      "op": "PUSH1",
+      "value": "0x0"
+    },
+    "851": {
+      "op": "DUP1"
+    },
+    "852": {
+      "op": "REVERT"
+    },
+    "853": {
+      "op": "JUMPDEST"
+    },
+    "854": {
+      "op": "SWAP4"
+    },
+    "855": {
+      "op": "SWAP3"
+    },
+    "856": {
+      "op": "POP"
+    },
+    "857": {
+      "op": "POP"
+    },
+    "858": {
+      "op": "POP"
+    },
+    "859": {
+      "jump": "o",
+      "op": "JUMP"
+    },
+    "860": {
+      "op": "JUMPDEST"
+    },
+    "861": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "863": {
+      "op": "DUP1"
+    },
+    "864": {
+      "op": "DUP3"
+    },
+    "865": {
+      "op": "MSTORE"
+    },
+    "866": {
+      "op": "PUSH1",
+      "value": "0xC"
+    },
+    "868": {
+      "op": "SWAP1"
+    },
+    "869": {
+      "op": "DUP3"
+    },
+    "870": {
+      "op": "ADD"
+    },
+    "871": {
+      "op": "MSTORE"
+    },
+    "872": {
+      "op": "PUSH12",
+      "value": "0x2737BA1030B71030B236B4B7"
+    },
+    "885": {
+      "op": "PUSH1",
+      "value": "0xA1"
+    },
+    "887": {
+      "op": "SHL"
+    },
+    "888": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "890": {
+      "op": "DUP3"
+    },
+    "891": {
+      "op": "ADD"
+    },
+    "892": {
+      "op": "MSTORE"
+    },
+    "893": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "895": {
+      "op": "ADD"
+    },
+    "896": {
+      "op": "SWAP1"
+    },
+    "897": {
+      "jump": "o",
+      "op": "JUMP"
+    },
+    "898": {
+      "op": "JUMPDEST"
+    },
+    "899": {
+      "op": "PUSH1",
+      "value": "0x20"
+    },
+    "901": {
+      "op": "DUP1"
+    },
+    "902": {
+      "op": "DUP3"
+    },
+    "903": {
+      "op": "MSTORE"
+    },
+    "904": {
+      "op": "PUSH1",
+      "value": "0xC"
+    },
+    "906": {
+      "op": "SWAP1"
+    },
+    "907": {
+      "op": "DUP3"
+    },
+    "908": {
+      "op": "ADD"
+    },
+    "909": {
+      "op": "MSTORE"
+    },
+    "910": {
+      "op": "PUSH12",
+      "value": "0x5A65726F2061646472657373"
+    },
+    "923": {
+      "op": "PUSH1",
+      "value": "0xA0"
+    },
+    "925": {
+      "op": "SHL"
+    },
+    "926": {
+      "op": "PUSH1",
+      "value": "0x40"
+    },
+    "928": {
+      "op": "DUP3"
+    },
+    "929": {
+      "op": "ADD"
+    },
+    "930": {
+      "op": "MSTORE"
+    },
+    "931": {
+      "op": "PUSH1",
+      "value": "0x60"
+    },
+    "933": {
+      "op": "ADD"
+    },
+    "934": {
+      "op": "SWAP1"
+    },
+    "935": {
+      "jump": "o",
+      "op": "JUMP"
+    }
+  },
+  "sha1": "f0238dd96847769e43a5b2a7b628d8fdab1aea8d",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity >0.6.0;\n\n/*\n * @title: \n * @author: Anthony (fps) https://github.com/fps8k .\n * @dev: \n*/\n\ncontract Admin\n{\n    address public current_contract; // Address of Main.\n    mapping(address => bool) public admins;\n\n    modifier isAdmin()\n    {\n        require(admins[msg.sender], \"Not an admin\");\n        _;\n    }\n\n    function acceptAdmin(address _address) public isAdmin\n    {\n        require(_address != address(0), \"Zero address\");\n        require(!admins[_address], \"Already an admin\");\n\n        admins[_address] = true;\n    }\n\n    function revokeAdmin(address _address) public isAdmin\n    {\n        require(_address != address(0), \"Zero address\");\n        require(admins[_address], \"Not an admin\");\n\n        admins[_address] = true;\n        // require(_address != current_contract, \"Same address\");\n        // current_contract = new_contract;\n    }\n\n    function upgrade(address new_contract) public isAdmin\n    {\n        require(new_contract != address(0), \"Zero address\");\n        require(new_contract != current_contract, \"Same address\");\n        current_contract = new_contract;\n    }\n}",
+  "sourceMap": "139:1000:1:-:0;;;;;;;;;;;;;;;;;;;",
+  "sourcePath": "contracts/Utils/Admin.sol",
+  "type": "contract"
+}
