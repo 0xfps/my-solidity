@@ -25,7 +25,7 @@ contract MyAuction
     
     // Mapping amount bidded to address. No two bidders can have the same bid.
     mapping(uint256 => address) private price_to_bidder;
-    // So a bidder can't bid twice, maybe? Let's read on.
+    // So a bidder can't bid twice.
     mapping(address => uint256) private bidder_to_price;
     // Array of bidders.
     address[] private bidders;
@@ -352,5 +352,4 @@ contract MyAuction
             // Pay.
             payable(_a).transfer(this_bid);
     }
-
 }
