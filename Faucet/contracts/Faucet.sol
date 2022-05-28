@@ -58,8 +58,8 @@ contract Faucet
     // Balance of the contract.
     uint256 private balance;
     // Interval that is 12 hours.
-    // uint256 private interval = 12 hours;
-    uint256 private interval = 1 seconds;
+    uint256 private interval = 12 hours;
+    // uint256 private interval = 1 seconds;
     // Boolean to check for Re-Entrancy attacks.
     bool locked;
 
