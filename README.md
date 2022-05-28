@@ -45,7 +45,7 @@ My Solidity projects.
 
 <br/>
 
-- ## 3. Faucet
+- ## 4. Faucet
 
 - A simple Rinkeby Ethereum faucet that transfers 0.2 ether to addresses that request for it.
 - Ether can be transferred to addresses as long as the interval is 12 hours.
