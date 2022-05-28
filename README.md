@@ -40,3 +40,15 @@ My Solidity projects.
 > - Price of NFT decreases over time.
 > - Participants can buy by depositing ETH greater than the current price computed by the smart contract.
 > - Auction ends when a buyer buys the NFT.
+
+###
+
+<br/>
+
+- ## 3. Faucet
+
+- A simple Rinkeby Ethereum faucet that transfers 0.2 ether to addresses that request for it.
+- Ether can be transferred to addresses as long as the interval is 12 hours.
+- Faucet funders are recorded and are public.
+- Faucet funders can only transfer 1 ether to the faucet.
+- On any transfers of more than 1 ether, the balance is sent back to the funder, and 1 ether is taken in by the contract.
