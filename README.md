@@ -1,7 +1,7 @@
 # my-solidity
 My Solidity projects.
 
-- ## 1. English auction for NFT.
+## **1. English auction for NFT.**
 
 - Seller of NFT deploys this contract.
 - Auction lasts for 7 days.
@@ -19,7 +19,7 @@ My Solidity projects.
 
 <br/>
 
-- ## 2. Crowd Fund
+## **2. Crowd Fund**
 
 **Crowd fund ERC20 token**
 
@@ -45,7 +45,7 @@ My Solidity projects.
 
 <br/>
 
-- ## 4. Faucet
+## **4. Faucet**
 
 - A simple Rinkeby Ethereum faucet that transfers 0.2 ether to addresses that request for it.
 - Ether can be transferred to addresses as long as the interval is 12 hours.
