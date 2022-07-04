@@ -102,5 +102,75 @@ My Solidity projects.
 
 > - $USDT, a copy of the ERC-20 token on Rinkeby USDT for token testings on development network.
 
-[Deployed contract on Rinkeby Etherscan.](https://rinkeby.etherscan.io/address/0x788b76Ee23FAa205F3d4991C9977618Cc7c6a019f3b5F7f319EDF7C)
+[Deployed contract on Rinkeby Etherscan.](https://rinkeby.etherscan.io/address/0x788b76Ee23FAa205F3d4991C9977618Cc7c6a019f3b5F7f319EDF7C)<br/>
 [Deployed contract on Rinkeby Etherscan.](https://rinkeby.etherscan.io/address/0x770861CdcdDF8319C6C86ef8EF91C4A922fc12aC)
+
+###
+
+<br/>
+
+## **9. Address Book**
+
+> - A basic contract that works like a phone book. Allowing users to map names to addresses, and retrieving it when needed.
+
+[Deployed contract on Rinkeby Etherscan.](https://rinkeby.etherscan.io/address/0x93a9b149A40490d03aA37de469105A8049932e30)
+
+###
+
+<br/>
+
+## **10. $AGU**
+
+> - ERC-20 Token.
+
+[Deployed contract on Rinkeby Etherscan.](https://rinkeby.etherscan.io/address/0x2DFA0332E058c4FcC9d1b8C165eFf1CF52368d03)
+
+###
+
+<br/>
+
+## **11. $AGU 2**
+
+> - A modified [$AGU](https://github.com/fps8k/my-solidity/tree/main/erc20%20-%20%24AGU)
+
+###
+
+<br/>
+
+## **12. ERC-721**
+
+> - Legio, an ERC-721 NFT project.
+
+[Deployed contract on Rinkeby Etherscan (1).](https://rinkeby.etherscan.io/address/0x251568c2ba92a7CD30CF1f5a6c27dD42b167011A)<br/>
+[Deployed contract on Rinkeby Etherscan (2).](https://rinkeby.etherscan.io/address/0xbc71d1049d984f261663c3b46c1F443C622852EF)<br/>
+[Deployed contract on Rinkeby Etherscan (3).](https://rinkeby.etherscan.io/address/0xD17E6E1daB2d1E778278f5358ca68D572b713cdF)
+
+###
+
+<br/>
+
+## **13. Ether Wallet**
+
+> - EtherWallet, a crowdfunding smart contract.
+> - This is a simple Solidity program that allows anyone to send ether to a wallet then allowing only the owner to withdraw.
+> - This was my FIRST Solidity Smart Contract task, and I am so proud of it ❤🕊.
+
+[Deployed contract on Rinkeby Etherscan.](https://rinkeby.etherscan.io/address/0x72a8422a0E0098eF770A0dfdA312Ec1bd44fdB44)
+
+###
+
+<br/>
+
+## **14. Iterable Mapping**
+
+> - A contract that communicates between a mapping and an array stored on the contract.
+
+[Deployed contract on Rinkeby Etherscan.](https://rinkeby.etherscan.io/address/0x1A09e937AB84b5434a70aDaBC69b9884B85ED123d0d0EC2)
+
+###
+
+<br/>
+
+## **15. Libraries**
+
+> - A bunch of libraries I wrote for  math, experimenting.
