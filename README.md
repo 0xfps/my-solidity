@@ -32,11 +32,13 @@ My Solidity projects.
 
 [Deployed contract on Rinkeby Etherscan.](https://rinkeby.etherscan.io/address/0x579df29C056e4Bb9CD548EdEEB4b80CB4679b1Ec)
 
+<br/>
+
 ###
 
 ## **3. Dutch Auction**
 
-# Dutch auction for NFT.
+**Dutch auction for NFT**
 
 - Auction
 > - Seller of NFT deploys this contract setting a starting price for the NFT.
