@@ -123,7 +123,8 @@ My Solidity projects.
 
 > - ERC-20 Token.
 
-[Deployed contract on Rinkeby Etherscan.](https://rinkeby.etherscan.io/address/0x2DFA0332E058c4FcC9d1b8C165eFf1CF52368d03)
+[Deployed contract on Rinkeby Etherscan (1).](https://rinkeby.etherscan.io/address/0x183A9aA20E1596669BD81EacCDCe17E6705449f5)
+[Deployed contract on Rinkeby Etherscan (2).](https://rinkeby.etherscan.io/address/0x2DFA0332E058c4FcC9d1b8C165eFf1CF52368d03)
 
 ###
 
@@ -173,4 +174,45 @@ My Solidity projects.
 
 ## **15. Libraries**
 
-> - A bunch of libraries I wrote for  math, experimenting.
+> - A bunch of libraries I wrote for math, experimenting.
+
+###
+
+<br/>
+
+## **16. Liquidity**
+
+> - Uniswap's liquidity contracts I studied.
+
+###
+
+<br/>
+
+## **17. Merkle Tree**
+
+> - A contract that calculates the merkle tree from an array of transactions made with the contract.
+> - _Hint: I bugged this contract 😉._
+
+[Deployed contract on Rinkeby Etherscan.](https://rinkeby.etherscan.io/address/0x7fF08E0dd90bBf3B22008fB1b28Bb4B037a8B79D)
+
+###
+
+<br/>
+
+## **18. Multi-Sig Wallet**
+
+> - A contract that approves pending transactions made on the contract on the condition that ((1/2) + 1) of the users of the contract has approved it.
+
+[Deployed contract on Rinkeby Etherscan.](https://rinkeby.etherscan.io/address/0x14C6Bb868EB71cAaDf19601699C760926511578F)
+
+###
+
+<br/>
+
+## **19. Token Task**
+
+###
+
+<br/>
+
+## **20. Assembly**
