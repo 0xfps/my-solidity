@@ -218,3 +218,11 @@ My Solidity projects.
 <br/>
 
 ## **20. Assembly**
+
+###
+
+<br/>
+
+## **21. Create2Factory**
+
+Practical contract applying the create 2 functionality to pre-calculate the deploy address of a particular contract with its constructor parameters and salt.
