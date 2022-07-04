@@ -60,3 +60,47 @@ My Solidity projects.
 > - On any transfers of more than 1 ether, the balance is sent back to the funder, and 1 ether is taken in by the contract.
 
 [Deployed contract on Rinkeby Etherscan.](https://rinkeby.etherscan.io/address/0x196ca425A223C5325d63e7245C93a284B6D5EA3c)
+
+###
+
+<br/>
+
+## **5. Delegatecall**
+
+> - An upgradable smart contract project implementing the delegatecall functionality.
+> - It includes the 3 necessary contracts an upgradable contract should have.
+[x] [Proxy.sol](https://github.com/fps8k/my-solidity/blob/main/Delegatecall/Delegatecall%20Source/Proxy.sol): The contract to interact with the upgradable contract.
+[x] [Store.sol](https://github.com/fps8k/my-solidity/blob/main/Delegatecall/Delegatecall%20Source/Utils/Store.sol): The contract holding the storage variables.
+[x] [Main.sol](https://github.com/fps8k/my-solidity/blob/main/Delegatecall/Delegatecall%20Source/Utils/Main.sol): The actual contract that handles the logic.
+[ ] [Admin.sol](https://github.com/fps8k/my-solidity/blob/main/Delegatecall/Delegatecall%20Source/Utils/Admin.sol): Contract with admin roles. This is optional.
+
+[Proxy contract on Rinkeby Etherscan.](https://rinkeby.etherscan.io/address/0xDC4Ddd0324C86C7167ECc906b9FbF4a1055F40fa)
+
+###
+
+<br/>
+
+## **6. ERC-20 ($FPS)**
+
+> - ERC-20 Token.
+
+[Deployed contract on Rinkeby Etherscan.](https://rinkeby.etherscan.io/address/0x9af84a56B0b2444Fa2367C13862B652567CD0A1b)
+
+###
+
+<br/>
+
+## **7. New Faucet**
+
+> - Modified [Faucet](https://github.com/fps8k/my-solidity/tree/main/Faucet) contract.
+
+###
+
+<br/>
+
+## **8. USDT**
+
+> - $USDT, a copy of the ERC-20 token on Rinkeby USDT for token testings on development network.
+
+[Deployed contract on Rinkeby Etherscan.](https://rinkeby.etherscan.io/address/0x788b76Ee23FAa205F3d4991C9977618Cc7c6a019f3b5F7f319EDF7C)
+[Deployed contract on Rinkeby Etherscan.](https://rinkeby.etherscan.io/address/0x770861CdcdDF8319C6C86ef8EF91C4A922fc12aC)
