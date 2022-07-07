@@ -217,12 +217,22 @@ My Solidity projects.
 
 <br/>
 
-## **20. StoreEmitAndRetrieve.sol**
+## **20. Sign.sol**
+
+A demo practise about signing and verifying signed transactions with Solidity.
 
 ###
 
 <br/>
 
-## **21. Create2Factory**
+## **21. StoreEmitAndRetrieve.sol**
+
+Simple storage and retrieval with Solidity.
+
+###
+
+<br/>
+
+## **22. Create2Factory**
 
 Practical contract applying the create 2 functionality to pre-calculate the deploy address of a particular contract with its constructor parameters and salt.
