@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
 
-contract Box {
+contract StoreEmitAndRetrieve {
     uint256 private _value;
 
     event NewValue(uint256 newValue);
