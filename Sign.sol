@@ -2,27 +2,31 @@
 pragma solidity >=0.6.0;
 
 /*
-* @title: 
-* @author: Anthony (fps) https://github.com/fps8k .
-* @dev: 
+* @title: Signed Message.
+* @author: Anthony (fps) https://github.com/fps8k.
+* @dev: Sign and Verify Message.
 */
 
 contract Signed
 {
     address public addr;
 
-    function hashMessage() public pure returns(bytes32)
-    {
+    function hashMessage() public pure returns(bytes32) {
         return(keccak256("I sent a transaction"));
     }
 
-
-    function signMessage() public pure returns(bytes32)
-    {
+    function signMessage() public pure returns(bytes32) {
         return keccak256(abi.encodePacked("\x19Ethereum Signed Message:\n32", hashMessage()));
     }
 
-    function splitSignature(bytes32 sig) private pure returns(bytes32 r, bytes32 s, uint8 v)
+    function splitSignature(bytes32 sig) 
+        private 
+        pure 
+        returns(
+            bytes32 r, 
+            bytes32 s, 
+            uint8 v
+        )
     {
         assembly {
             /*
@@ -41,12 +45,15 @@ contract Signed
             // final byte (first byte of the next 32 bytes)
             v := byte(0, mload(add(sig, 96)))
         }
-
     }
 
-    function verify() public
-    {
+    function verify() public {
         (bytes32 r, bytes32 s, uint8 v) = splitSignature(signMessage());
-        addr = ecrecover(hashMessage(), v, r, s);
+        addr = ecrecover(
+            hashMessage(), 
+            v, 
+            r, 
+            s
+        );
     }
 }
