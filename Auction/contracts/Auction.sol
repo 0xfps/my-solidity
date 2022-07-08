@@ -64,11 +64,9 @@ contract MyAuction {
         still_bidding = true;
     }
     
-    // =================== F A L L B A C K   F U N C T I O N S ===================
-    fallback() payable external {}
     receive() payable external {}
-    // =================== F A L L B A C K   F U N C T I O N S ===================
-
+    fallback() payable external {}
+    
     /*
     * @dev:
     * 
