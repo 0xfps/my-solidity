@@ -7,8 +7,8 @@ import "./Utils/Admin.sol";
 
 /*
  * @title: Delegatecall Proxy.
- * @author: Anthony (fps) https://github.com/fps8k .
- * @dev: 
+ * @author: Anthony (fps) https://github.com/fps8k.
+ * @dev:
 */
 contract Proxy is Store, Admin {
     function add(uint _a, uint _b) public {
