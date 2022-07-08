@@ -38,8 +38,7 @@ library SafeMath {
  * @author: Anthony (fps) https://github.com/fps8k .
  * @dev: reference [README.md]
 */
-contract CrowdFund {   
-
+contract CrowdFund {
     // Using SafeMath.
     using SafeMath for uint256;
     // Number of campaigns total.   
