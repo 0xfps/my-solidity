@@ -1,12 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >0.6.0;
 
-// ========= I M P O R T S ============
-
 import "./Interfaces/IERC20.sol";
 import "./Interfaces/PureMath.sol";
-
-// ========= I M P O R T S ============
 
 
 library SafeMath {
@@ -42,19 +38,15 @@ library SafeMath {
  * @author: Anthony (fps) https://github.com/fps8k .
  * @dev: reference [README.md]
 */
-contract CrowdFund
-{   
+contract CrowdFund {   
+
     // Using SafeMath.
     using SafeMath for uint256;
     // Number of campaigns total.   
     uint256 campaign_count;
-
-
-    // ========== S T R U C T S ===================
     
     // Campaing struct with data.
-    struct Campaign
-    {
+    struct Campaign {
         // Campaign creator.
         address creator;
         // Token used in the campaign.
@@ -72,17 +64,11 @@ contract CrowdFund
         // Boolean for campaign claimed.
         bool claimed;
     }
-
-    // ========== S T R U C T S ===================
-
     
     // Mapping unique number to Campaigns.
     mapping(uint256 => Campaign) private campaign;
     // Mapping campaign number to a mapping of address to another number, that is a map of campaign id to address to amount donated.
     mapping(uint256 => mapping(address => uint256)) private donors;
-
-
-    // ====================== E V E N T S ===============================
 
     // Emitted when a new campaign is launched.
     event Launch(address, string, uint256);             // Address, launched, campaign_number.
@@ -94,10 +80,6 @@ contract CrowdFund
     event End(address, string, uint256);                // Address, ended, campaign_number.
     // Emitted when the user claims his campaign funds.
     event Claim(address, address, uint256, uint256);    // Address, campaign_token, campaign_number, amount.
-
-    // ====================== E V E N T S ===============================
-
-
 
     /*
     * @dev:
@@ -112,8 +94,7 @@ contract CrowdFund
     * uint _target -> The fund goal that is to be met.
     * 0x1aE0EA34a72D944a8C7603FfB3eC30a6669E454C, 1000
     */
-    function launch(address _token, uint _target) public
-    {
+    function launch(address _token, uint _target) public {
         // Makes sure that the token sender is not a 0 address.
         require(msg.sender != address(0), "Not Address");
         // Makes sure that the target funding is not 0.
@@ -131,8 +112,6 @@ contract CrowdFund
         emit Launch(msg.sender, " launched ", campaign_count);
     }
 
-
-
     /*
     * @dev:
     *
@@ -145,8 +124,7 @@ contract CrowdFund
     * uint _campaign_number -> The campaign number the caller wants to donate to.
     * uint256 _amount -> The amount of tokens the caller wants to send.
     */
-    function pledge(uint _campaign_number, uint256 _amount) public
-    {
+    function pledge(uint _campaign_number, uint256 _amount) public {
         // Get campaign into the storage, so I can work on it.
         Campaign storage this_campaign = campaign[_campaign_number];
         // Require that the msg.sender is not a 0 address.
@@ -170,8 +148,6 @@ contract CrowdFund
         emit Pledge(msg.sender, _campaign_number, _amount);
     }
 
-
-
     /*
     * @dev:
     *
@@ -182,8 +158,7 @@ contract CrowdFund
     *
     * uint _campaign_number -> The campaign id of the campaign you pledged or donated to.
     */    
-    function withdraw(uint _campaign_number) public
-    {
+    function withdraw(uint _campaign_number) public {
         // Get the campaign id.
         Campaign storage this_campaign = campaign[_campaign_number];
         // Validates that the caller is no a zero address.
@@ -206,8 +181,6 @@ contract CrowdFund
         emit Withdraw(msg.sender, _campaign_number, _pledge);
     }
 
-
-
     /*
     * @dev:
     *
@@ -219,8 +192,7 @@ contract CrowdFund
     *
     * uint _campaign_number -> The campaign id of the campaign to be ended.
     */    
-    function end(uint _campaign_number) public
-    {
+    function end(uint _campaign_number) public {
         // Makes sure that the caller is not a 0 address.
         require(msg.sender != address(0), "Not Address");
         // Makes sure that the campaign has started.
@@ -235,10 +207,6 @@ contract CrowdFund
         emit End(msg.sender, " ended ", _campaign_number);
     }
 
-
-
-
-    
     /*
     * @dev:
     *
@@ -249,8 +217,7 @@ contract CrowdFund
     *
     * uint _campaign_number -> The campaign id of the campaign to be ended.
     */    
-    function claim(uint256 _campaign_number) public
-    {
+    function claim(uint256 _campaign_number) public {
         // Makes sure that the caller is not a 0 address.
         require(msg.sender != address(0), "Not address");
         // Ensures that the caller is the creator of the campaign.
