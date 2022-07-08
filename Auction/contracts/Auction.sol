@@ -10,7 +10,6 @@ import "./Interfaces/IERC721.sol";
 */
 
 contract MyAuction {
-
     // Time of deployment and time span of the bidding.
     uint256 private deploy_time;
     // Time span of the bid.
