@@ -9,8 +9,7 @@ import "./Interfaces/IERC721.sol";
  * @dev: Reference [README.md].
 */
 
-contract MyAuction
-{
+contract MyAuction {
 
     // Time of deployment and time span of the bidding.
     uint256 private deploy_time;
