@@ -134,7 +134,7 @@ contract DutchAuction {
         
         // If the refund is > 0.
         if(refund > 0) {
-            // REfund the buyer.
+            // Refund the buyer.
             payable(msg.sender).transfer(refund);
         }
         
