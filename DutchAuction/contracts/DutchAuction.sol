@@ -1,26 +1,18 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >0.6.0;
 
-// ========== I M P O R T S ================
-
 import "./Interfaces/IERC721.sol";
 import "./Interfaces/SafeMath.sol";
 
-// ========== I M P O R T S ================
-
-
 /*
  * @title: DutchAuction Smart Contract [Modified].
- * @author: Anthony (fps) https://github.com/fps8k .
+ * @author: Anthony (fps) https://github.com/fps8k.
  * @dev: Reference [README.md].
  * @notice: Same as Auction [reference ./ Auction/Auction.sol] but with some differences.
 */
-
-contract DutchAuction
-{
+contract DutchAuction {
     // Use SafeMath for all uint256.
     using SafeMath for uint256;
-
     // Time of deployment.
     uint256 private deploy_time;
     // Time span of the contract, it reduces with time.
@@ -46,7 +38,6 @@ contract DutchAuction
     // The value of the depreciation.
     uint256 private depreciation;
 
-
     /*
     * @dev:
     *
@@ -58,8 +49,7 @@ contract DutchAuction
     * address _nft_address -> Address of the nft to be deployed.
     * uint256 _nft_id -> Id of the nft you want to buy.
     */
-    constructor(address _nft_address, uint256 _nft_id) payable
-    {
+    constructor(address _nft_address, uint256 _nft_id) payable {
         // Initialize the nft.
         nft = IERC721(_nft_address);
         // Set the nft id.
@@ -81,16 +71,8 @@ contract DutchAuction
         still_bidding = true;
     }
 
-
-
-    // ========= F A L L B A C K   F U N C T I O N S =================
-
-    fallback() payable external {}
     receive() payable external {}
-
-    // ========= F A L L B A C K   F U N C T I O N S =================
-
-
+    fallback() payable external {}
 
     /* 
     * @dev:
@@ -98,51 +80,45 @@ contract DutchAuction
     * Validates that the address calling the function is a valid address and also not the seller.
     * Returns true if true, otherwise, false.
     */
-    function checkAddress() private view returns(bool)
-    {
+    function checkAddress() private view returns(bool) {
         return (msg.sender != address(0)) && ((msg.sender != seller));
     }
-
-
 
     /*
     * @dev:
     *
     * This calculates and updates the new price of the item.
     */
-    function getPrice() private returns(uint256)
-    {
+    function getPrice() private returns(uint256) {
         // First, get the time that has passed since the last depreciation till the time that this function is called.
         uint256 time_gone = block.timestamp - last_depreciation;
         // Assuming time gone is 100 seconds, and interval for depreciation is 10 seconds.
         // If it depreciates at 0.001 ether every interval, then total price gone will be (0.001 ether * (100secs/10secs)).
         price_gone = depreciation * (time_gone / interval_for_depreciation);
+        
         // If the price gone is for some reasons, greater than the starting bid, meaning that tha price has floored.
-        if(price_gone >= starting_bid)
+        if(price_gone >= starting_bid) {
             // Set starting bid to 0.
             starting_bid = 0;
-        else
-        {
+        } else {
             // Try to remove the price gone from the starting bid.
             (, uint256 j) = starting_bid.trySub(price_gone);
             // Set the new starting bid.
             starting_bid = j;
         }
+        
         // Reset last depreciation to the current time.
         last_depreciation = block.timestamp;
         // Return the price gone.
         return price_gone;
     }
     
-
-
     /*
     * @dev:
     *
     * Buy the nft.
     */
-    function buy() public payable
-    {
+    function buy() public payable {
         // Makes sure that the bidding is still on,
         require(still_bidding, "Bid closed");
         // Get updated price.
@@ -155,10 +131,13 @@ contract DutchAuction
         nft.transferFrom(seller, msg.sender, uint(nft_id));
         // Calculate refunds.
         uint256 refund = msg.value - price;
+        
         // If the refund is > 0.
-        if(refund > 0)
+        if(refund > 0) {
             // REfund the buyer.
             payable(msg.sender).transfer(refund);
+        }
+        
         // Reset nft address and destroy the nft id.
         nft_id = nft_id - (nft_id + 5);
     }
