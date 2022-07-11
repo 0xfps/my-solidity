@@ -1,21 +1,18 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >0.6.0;
+
 import "./Libraries/SafeMath.sol";
-
-
 
 /*
  * @title: Rinkeby Test Faucet [Modified].
- * @author: Anthony (fps) https://github.com/fps8k .
+ * @author: Anthony (fps) https://github.com/fps8k.
  * @dev: 
  *
  * I once wrote this contract to deposit any specific amount of ether from the contract.
  * But on this mod [28/05/2022] I am re-writing it to actually dispose some specific ether 0.2 ether.
  * But it shall demand just 1 ether for fundings.
 */
-
-contract Faucet
-{
+contract Faucet {
     // Use SafeMath for all uint.
     using SafeMath for uint256;
     // Faucet has no owner.
@@ -34,34 +31,17 @@ contract Faucet
     // uint256 private interval = 1 seconds;
     // Boolean to check for Re-Entrancy attacks.
     bool locked;
-
-
-
-    // ============= E V E N T S =================
-
+    
     // Emitted when someone funds the contract.
     event Fund(address indexed __funder, uint256 indexed __fund);
     // Emitted when the contract pays someone.
     event Pay(address indexed __receiver, uint256 indexed __fund);
 
-    // ============= E V E N T S =================
-
-
-
-    // ================ F A L L B A C K   A N D   R E C E I V E ================
-
-    fallback() external payable{}
     receive() external payable{}
-
-    // ================ F A L L B A C K   A N D   R E C E I V E ================
-
-
-
-    // ================= M O D I F I E R ==========================
-
+    fallback() external payable{}
+    
     // Checks for Re-Entrancy attacks.
-    modifier noReEntrance()
-    {
+    modifier noReEntrance() {
         // Requires that the locked is set to false.
         require(!locked, "No ReEntrance");
         // Lock the function.
@@ -72,18 +52,13 @@ contract Faucet
         locked = false;
     }
 
-    // ================= M O D I F I E R ==========================
-
-
-
     // Checks if the address is in the donators array for a new push.
-    function hasDonated(address _address) private view returns(bool)
-    {
+    function hasDonated(address _address) private view returns(bool) {
         // Push the length of the donators array to memory.
         uint256 l = donators.length;
+        
         // Loop over the array
-        for (uint256 k = 0; k < l; k++)
-        {
+        for (uint256 k = 0; k < l; k++) {
             // If the donor exists in the array.
             if (donators[k] == _address)
                 // Return true.
@@ -94,15 +69,12 @@ contract Faucet
         return false;
     }
 
-
-
     /*
     * @dev:
     *
     * Funds any address on the condition that the time span of the last transaction to that address was 12 hours.
     */
-    function fund() public payable noReEntrance
-    {
+    function fund() public payable noReEntrance {
         // Ensure address donating isn't a 0 address.
         require(msg.sender != address(0), "!Address");
         // Require that the donation is >= 1 ether.
@@ -123,31 +95,30 @@ contract Faucet
         balance = p;
 
         // If the address has not donated before, it should be added to the donators array.
-        if (!hasDonated(msg.sender))
+        if (!hasDonated(msg.sender)) {
             // Add the address to the array.
             donators.push(msg.sender);
+        }
 
         // Emit the fund event.
         emit Fund(msg.sender, _fund);
 
         // If the balance is > 0.
-        if (bal > 0)
+        if (bal > 0) {
             // Refund the balance`.
             payable(msg.sender).transfer(bal);
             // Emit the pay event.
             emit Pay(msg.sender, bal);
+        }
     }
-
-
-
+    
     /*
     * @dev:
     *
     * This function requests for some ether from the faucet.
     * The faucet dispenses 0.2 ether for every address every 12 hours.
     */
-    function request() public payable noReEntrance
-    {
+    function request() public payable noReEntrance {
         // Ensure address donating isn't a 0 address.
         require(msg.sender != address(0), "!Address");
         // Make sure that the contract still has ether.
