@@ -61,6 +61,7 @@ contract Faucet {
     event Fund(address indexed __funder, uint256 indexed __fund);
     // Emitted when the contract pays someone.
     event Pay(address indexed __receiver, uint256 indexed __fund);
+    
     receive() external payable{}
     fallback() external payable{}
     
