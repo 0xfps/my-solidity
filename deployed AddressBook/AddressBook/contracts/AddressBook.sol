@@ -9,6 +9,7 @@ pragma solidity >0.6.0;
 contract AddressBook {
     // Mapping the name to the addresses.
     mapping(address => mapping(string => address)) private book;
+    
     // Events.
     event Add(string, address);                                 // Name, Address.
     event Remove(string, address);                              // Name, Address.
