@@ -125,7 +125,7 @@ contract Legio is IERC165, IERC721, IERC721Receiver {
     {
         require(token_exists(tokenId), "Non-existent token.");
         require(
-            (_msgSender() == from) || 
+            _msgSender() == from || 
             is_approved_person(tokenId, _msgSender()) || 
             is_generally_approved(from, _msgSender()), 
             "You cannot manage this token."
