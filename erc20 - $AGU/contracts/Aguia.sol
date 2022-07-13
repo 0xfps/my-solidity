@@ -4,9 +4,8 @@ pragma solidity >0.6.0;
 import "./IERC20.sol";
 
 /*
-* @title: 
-*        $AGU, an ERC-20 standard token.
-* @author: Anthony ($AGU).
+* @title: $AGU, an ERC-20 standard token.
+* @author: Anthony (fps) https://github.com/fps8k.
 * @date: 21/03/2022.
 *
 * @notice: This token, $AGU, obeys the standard of the ERC-20, created as my debut token.
@@ -21,27 +20,15 @@ import "./IERC20.sol";
 * 'data_type'
 * `variable_name`
 */
-
-contract AGU is IERC20
-{
-    /*
-    * @dev: Sets and allocates some tokens as `balances` to `addresses`.
-    * Also creates an allowance between the 'address' {`_owner`} and 'address' {`spender`} to a particular 'uint' `allowance`
-    */
-
+contract AGU is IERC20 {
+    // @dev: Sets and allocates some tokens as `balances` to `addresses`.
+    // Also creates an allowance between the 'address' {`_owner`} and 'address' {`spender`} to a particular 'uint' `allowance`
     mapping (address => uint) private balances;
-    
     mapping (address => mapping (address => uint)) private _allowance;
-
-    /*
-    * @dev: Setting a 1 million total supply of the $AGU token and the decimal.
-    */
+    // @dev: Setting a 1 million total supply of the $AGU token and the decimal.
     uint256 private _totalSupply;
     uint8 private _decimal;
-    
-    /*
-    * @dev: Setting token name and symbol.
-    */
+    // @dev: Setting token name and symbol.
     string private _name;
     string private _symbol;
     address constant _owner = 0x5e078E6b545cF88aBD5BB58d27488eF8BE0D2593;
@@ -49,20 +36,15 @@ contract AGU is IERC20
     /*
     * @dev: Constructor
     */
-    constructor()
-    {
+    constructor() {
         _name = "Aguia";
         _symbol = "$AGU";
-
         // total supply is 1 million plus the 3 decimal zeros
         _totalSupply = 1000000000;
         _decimal = 3;
-
         // address _owner = msg.sender;
-
         // get the _owner of the contract and assign to him all the funds
         // balances[msg.sender] = _totalSupply;
-
         // allocate all to me
         balances[_owner] = _totalSupply;
     }
@@ -70,26 +52,21 @@ contract AGU is IERC20
     /*
     * @dev: `name()` function returns the name of the token
     */
-    function name() public view returns(string memory)
-    {
+    function name() public view returns(string memory) {
         return _name;
     }
 
-    
     /*
     * @dev: `symbol()` function returns the token symbol
     */
-    function symbol() public view returns(string memory)
-    {
+    function symbol() public view returns(string memory) {
         return _symbol;
     }
 
-    
     /*
     * @dev: `decimals()` function returns the token decimals
     */
-    function decimals() public view returns(uint8)
-    {
+    function decimals() public view returns(uint8) {
         return _decimal;
     }
 
@@ -97,11 +74,9 @@ contract AGU is IERC20
     * @notice: Implementation of functions necessary according to the ERC-20 standard.
     * Function 1:
     *
-    *
     * @dev: `totalSupply()` function returns the total number of token coins in existence
     */
-    function totalSupply() public view virtual override returns(uint)
-    {
+    function totalSupply() public view virtual override returns(uint) {
         return _totalSupply;
     }
 
@@ -110,8 +85,7 @@ contract AGU is IERC20
     *
     * @dev: `balanceOf()` function: Returns the amount of token owned by a particular `account`
     */
-    function balanceOf(address account) public view virtual override returns (uint)
-    {
+    function balanceOf(address account) public view virtual override returns (uint) {
         return balances[account];
     }
 
@@ -126,27 +100,35 @@ contract AGU is IERC20
     *
     * Emits a {Transfer} event
     *
-    *
     * @notice: This function is controlled by a modifier `canSend()` that makes sure that the sender has enough token in his account to send
     */
-    modifier canSend(address from, address to, uint amount)
+    modifier canSend(
+        address from, 
+        address to, 
+        uint amount
+    )
     {
         require(from != address(0), "You cannot transfer from an invalid address.");
-
         require(to != address(0), "You cannot transfer to an invalid address.");
-
         require(amount != 0, "You cannot send 0 $AGU.");
-
         require(balances[from] >= amount, "You do not have enough $AGU Coins to make this transaction.");
         _;
     }
 
-    function transfer(address to, uint amount) public virtual override canSend(msg.sender, to, amount) returns(bool)
+    function transfer(address to, uint amount) 
+    public 
+    virtual 
+    override 
+    canSend(
+        msg.sender, 
+        to, 
+        amount
+    )
+    returns(bool)
     {
         balances[to] += amount;
         balances[msg.sender] -= amount;
         emit Transfer(msg.sender, to, amount);
-
         return true;
     }
 
@@ -157,8 +139,7 @@ contract AGU is IERC20
     *
     * This is protected by a modifier
     */
-    modifier canApprove(address spender, uint amount)
-    {
+    modifier canApprove(address spender, uint amount) {
         require(spender != address(0), "You cannot request from an invalid address.");
         require(amount > 0, "You can't request for empty allowance.");
         require(balances[_owner] > amount, "Cannot approve alowance.");
@@ -167,7 +148,12 @@ contract AGU is IERC20
         _;
     }
 
-    function approve(address spender, uint amount) public virtual canApprove(spender, amount) override returns(bool)
+    function approve(address spender, uint amount) 
+    public 
+    virtual 
+    override 
+    canApprove(spender, amount) 
+    returns(bool)
     {
         _allowance[_owner][spender] += amount;
         emit Approval(_owner, spender, amount);
@@ -186,7 +172,11 @@ contract AGU is IERC20
     *
     * This is controlled by a modifier.
     */
-    modifier canTransfer(address from, address to, uint amount)
+    modifier canTransfer(
+        address from, 
+        address to, 
+        uint amount
+    )
     {
         require(_allowance[_owner][from] > amount, "You do not have enough allowance");
         require(to != address(0), "You cannot transfer to an invalid address.");
@@ -194,7 +184,20 @@ contract AGU is IERC20
         _;
     }
 
-    function transferFrom(address from, address to, uint256 amount) public virtual override canTransfer(msg.sender, to, amount) returns(bool)
+    function transferFrom(
+        address from, 
+        address to, 
+        uint256 amount
+    ) 
+    public 
+    virtual 
+    override 
+    canTransfer(
+        msg.sender, 
+        to, 
+        amount
+    )
+    returns(bool)
     {
         from = msg.sender;
         balances[to] += amount;
@@ -202,7 +205,6 @@ contract AGU is IERC20
         emit Transfer(from, to, amount);
         return true;
     }
-
 
     /*
     * @notice: Function 6:
@@ -212,8 +214,12 @@ contract AGU is IERC20
     *
     * This value changes when {approve} or {transferFrom} are called.
     */
-    
-    function allowance(address owner, address spender) public view virtual override returns (uint256)
+    function allowance(address owner, address spender) 
+    public 
+    view 
+    virtual 
+    override 
+    returns (uint256)
     {
         owner = _owner;
         return (_allowance[owner][spender]);
@@ -223,21 +229,18 @@ contract AGU is IERC20
     * @notice: MINT
     * this function mints more tokens
     */
-    modifier onlyOwner()
-    {
+    modifier onlyOwner() {
         require(msg.sender == _owner, "You cannot mint more of this token.");
         _;
     }
 
-    function mint(uint amount) public onlyOwner returns(bool)
-    {
+    function mint(uint amount) public onlyOwner returns(bool) {
         _totalSupply += amount;
         balances[_owner] += amount;
         return true;
     }
 
-    function burn(uint amount) public onlyOwner returns(bool)
-    {
+    function burn(uint amount) public onlyOwner returns(bool) {
         _totalSupply -= amount;
         balances[_owner] -= amount;
         return true;
