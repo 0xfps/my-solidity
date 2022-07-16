@@ -5,9 +5,7 @@ pragma solidity >0.6.0;
 /**
     I believe youve gone through the description.md file to know what a Merkle Tree is all about. Its pretty big innit?
 */
-
-contract MerkleTree
-{
+contract MerkleTree {
     /**
         I will be needing some public functions, and i will avoid verification like i did on multi sig wallet
 
