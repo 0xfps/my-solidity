@@ -7,18 +7,11 @@ import "./libraries/USDT.sol";
 
 /*
  * @title: $CIX, an ERC-20 standard token see README.md.
- *
- * @author: Anthony (fps), https://github.com/fps8k.
- *
+ * @author: Anthony (fps) https://github.com/fps8k.
  * @dev: 
- * @notice:
- *
  * Liquidity Pool (UniswapV2Router) Address = 0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D.
- *
  * USDT Contract Address Mainnet = 0x55d398326f99059ff775485246999027b3197955.
- *
  * USDT Test Rinkeby = 0xa1Cba00d6e99f52B8cb5f867a6f2db0F3ad62276 ## Should be called with ether.
- *
  * USDT Test Local = 0xd7Ca4e99F7C171B9ea2De80d3363c47009afaC5F ## Free I guess? Yep. On new deploy, get new address.
 */
 contract Taxes {
