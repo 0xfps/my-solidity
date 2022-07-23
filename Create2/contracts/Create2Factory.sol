@@ -42,6 +42,8 @@ contract Create2Factory {
         // bytecode = abi.encodePacked(cCode, abi.encode(msg.sender), abi.encode(6));
     }
 
+    /// @dev    Deploys with assembly create 2.
+    ///         You cannot deploy 2 contracts with the same salt.
     function getAddressWithAssembly(uint256 _salt) public {
         bytes memory cCode = type(DeployWithCreate2).creationCode;
         bytes memory bytecode = abi.encodePacked(cCode, abi.encode(msg.sender, 6));
