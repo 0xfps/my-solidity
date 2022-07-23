@@ -14,6 +14,7 @@ contract DeployWithCreate2 {
 
 contract Create2Factory {
     event Deploy(address addr);
+    address public _add;
 
     function deploy(uint256 _salt) public {
         DeployWithCreate2 _contract = new DeployWithCreate2 {
@@ -40,5 +41,15 @@ contract Create2Factory {
         bytecode = abi.encodePacked(cCode, abi.encode(msg.sender, 6));
         // bytecode = abi.encodePacked(cCode, abi.encode(msg.sender), abi.encode(6));
     }
-}
 
+    function getAddressWithAssembly(uint256 _salt) public {
+        bytes memory cCode = type(DeployWithCreate2).creationCode;
+        bytes memory bytecode = abi.encodePacked(cCode, abi.encode(msg.sender, 6));
+        bytes32 salt = bytes32(_salt);
+        address _address;
+        assembly {
+            _address := create2(0, add(bytecode, 32), mload(bytecode), salt)
+        }
+        _add = _address;
+    }
+}
