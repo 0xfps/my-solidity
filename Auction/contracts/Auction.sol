@@ -5,7 +5,7 @@ import "./Interfaces/IERC721.sol";
 
 /*
  * @title: Auction Smart Contract [Modified, what you'd see on Rinkeby is an old version of this contract].
- * @author: Anthony (fps) https://github.com/fps8k.
+ * @author: Anthony (fps) https://github.com/0xfps.
  * @dev: Reference [README.md].
 */
 
