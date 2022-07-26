@@ -9,6 +9,10 @@ contract DeployWithCreate2 {
         owner = _owner;
         f = e;
     }
+
+    function selfDestruct() public {
+        selfdestruct(payable(msg.sender));
+    }
 }
 
 
@@ -44,7 +48,10 @@ contract Create2Factory {
 
     /// @dev    Deploys with assembly create 2.
     ///         You cannot deploy 2 contracts with the same salt.
-    function getAddressWithAssembly(uint256 _salt) public {
+    ///         Running this function a second time with the same salt,
+    ///         overrides the address stored at `_add` with a 0 address
+    ///         and cannot be redeployed.
+    function deployWithAssemblyUsingBytes32(uint256 _salt) public {
         bytes memory cCode = type(DeployWithCreate2).creationCode;
         bytes memory bytecode = abi.encodePacked(cCode, abi.encode(msg.sender, 6));
         bytes32 salt = bytes32(_salt);
@@ -53,5 +60,10 @@ contract Create2Factory {
             _address := create2(0, add(bytecode, 32), mload(bytecode), salt)
         }
         _add = _address;
+    }
+
+    function destroy(address _a) public {
+        DeployWithCreate2(_a).selfDestruct();
+        _add = address(0);
     }
 }
