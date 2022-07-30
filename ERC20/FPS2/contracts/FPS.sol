@@ -6,7 +6,7 @@ import "./Libraries/PureMath.sol";
 
 /*
  * @title: FPS ($FPS) An re-write of the ERC-20 token, $FPS.
- * @author: Anthony (fps) https://github.com/fps8k.
+ * @author: Anthony (fps) https://github.com/0xfps.
  * @dev: 
 */
 contract FPS is IERC20 {
