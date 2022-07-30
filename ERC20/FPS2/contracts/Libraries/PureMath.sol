@@ -3,7 +3,7 @@ pragma solidity >0.6.0;
 
 /*
     @title: PureMath.
-    @author: Anthony (fps).
+    @author: Anthony (fps) https://github.com/0xfps.
     @dev: A library for basic math works. This will constantly be updated.
 */
 library PureMath {
