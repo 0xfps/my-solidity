@@ -5,7 +5,7 @@ import "./Libraries/SafeMath.sol";
 
 /*
  * @title: Rinkeby Test Faucet [Modified].
- * @author: Anthony (fps) https://github.com/fps8k.
+ * @author: Anthony (fps) https://github.com/0xfps.
  * @dev: 
  *
  * I once wrote this contract to deposit any specific amount of ether from the contract.
