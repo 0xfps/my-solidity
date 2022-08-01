@@ -3,7 +3,7 @@ pragma solidity >0.6.0;
 
 /*
  * @title: AddressBook contract.
- * @author: Anthony (fps) https://github.com/fps8k.
+ * @author: Anthony (fps) https://github.com/0xfps.
  * @dev: 
 */
 contract AddressBook {
