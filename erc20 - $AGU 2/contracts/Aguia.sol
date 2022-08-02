@@ -6,7 +6,7 @@ import "./Libraries/PureMath.sol";
 
 /*
  * @title: Aguia 2.0 ($AGU) An re-write of the ERC-20 token, $AGU ref[https://github.com/fps8k/my-solidity/tree/Aguia-2.0/erc20%20-%20%24AGU].
- * @author: Anthony (fps) https://github.com/fps8k.
+ * @author: Anthony (fps) https://github.com/0xfps.
  * @dev: 
 */
 contract Aguia is IERC20 {
