@@ -15,6 +15,10 @@ contract Admin {
         require(admins[msg.sender], "Not an admin");
         _;
     }
+    
+    constructor() {
+        admins[msg.sender] = true;
+    }
 
     function acceptAdmin(address _address) public isAdmin {
         require(_address != address(0), "Zero address");
