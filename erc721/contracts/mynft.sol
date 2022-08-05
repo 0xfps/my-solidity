@@ -7,6 +7,9 @@ import "./interfaces/IERC165.sol";
 import "./interfaces/IERC721Receiver.sol";
 import "./utils/String.sol";
 
+/**
+* @author Anthony (fps) https://github.com/0xfps.
+*/
 contract Legio is IERC165, IERC721, IERC721Receiver {
     using Strings for uint256;
     // Mapping the token ids to their owners.
