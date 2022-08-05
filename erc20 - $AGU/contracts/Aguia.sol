@@ -5,7 +5,7 @@ import "./IERC20.sol";
 
 /*
 * @title: $AGU, an ERC-20 standard token.
-* @author: Anthony (fps) https://github.com/fps8k.
+* @author: Anthony (fps) https://github.com/0xfps.
 * @date: 21/03/2022.
 *
 * @notice: This token, $AGU, obeys the standard of the ERC-20, created as my debut token.
