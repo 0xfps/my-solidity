@@ -3,8 +3,8 @@ pragma solidity >0.6.0;
 
 /*
  * @title: EtherWallet, a crowdfunding smart contract.
- * @author: Anthony (fps) https://github.com/fps8k .
- * @dev: Ether Wallet: https://github.com/fps8k/my-solidity/tree/main/ether_wallet
+ * @author: Anthony (fps) https://github.com/0xfps.
+ * @dev: Ether Wallet: https://github.com/0xfps/my-solidity/tree/main/ether_wallet
  * This is a simple Solidity program that allows anyone to send ether to a wallet then allowing only the owner to withdraw.
 */
 contract EtherWallet {
