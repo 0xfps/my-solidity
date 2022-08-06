@@ -1,10 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >0.6.0;
 
-/*
-    @title: PureMath.
-    @author: Anthony (fps).
-    @dev: A library for basic math works. This will constantly be updated.
+/**
+* @title PureMath Library.
+* @author Anthony (fps) https://github.com/0xfps.
+* @dev 
+*
 */
 library PureMath {
     // Decimal setting
