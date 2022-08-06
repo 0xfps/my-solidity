@@ -1,6 +1,14 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >0.6.0;
 
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity ^0.8.14;
+
+/**
+* @title Iterable Mapping.
+* @author Anthony (fps) https://github.com/0xfps.
+* @dev 
+*/
 contract IterableMapping {
     // array containing 10 elements
     bytes32[10] transaction_hashes;
