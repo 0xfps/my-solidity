@@ -8,24 +8,15 @@ pragma solidity >0.6.0;
 */
 contract MerkleTree {
     /**
-        I will be needing some public functions, and i will avoid verification like i did on multi sig wallet
+    * I will be needing some public functions, and i will avoid verification like i did on multi sig wallet
 
-        Function 1 (Make_Transaction):
+    * Function 1 (Make_Transaction):
+    * - Make a transaction.
+    * - Hash the transaction.
+    * - Adds the hashed transaction to a list.
 
-        - Make a transaction.
-        - Hash the transaction.
-        - Adds the hashed transaction to a list.
-
-
-
-        Function 2 (Start_Merkle):
-
-        - Performs the act explained in description.md
-
-
-        Function 3 (Verify_Transaction (tx_hash)):
-
-        -
+    * Function 2 (Start_Merkle):
+    * - Performs the act explained in description.md
     */
     
     address payable owner;
