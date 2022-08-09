@@ -2,7 +2,7 @@
 pragma solidity >0.6.0;
 
 /**
-* @title 
+* @title MultiSig Wallet.
 * @author Anthony (fps) https://github.com/0xfps.
 * @dev 
 * D E S C R I P T I O N
