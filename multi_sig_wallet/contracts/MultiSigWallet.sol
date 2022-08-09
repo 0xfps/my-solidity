@@ -2,16 +2,15 @@
 pragma solidity >0.6.0;
 
 /**
-    D E S C R I P T I O N
-
-    A basic solidity program that allows the creation of a wallet in the contract.
-
-    Wallet owners can:
-    
-    1. Submit a transaction.
-    2. Approve and revoke a pending transaction.
-    3. Anyone can execute a transaction after enough owners has approved it.
-
+* @title 
+* @author Anthony (fps) https://github.com/0xfps.
+* @dev 
+* D E S C R I P T I O N
+* A basic solidity program that allows the creation of a wallet in the contract.
+* Wallet owners can:
+* 1. Submit a transaction.
+* 2. Approve and revoke a pending transaction.
+* 3. Anyone can execute a transaction after enough owners has approved it.
 */
 contract MultiSigWallet {
     struct Data {
