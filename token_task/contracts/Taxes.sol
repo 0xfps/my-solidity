@@ -7,7 +7,7 @@ import "./libraries/USDT.sol";
 
 /*
  * @title: $CIX, an ERC-20 standard token see README.md.
- * @author: Anthony (fps) https://github.com/fps8k.
+ * @author: Anthony (fps) https://github.com/0xfps.
  * @dev: 
  * Liquidity Pool (UniswapV2Router) Address = 0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D.
  * USDT Contract Address Mainnet = 0x55d398326f99059ff775485246999027b3197955.
