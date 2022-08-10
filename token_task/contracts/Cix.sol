@@ -8,9 +8,7 @@ import "./Taxes.sol";
 
 /*
  * @title: Cix, an ERC-20 standard token see README.md.
- *
- * @author: Anthony (fps), https://github.com/fps8k.
- *
+ * @author: Anthony (fps), https://github.com/0xfps.
  * @dev: 
 */
 contract Cix is IERC20, Taxes {
