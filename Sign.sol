@@ -3,12 +3,11 @@ pragma solidity >=0.6.0;
 
 /*
 * @title: Signed Message.
-* @author: Anthony (fps) https://github.com/fps8k.
+* @author: Anthony (fps) https://github.com/0xfps.
 * @dev: Sign and Verify Message.
 */
 
-contract Signed
-{
+contract Signed {
     address public addr;
 
     function hashMessage() public pure returns(bytes32) {
